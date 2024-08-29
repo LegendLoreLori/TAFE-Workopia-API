@@ -3,48 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Region;
-use App\Http\Requests\StoreRegionRequest;
-use App\Http\Requests\UpdateRegionRequest;
+use Illuminate\Http\JsonResponse;
 
 class RegionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Retrieve all regions
+     *
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        $regions = Region::all();
+
+        if($regions->isEmpty()) {
+            return $this->sendResponse($regions, 'Regions not found.', false);
+        }
+
+        return $this->sendResponse($regions, 'Regions retrieved successfully.');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Retrieve a single region
+     *
+     * @param string $id
+     * @return JsonResponse
      */
-    public function store(StoreRegionRequest $request)
+    public function show(string $id): JsonResponse
     {
-        //
-    }
+        $region = Region::query()->where('id', $id)->get();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Region $region)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateRegionRequest $request, Region $region)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Region $region)
-    {
-        //
+        return $this->sendResponse($region, 'Region retrieved successfully.');
     }
 }
