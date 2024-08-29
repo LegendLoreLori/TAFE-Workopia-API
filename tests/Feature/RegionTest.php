@@ -37,7 +37,7 @@ test('v1/regions/{id} retrieves successfully', function () {
 });
 
 test('v1/regions/{id} returns false when region outside of array', function () {
-    Region::factory()->create()->count(6);
+    Region::factory(6)->create();
 
     $response = $this->getJson('/api/v1/regions/7');
 

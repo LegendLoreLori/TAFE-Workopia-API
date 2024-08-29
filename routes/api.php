@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\RegionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,12 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::get('regions', [RegionController::class, 'index'])->name('region.index');
-    Route::get('regions/{id}', [RegionController::class, 'show'])->name('region.show');
+    Route::get('regions', [RegionController::class, 'index']);
+    Route::get('regions/{id}', [RegionController::class, 'show']);
+});
+
+Route::group(['prefix' => 'v1'], function () {
+   Route::apiResources([
+       'companies' => CompanyController::class]
+   );
 });

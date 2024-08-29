@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('city');
             $table->string('state', 32);
             $table->string('country');
-            $table->string('image_path')->nullable();
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }
