@@ -33,6 +33,10 @@ class RegionController extends Controller
     {
         $region = Region::query()->where('id', $id)->get();
 
+        if($region->isEmpty()) {
+            return $this->sendResponse($region, 'Region not found.', false);
+        }
+
         return $this->sendResponse($region, 'Region retrieved successfully.');
     }
 }

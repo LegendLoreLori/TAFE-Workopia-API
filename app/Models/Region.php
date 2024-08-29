@@ -37,6 +37,4 @@ class Region extends Model
         return [
         ];
     }
-
-    // TODO: Region has countries
 }
