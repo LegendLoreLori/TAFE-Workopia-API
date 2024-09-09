@@ -38,19 +38,21 @@ abstract class Controller
     }
 
     /**
-     * @param $result
-     * @param $message
+     * Send a success response.
+     *
+     * @param $data
+     * @param string $message
      * @param int $code
      * @return JsonResponse
      */
-    public static function sendResponse($result, $message, bool $isSuccess = true): JsonResponse
+    public static function sendSuccess($data, string $message, int $code = 200): JsonResponse
     {
         $response = [
-            'success' => $isSuccess,
-            'message' => $message ?? null,
-            'data' => $result
+            'success' => 'true',
+            'message' => $message,
+            'data' => $data
         ];
 
-        return response()->json($response);
+        return response()->json($response, $code);
     }
 }

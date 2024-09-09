@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Http\Resources\CompanyResource;
 
 class CompanyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        $companies = CompanyResource::collection(Company::all());
+
+        return self::sendSuccess($companies, 'Retrieved companies successfully');
     }
 
     /**

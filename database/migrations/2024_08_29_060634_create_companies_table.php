@@ -11,11 +11,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->primary(['name', 'city', 'state', 'country']);
+            $table->id();
             $table->string('name');
             $table->string('city');
             $table->string('state', 32);
             $table->string('country');
+            $table->unique(['name', 'city', 'state', 'country']);
             $table->string('filename')->nullable();
             $table->timestamps();
         });
