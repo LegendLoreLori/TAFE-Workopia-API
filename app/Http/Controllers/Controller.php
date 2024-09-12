@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -38,19 +39,36 @@ abstract class Controller
     }
 
     /**
-     * Send a success response.
+     * Send a standardised success response.
      *
-     * @param $data
+     * @param mixed $data
      * @param string $message
      * @param int $code
      * @return JsonResponse
      */
-    public static function sendSuccess($data, string $message, int $code = 200): JsonResponse
+    public static function sendSuccess(mixed $data, string $message, int $code = 200): JsonResponse
     {
         $response = [
             'success' => 'true',
             'message' => $message,
             'data' => $data
+        ];
+
+        return response()->json($response, $code);
+    }
+
+    /**
+     * Send a standardised failure response
+     *
+     * @param Exception $e
+     * @param int $code
+     * @return JsonResponse
+     */
+    public static function sendFailure(Exception $e, int $code = 500): JsonResponse
+    {
+        $response = [
+            'success' => 'false',
+            'message' => $e->getMessage(),
         ];
 
         return response()->json($response, $code);

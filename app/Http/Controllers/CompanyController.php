@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Resources\CompanyResource;
@@ -11,8 +12,11 @@ class CompanyController extends Controller
 {
     public function index(): JsonResponse
     {
-        $companies = CompanyResource::collection(Company::all());
-
+        try {
+            $companies = CompanyResource::collection(Company::all());
+        } catch (Exception $e) {
+            return self::sendFailure($e);
+        }
         return self::sendSuccess($companies, 'Retrieved companies successfully');
     }
 
@@ -29,9 +33,13 @@ class CompanyController extends Controller
      */
     public function show(string $id): JsonResponse
     {
-        $company = new CompanyResource(Company::findOrFail($id));
+        try {
+            $company = new CompanyResource(Company::query()->findOrFail($id));
+        } catch(Exception $e) {
+            return self::sendFailure($e, 404);
+        }
 
-        return self::sendSuccess($company, "test get single with attribute");
+        return self::sendSuccess($company, "Retrieved company successfully.");
     }
     /**
      * Update the specified resource in storage.
