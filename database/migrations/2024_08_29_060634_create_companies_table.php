@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('state', 32);
             $table->string('country');
             $table->unique(['name', 'city', 'state', 'country']);
-            $table->string('filename')->nullable();
+            $table->string('logo_path')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,8 @@ class CompanyResource extends JsonResource
             'city' => $this->city,
             'state' => $this->state,
             'country' => $this->country,
-            'logo_path' => $this->filename,
+            'logo_path' => $this->logo_path,
+            'extension' => pathinfo($this->logo_path, PATHINFO_EXTENSION),
             'created_at' => $this->updated_at,
             'updated_at' => $this->updated_at,
         ];

@@ -27,9 +27,11 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): JsonResponse
     {
-        //
+        $company = new CompanyResource(Company::findOrFail($id));
+
+        return self::sendSuccess($company, "test get single with attribute");
     }
     /**
      * Update the specified resource in storage.
