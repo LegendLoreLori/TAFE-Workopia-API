@@ -14,13 +14,15 @@ class CompanyResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $path = pathinfo($this->logo_path, PATHINFO_EXTENSION);
+
         return [
             'name' => $this->name,
             'city' => $this->city,
             'state' => $this->state,
             'country' => $this->country,
             'logo_path' => $this->logo_path,
-            'extension' => pathinfo($this->logo_path, PATHINFO_EXTENSION),
+            'extension' => $path === "" ? null : $path,
             'created_at' => $this->updated_at,
             'updated_at' => $this->updated_at,
         ];

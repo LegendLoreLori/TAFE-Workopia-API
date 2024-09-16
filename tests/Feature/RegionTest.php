@@ -10,17 +10,17 @@ test('v1/regions retrieves successfully', function () {
     $response->assertStatus(200)
         ->assertJson([
             'success' => true,
-            'message' => 'Regions retrieved successfully.',
+            'message' => 'Regions retrieved successfully',
         ]);
 });
 
 test('v1/regions returns false when regions are empty', function () {
     $response = $this->getJson('/api/v1/regions');
 
-    $response->assertStatus(200)
+    $response->assertStatus(404)
         ->assertJson([
             'success' => false,
-            'message' => 'Regions not found.',
+            'message' => 'Regions not found',
         ]);
 });
 
@@ -41,9 +41,9 @@ test('v1/regions/{id} returns false when region outside of array', function () {
 
     $response = $this->getJson('/api/v1/regions/7');
 
-    $response->assertStatus(200)
+    $response->assertStatus(404)
         ->assertJson([
             'success' => false,
-            'message' => 'Region not found.',
+            'message' => 'Region with id: 7 not found',
         ]);
 });

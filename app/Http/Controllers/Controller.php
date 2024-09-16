@@ -49,7 +49,7 @@ abstract class Controller
     public static function sendSuccess(mixed $data, string $message, int $code = 200): JsonResponse
     {
         $response = [
-            'success' => 'true',
+            'success' => true,
             'message' => $message,
             'data' => $data
         ];
@@ -67,7 +67,7 @@ abstract class Controller
     public static function sendFailure(Exception $e, int $code = 500): JsonResponse
     {
         $response = [
-            'success' => 'false',
+            'success' => false,
             'message' => $e->getMessage(),
         ];
 

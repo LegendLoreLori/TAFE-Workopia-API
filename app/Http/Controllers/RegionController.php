@@ -17,10 +17,13 @@ class RegionController extends Controller
         $regions = Region::all();
 
         if($regions->isEmpty()) {
-            return $this->sendResponse($regions, 'Regions not found.', false);
+            return response()->json([
+               'success' => false,
+               'message' => 'Regions not found'
+            ], 404);
         }
 
-        return $this->sendResponse($regions, 'Regions retrieved successfully.');
+        return self::sendSuccess($regions, 'Regions retrieved successfully');
     }
 
     /**
@@ -34,9 +37,12 @@ class RegionController extends Controller
         $region = Region::query()->where('id', $id)->get();
 
         if($region->isEmpty()) {
-            return $this->sendResponse($region, 'Region not found.', false);
+            return response()->json([
+                'success' => false,
+                'message' => "Region with id: $id not found"
+            ], 404);
         }
 
-        return $this->sendResponse($region, 'Region retrieved successfully.');
+        return self::sendSuccess($region, 'Region retrieved successfully.');
     }
 }
