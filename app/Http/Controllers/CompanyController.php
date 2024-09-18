@@ -14,6 +14,11 @@ use Illuminate\Validation\Rule;
 
 class CompanyController extends Controller
 {
+    /**
+     * List all companies.
+     *
+     * @return JsonResponse
+     */
     public function index(): JsonResponse
     {
         try {
@@ -25,7 +30,10 @@ class CompanyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Add a company to the database.
+     *
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
@@ -47,7 +55,8 @@ class CompanyController extends Controller
                                       $fail("Company name, state, and country must be a unique combination");
                                   }
                               }],
-                'logo' => 'sometimes|image|mimes:jpg,jpeg,png',
+                'logo' => 'sometimes|image|mimes:jpg,jpeg,png'
+
             ]);
             $validator->validate();
 
@@ -67,7 +76,10 @@ class CompanyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a single company.
+     *
+     * @param string $id
+     * @return JsonResponse
      */
     public function show(string $id): JsonResponse
     {
@@ -81,11 +93,53 @@ class CompanyController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified company in the database.
+     *
+     * @param Request $request
+     * @param string $id
+     * @return JsonResponse
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): JsonResponse
     {
-        //
+        try {
+            $validator = validator::make($request->all(), [
+                'name' => ['required', 'string', 'between:2,255',
+                           function (string $attribute, mixed $value, \Closure $fail) use ($request) {
+                               $records = DB::table('companies')
+                                   ->select('*')
+                                   ->where('name', $request->input('name'))
+                                   ->where('city', $request->input('city'))
+                                   ->where('state', $request->input('state'))
+                                   ->where('country', $request->input('country'))
+                                   ->get();
+                               if ($records->isNotEmpty()) {
+                                   $fail("Company name, state, and country must be a unique combination");
+                               }
+                           }],
+                'city' => 'sometimes|string|between:2,255',
+                'state' => 'sometimes|string|between:2,16',
+                'country' => 'sometimes|string|between:2,255',
+                'logo' => 'sometimes|image|mimes:jpg,jpeg,png',
+            ]);
+            $validator->validate();
+        } catch (Exception $e) {
+            self::sendFailure($e, 400);
+        }
+
+        if ($request->hasFile('logo')) {
+            $logo_path = $request->file('logo')->store('public');
+            $request->merge(['logo_path' => $logo_path]);
+        }
+
+        try {
+            $company = Company::findOrFail($id);
+            $company->update($request->all());
+        } catch (Exception $e) {
+            return self::sendFailure($e, 404);
+        }
+
+        $company = new CompanyResource($company);
+        return self::sendSuccess($company, "Company with id: $id updated", 201);
     }
 
     /**
