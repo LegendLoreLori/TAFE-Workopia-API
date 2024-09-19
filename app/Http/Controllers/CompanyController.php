@@ -161,6 +161,7 @@ class CompanyController extends Controller
      * Restore the specified soft deleted company from trash.
      *
      * @param string $id
+     * @return JsonResponse
      */
     public function restore(string $id): JsonResponse
     {

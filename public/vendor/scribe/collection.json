@@ -1,0 +1,392 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "a99f9133-6e92-439b-8a44-4265087d66b5",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all regions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/regions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/regions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Regions retrieved successfully\",\"data\":[{\"id\":1,\"name\":\"Africa\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":2,\"name\":\"Americas\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":3,\"name\":\"Asia\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":4,\"name\":\"Europe\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":5,\"name\":\"Oceania\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":6,\"name\":\"Polar\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retrieve a single region",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/regions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/regions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the region."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Region retrieved successfully.\",\"data\":[{\"id\":1,\"name\":\"Africa\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Restore the specified soft deleted company from trash.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/trash\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/trash\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "a",
+                                    "description": "The ID of the trash."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Company with id: a restored\",\"data\":\"a\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List all companies.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Retrieved companies\",\"data\":[{\"name\":\"Berge, Murazik and Graham\",\"city\":\"Schmelerfort\",\"state\":\"land\",\"country\":\"Mongolia\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3833.tmp\",\"extension\":\"tmp\"},{\"name\":\"Lakin-Effertz\",\"city\":\"Vivahaven\",\"state\":\"burgh\",\"country\":\"Gibraltar\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3834.tmp\",\"extension\":\"tmp\"},{\"name\":\"Robel Ltd\",\"city\":\"Lake Helga\",\"state\":\"town\",\"country\":\"Norway\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3835.tmp\",\"extension\":\"tmp\"},{\"name\":\"Weber, Pouros and Heidenreich\",\"city\":\"South Horaciohaven\",\"state\":\"bury\",\"country\":\"Poland\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3836.tmp\",\"extension\":\"tmp\"},{\"name\":\"Champlin Inc\",\"city\":\"Michealfort\",\"state\":\"town\",\"country\":\"Austria\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3837.tmp\",\"extension\":\"tmp\"},{\"name\":\"Woolies\",\"city\":\"York\",\"state\":\"Liquid\",\"country\":\"Atlantis\",\"logo_path\":null,\"extension\":null}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add a company to the database.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display a single company.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Retrieved company\",\"data\":{\"name\":\"Berge, Murazik and Graham\",\"city\":\"Schmelerfort\",\"state\":\"land\",\"country\":\"Mongolia\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3833.tmp\",\"extension\":\"tmp\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified company in the database.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Soft delete the specified company from the database",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

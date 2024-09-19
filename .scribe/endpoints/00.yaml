@@ -1,0 +1,389 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/regions
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retrieve all regions'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Regions retrieved successfully","data":[{"id":1,"name":"Africa","created_at":"2024-09-19T02:55:52.000000Z","updated_at":"2024-09-19T02:55:52.000000Z"},{"id":2,"name":"Americas","created_at":"2024-09-19T02:55:52.000000Z","updated_at":"2024-09-19T02:55:52.000000Z"},{"id":3,"name":"Asia","created_at":"2024-09-19T02:55:52.000000Z","updated_at":"2024-09-19T02:55:52.000000Z"},{"id":4,"name":"Europe","created_at":"2024-09-19T02:55:52.000000Z","updated_at":"2024-09-19T02:55:52.000000Z"},{"id":5,"name":"Oceania","created_at":"2024-09-19T02:55:52.000000Z","updated_at":"2024-09-19T02:55:52.000000Z"},{"id":6,"name":"Polar","created_at":"2024-09-19T02:55:52.000000Z","updated_at":"2024-09-19T02:55:52.000000Z"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/regions/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retrieve a single region'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the region.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Region retrieved successfully.","data":[{"id":1,"name":"Africa","created_at":"2024-09-19T02:55:52.000000Z","updated_at":"2024-09-19T02:55:52.000000Z"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/companies/trash/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Restore the specified soft deleted company from trash.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the trash.'
+        required: true
+        example: perspiciatis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: perspiciatis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Company with id: perspiciatis restored","data":"perspiciatis"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/companies
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all companies.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Retrieved companies","data":[{"name":"Berge, Murazik and Graham","city":"Schmelerfort","state":"land","country":"Mongolia","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak3833.tmp","extension":"tmp"},{"name":"Lakin-Effertz","city":"Vivahaven","state":"burgh","country":"Gibraltar","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak3834.tmp","extension":"tmp"},{"name":"Robel Ltd","city":"Lake Helga","state":"town","country":"Norway","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak3835.tmp","extension":"tmp"},{"name":"Weber, Pouros and Heidenreich","city":"South Horaciohaven","state":"bury","country":"Poland","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak3836.tmp","extension":"tmp"},{"name":"Champlin Inc","city":"Michealfort","state":"town","country":"Austria","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak3837.tmp","extension":"tmp"},{"name":"Woolies","city":"York","state":"Liquid","country":"Atlantis","logo_path":null,"extension":null}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/companies
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add a company to the database.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a single company.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Retrieved company","data":{"name":"Berge, Murazik and Graham","city":"Schmelerfort","state":"land","country":"Mongolia","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak3833.tmp","extension":"tmp"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified company in the database.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: grf
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      city:
+        name: city
+        description: 'Must be between 2 and 255 characters.'
+        required: false
+        example: ub
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      state:
+        name: state
+        description: 'Must be between 2 and 16 characters.'
+        required: false
+        example: yw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      country:
+        name: country
+        description: 'Must be between 2 and 255 characters.'
+        required: false
+        example: flp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      logo:
+        name: logo
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: grf
+      city: ub
+      state: yw
+      country: flp
+    fileParameters:
+      logo: null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Soft delete the specified company from the database'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
