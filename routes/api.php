@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\RegionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,9 @@ Route::group(['prefix' => 'v1'], function () {
 
 Route::group(['prefix' => 'v1'], function () {
     Route::get('/companies/trash/{id}', [CompanyController::class, 'restore']);
+    Route::get('/positions/trash/{id}', [PositionController::class, 'restore']);
     Route::apiResources([
-            'companies' => CompanyController::class]
+            'companies' => CompanyController::class,
+            'positions' => PositionController::class]
     );
 });

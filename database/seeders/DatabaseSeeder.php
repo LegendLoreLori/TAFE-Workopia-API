@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
+use App\Models\Position;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
             RegionSeeder::class,
         ]);
         Company::factory(6)->create();
+        Position::factory(3)->create();
     }
 }
