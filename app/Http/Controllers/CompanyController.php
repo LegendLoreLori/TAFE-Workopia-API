@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Exception;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Resources\CompanyResource;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class CompanyController extends Controller
 {
@@ -102,6 +101,7 @@ class CompanyController extends Controller
     public function update(Request $request, string $id): JsonResponse
     {
         try {
+            $company = Company::findOrFail($id);
             $validator = validator::make($request->all(), [
                 'name' => ['required', 'string', 'between:2,255',
                            function (string $attribute, mixed $value, \Closure $fail) use ($request) {
@@ -123,7 +123,7 @@ class CompanyController extends Controller
             ]);
             $validator->validate();
         } catch (Exception $e) {
-            self::sendFailure($e, 400);
+            return self::sendFailure($e, 400);
         }
 
         if ($request->hasFile('logo')) {
@@ -131,22 +131,43 @@ class CompanyController extends Controller
             $request->merge(['logo_path' => $logo_path]);
         }
 
-        try {
-            $company = Company::findOrFail($id);
-            $company->update($request->all());
-        } catch (Exception $e) {
-            return self::sendFailure($e, 404);
-        }
+        $company->update($request->all());
 
         $company = new CompanyResource($company);
         return self::sendSuccess($company, "Company with id: $id updated", 201);
     }
 
+
     /**
-     * Remove the specified resource from storage.
+     * Soft delete the specified company from the database
+     *
+     * @param string $id
+     * @return JsonResponse
      */
-    public function destroy(string $id)
+    public function destroy(string $id): JsonResponse
     {
-        //
+        try {
+            $company = Company::query()->findOrFail($id);
+        } catch (Exception $e) {
+            return self::sendFailure($e, 404);
+        }
+        $company->delete();
+        $company = new CompanyResource($company);
+
+        return self::sendSuccess($company, "Company with id: $id deleted", 200);
+    }
+
+    /**
+     * Restore the specified soft deleted company from trash.
+     *
+     * @param string $id
+     */
+    public function restore(string $id): JsonResponse
+    {
+        Company::withTrashed()
+            ->where('id', $id)
+            ->restore();
+
+        return self::sendSuccess($id, "Company with id: $id restored", 200);
     }
 }

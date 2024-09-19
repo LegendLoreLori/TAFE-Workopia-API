@@ -23,8 +23,6 @@ class CompanyResource extends JsonResource
             'country' => $this->country,
             'logo_path' => $this->logo_path,
             'extension' => $path === "" ? null : $path,
-            'created_at' => $this->updated_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 

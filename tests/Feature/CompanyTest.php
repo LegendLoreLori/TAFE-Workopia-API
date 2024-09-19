@@ -1,9 +1,12 @@
 <?php
 
 use App\Models\Company;
+use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Testing\Fluent\AssertableJson;
+
+uses(InteractsWithDatabase::class);
 
 test('companies.index returns correct companies on success', function () {
     Company::factory(3)
@@ -25,10 +28,10 @@ test('companies.store returns correct response on success', function () {
     $file = UploadedFile::fake()->image('logo.jpeg');
 
     $response = $this->post('api/v1/companies', [
-        "name" => "Big Oil",
-        "city" => "Sydney",
-        "state" => "New South Wales",
-        "country" => "Australia",
+        "name" => "foo",
+        "city" => "bar",
+        "state" => "baz",
+        "country" => "bux",
         "logo" => $file
     ]);
 
@@ -40,22 +43,20 @@ test('companies.store returns correct response on success', function () {
             ->where('success', true)
             ->where('message', 'Company created with id: 1')
             ->has('data', fn(AssertableJson $json) => $json
-                ->where('name', "Big Oil")
-                ->where('city', "Sydney")
-                ->where('state', "New South Wales")
-                ->where('country', "Australia")
+                ->where('name', "foo")
+                ->where('city', "bar")
+                ->where('state', "baz")
+                ->where('country', "bux")
                 ->where('logo_path', "public/{$file->hashName()}")
-                ->where('extension', 'jpg')
-                ->has('created_at')
-                ->has('updated_at')));
+                ->where('extension', 'jpg')));
 });
 
 test('companies.store logo_path is null when no image uploaded', function () {
     $response = $this->postJson('api/v1/companies', [
-        "name" => "Big Oil",
-        "city" => "Sydney",
-        "state" => "New South Wales",
-        "country" => "Australia"
+        "name" => "foo",
+        "city" => "bar",
+        "state" => "baz",
+        "country" => "bux"
     ]);
 
     $response
@@ -84,4 +85,61 @@ test('companies.store enforces unique company combination', function () {
             'success' => false,
             'message' => 'Company name, state, and country must be a unique combination'
         ]);
+});
+
+test('companies.update returns correct success response', function () {
+    Company::factory(3)->create();
+
+    $response = $this->putJson('api/v1/companies/2', [
+        "name" => "foo",
+        "city" => "bar",
+        "state" => "baz",
+        "country" => "qux"
+    ]);
+
+    $response
+        ->assertStatus(201)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->has('success')
+            ->where('message', 'Company with id: 2 updated')
+            ->has('data', fn(AssertableJson $json) => $json
+                ->where('name', 'foo')
+                ->where('city', 'bar')
+                ->where('state', 'baz')
+                ->where('country', 'qux')
+                ->has('logo_path')
+                ->has('extension')
+            ));
+});
+
+test('companies.destroy returns correct success response', function () {
+    $company = Company::factory()->create();
+
+    $response = $this->deleteJson("/api/v1/companies/$company->id");
+
+    $this->assertSoftDeleted($company);
+    $response
+        ->assertStatus(200)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', "Company with id: $company->id deleted")
+            ->has('data'));
+});
+
+test('companies.restore restores a deleted resource and returns correct message on success', function () {
+    $company = Company::factory()->create();
+
+    $this->deleteJson("/api/v1/companies/$company->id");
+    $this->assertSoftDeleted($company);
+
+    $response = $this->getJson("/api/v1/companies/trash/$company->id");
+    $this->assertNotSoftDeleted($company);
+
+    $response
+        ->assertStatus(200)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', "Company with id: 1 restored")
+            ->where('data', '1')
+        );
 });

@@ -15,7 +15,8 @@ Route::group(['prefix' => 'v1'], function () {
 });
 
 Route::group(['prefix' => 'v1'], function () {
-   Route::apiResources([
-       'companies' => CompanyController::class]
-   );
+    Route::get('/companies/trash/{id}', [CompanyController::class, 'restore']);
+    Route::apiResources([
+            'companies' => CompanyController::class]
+    );
 });
