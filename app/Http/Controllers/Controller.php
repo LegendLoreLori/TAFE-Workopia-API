@@ -60,15 +60,15 @@ abstract class Controller
     /**
      * Send a standardised failure response
      *
-     * @param Exception $e
+     * @param string|array<int, string> $message
      * @param int $code
      * @return JsonResponse
      */
-    public static function sendFailure(Exception $e, int $code = 500): JsonResponse
+    public static function sendFailure(string|array $message, int $code = 500): JsonResponse
     {
         $response = [
             'success' => false,
-            'message' => $e->getMessage(),
+            'message' => $message,
         ];
 
         return response()->json($response, $code);

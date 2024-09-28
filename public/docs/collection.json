@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "faaf6f81-2571-46c8-8f0e-5d6757fc4465",
+        "_postman_id": "258b853e-1f48-4b2b-8cb3-8651df2e4c82",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,166 +19,6 @@
             "name": "Endpoints",
             "description": "",
             "item": [
-                {
-                    "name": "Retrieve all regions",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/regions",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/regions"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Regions retrieved successfully\",\"data\":[{\"id\":1,\"name\":\"Africa\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":2,\"name\":\"Americas\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":3,\"name\":\"Asia\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":4,\"name\":\"Europe\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":5,\"name\":\"Oceania\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"},{\"id\":6,\"name\":\"Polar\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"}]}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Retrieve a single region",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/regions\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/regions\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the region."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Region retrieved successfully.\",\"data\":[{\"id\":1,\"name\":\"Africa\",\"created_at\":\"2024-09-19T02:55:52.000000Z\",\"updated_at\":\"2024-09-19T02:55:52.000000Z\"}]}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Restore the specified soft deleted company from trash.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/companies\/trash\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/companies\/trash\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "perspiciatis",
-                                    "description": "The ID of the trash."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Company with id: perspiciatis restored\",\"data\":\"perspiciatis\"}",
-                            "name": ""
-                        }
-                    ]
-                },
                 {
                     "name": "List all companies.",
                     "request": {
@@ -222,7 +62,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Retrieved companies\",\"data\":[{\"name\":\"Berge, Murazik and Graham\",\"city\":\"Schmelerfort\",\"state\":\"land\",\"country\":\"Mongolia\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3833.tmp\",\"extension\":\"tmp\"},{\"name\":\"Lakin-Effertz\",\"city\":\"Vivahaven\",\"state\":\"burgh\",\"country\":\"Gibraltar\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3834.tmp\",\"extension\":\"tmp\"},{\"name\":\"Robel Ltd\",\"city\":\"Lake Helga\",\"state\":\"town\",\"country\":\"Norway\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3835.tmp\",\"extension\":\"tmp\"},{\"name\":\"Weber, Pouros and Heidenreich\",\"city\":\"South Horaciohaven\",\"state\":\"bury\",\"country\":\"Poland\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3836.tmp\",\"extension\":\"tmp\"},{\"name\":\"Champlin Inc\",\"city\":\"Michealfort\",\"state\":\"town\",\"country\":\"Austria\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3837.tmp\",\"extension\":\"tmp\"},{\"name\":\"Woolies\",\"city\":\"York\",\"state\":\"Liquid\",\"country\":\"Atlantis\",\"logo_path\":null,\"extension\":null}]}",
+                            "body": "{\"success\":true,\"message\":\"Retrieved companies\",\"data\":[{\"name\":\"O'Hara-Beatty\",\"city\":\"Collierville\",\"state\":\"side\",\"country\":\"Ghana\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E11.tmp\",\"extension\":\"tmp\"},{\"name\":\"Tromp-Ritchie\",\"city\":\"Port Ayana\",\"state\":\"furt\",\"country\":\"Uzbekistan\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E12.tmp\",\"extension\":\"tmp\"},{\"name\":\"Streich PLC\",\"city\":\"Port Nyasiaburgh\",\"state\":\"stad\",\"country\":\"Guyana\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E13.tmp\",\"extension\":\"tmp\"},{\"name\":\"Roob LLC\",\"city\":\"Leslieland\",\"state\":\"mouth\",\"country\":\"New Zealand\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E43.tmp\",\"extension\":\"tmp\"},{\"name\":\"Woolies\",\"city\":\"Yorke\",\"state\":\"Liquid\",\"country\":\"Atlantis\",\"logo_path\":null,\"extension\":null}]}",
                             "name": ""
                         }
                     ]
@@ -305,8 +145,8 @@
                                     "value": "*"
                                 }
                             ],
-                            "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Retrieved company\",\"data\":{\"name\":\"Berge, Murazik and Graham\",\"city\":\"Schmelerfort\",\"state\":\"land\",\"country\":\"Mongolia\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak3833.tmp\",\"extension\":\"tmp\"}}",
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Server Error\"\n}",
                             "name": ""
                         }
                     ]
@@ -328,56 +168,18 @@
                                 }
                             ]
                         },
-                        "method": "POST",
+                        "method": "PUT",
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "multipart\/form-data"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
                             }
                         ],
-                        "body": {
-                            "mode": "formdata",
-                            "formdata": [
-                                {
-                                    "key": "name",
-                                    "value": "grf",
-                                    "type": "text",
-                                    "description": "Must be between 2 and 255 characters."
-                                },
-                                {
-                                    "key": "city",
-                                    "value": "ub",
-                                    "type": "text",
-                                    "description": "Must be between 2 and 255 characters."
-                                },
-                                {
-                                    "key": "state",
-                                    "value": "yw",
-                                    "type": "text",
-                                    "description": "Must be between 2 and 16 characters."
-                                },
-                                {
-                                    "key": "country",
-                                    "value": "flp",
-                                    "type": "text",
-                                    "description": "Must be between 2 and 255 characters."
-                                },
-                                {
-                                    "key": "logo",
-                                    "src": [],
-                                    "type": "file"
-                                },
-                                {
-                                    "key": "_method",
-                                    "value": "PUT",
-                                    "type": "text"
-                                }
-                            ]
-                        },
+                        "body": null,
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -399,6 +201,210 @@
                                     "key": "id",
                                     "value": "1",
                                     "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List all positions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/positions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/positions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Retrieved positions\",\"data\":[{\"company\":{\"name\":\"Roob LLC\",\"city\":\"Leslieland\",\"state\":\"mouth\",\"country\":\"New Zealand\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E43.tmp\",\"extension\":\"tmp\"},\"start\":\"1975-05-25\",\"end\":\"2015-06-28\",\"title\":\"Recreational Vehicle Service Technician\",\"description\":\"Delectus qui voluptatibus voluptatem ut fuga.\",\"min_salary\":45011,\"max_salary\":100280,\"currency\":\"TMT\",\"benefits\":\"et quod eius quo laudantium\",\"requirements\":\"ea id ratione quis dignissimos eaque quia incidunt sint cumque\",\"type\":\"unde\"},{\"company\":{\"name\":\"Roob LLC\",\"city\":\"Leslieland\",\"state\":\"mouth\",\"country\":\"New Zealand\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E43.tmp\",\"extension\":\"tmp\"},\"start\":\"1994-04-10\",\"end\":\"2006-02-02\",\"title\":\"Instrument Sales Representative\",\"description\":\"Enim sapiente non aut fuga in rem.\",\"min_salary\":52046,\"max_salary\":111734,\"currency\":\"GMD\",\"benefits\":\"vero quibusdam molestiae reiciendis sapiente\",\"requirements\":\"laboriosam voluptate ut aut et quia sint qui magni dolores\",\"type\":\"vitae\"},{\"company\":{\"name\":\"Roob LLC\",\"city\":\"Leslieland\",\"state\":\"mouth\",\"country\":\"New Zealand\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E43.tmp\",\"extension\":\"tmp\"},\"start\":\"1999-06-16\",\"end\":\"2006-06-27\",\"title\":\"Bartender\",\"description\":\"Eum molestias qui alias qui maxime aliquam.\",\"min_salary\":44122,\"max_salary\":112760,\"currency\":\"CZK\",\"benefits\":\"ipsam cupiditate dolorum id eaque\",\"requirements\":\"numquam autem et eius ut impedit sit distinctio cupiditate delectus\",\"type\":\"vitae\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/v1\/positions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/positions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/positions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/positions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/positions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/positions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the position."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/v1\/positions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/positions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/positions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the position."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/positions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/positions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/positions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the position."
                                 }
                             ]
                         },

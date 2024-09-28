@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Position extends Model
 {
     use HasFactory, SoftDeletes, Prunable;
@@ -18,8 +19,30 @@ class Position extends Model
      * @var array<int, mixed>
      */
     protected $fillable = [
-
+        'company_id',
+        'start',
+        'end',
+        'title',
+        'description',
+        'min_salary',
+        'max_salary',
+        'company',
+        'currency',
+        'benefits',
+        'requirements',
+        'type',
     ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+        ];
+    }
 
     /**
      * Get the Company that owns this position.

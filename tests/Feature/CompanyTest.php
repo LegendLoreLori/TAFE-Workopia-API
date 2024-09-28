@@ -22,6 +22,18 @@ test('companies.index returns correct companies on success', function () {
         );
 });
 
+test('companies.index returns formatted response on failure', function () {
+    $response = $this->getJson('api/v1/companies');
+
+    $response->assertStatus(418)
+        ->assertExactJson(
+            [
+                'success' => false,
+                'message' => 'Unable to retrieve companies at this time, please contact your administrator',
+            ]
+        );
+});
+
 test('companies.store returns correct response on success', function () {
     Storage::fake('local');
 
@@ -80,10 +92,12 @@ test('companies.store enforces unique company combination', function () {
     ]);
 
     $response
-        ->assertStatus(400)
+        ->assertStatus(422)
         ->assertExactJson([
             'success' => false,
-            'message' => 'Company name, state, and country must be a unique combination'
+            'message' => [
+                'name' => ['Company name, state, and country must be a unique combination']
+            ]
         ]);
 });
 
@@ -126,20 +140,21 @@ test('companies.destroy returns correct success response', function () {
             ->has('data'));
 });
 
-test('companies.restore restores a deleted resource and returns correct message on success', function () {
-    $company = Company::factory()->create();
+test('companies.restore restores a deleted resource and returns correct message on success',
+    function () {
+        $company = Company::factory()->create();
 
-    $this->deleteJson("/api/v1/companies/$company->id");
-    $this->assertSoftDeleted($company);
+        $this->deleteJson("/api/v1/companies/$company->id");
+        $this->assertSoftDeleted($company);
 
-    $response = $this->getJson("/api/v1/companies/trash/$company->id");
-    $this->assertNotSoftDeleted($company);
+        $response = $this->getJson("/api/v1/companies/trash/$company->id");
+        $this->assertNotSoftDeleted($company);
 
-    $response
-        ->assertStatus(200)
-        ->assertJson(fn(AssertableJson $json) => $json
-            ->where('success', true)
-            ->where('message', "Company with id: 1 restored")
-            ->where('data', '1')
-        );
-});
+        $response
+            ->assertStatus(200)
+            ->assertJson(fn(AssertableJson $json) => $json
+                ->where('success', true)
+                ->where('message', "Company with id: 1 restored")
+                ->where('data', '1')
+            );
+    });

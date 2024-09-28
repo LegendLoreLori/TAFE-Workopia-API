@@ -36,6 +36,8 @@ return [
             'exclude' => [
                 // 'GET /health', 'admin.*'
                 'GET api/user',
+                '*/*/regions',
+                '*/*/regions/*',
             ],
         ],
     ],

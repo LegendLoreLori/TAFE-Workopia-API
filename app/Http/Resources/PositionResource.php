@@ -14,16 +14,17 @@ class PositionResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $company = $request->input('company');
+
+        $company = CompanyResource::make($this->company);
 
         return [
+            'company' => $company,
             'start' => $this->start,
             'end' => $this->end,
             'title' => $this->title,
             'description' => $this->description,
             'min_salary' => $this->min_salary,
             'max_salary' => $this->max_salary,
-            'company' => $company,
             'currency' => $this->currency,
             'benefits' => $this->benefits,
             'requirements' => $this->requirements,

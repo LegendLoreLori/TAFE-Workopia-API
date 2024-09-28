@@ -7,214 +7,6 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/v1/regions:
-    get:
-      summary: 'Retrieve all regions'
-      operationId: retrieveAllRegions
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  success: true
-                  message: 'Regions retrieved successfully'
-                  data:
-                    -
-                      id: 1
-                      name: Africa
-                      created_at: '2024-09-19T02:55:52.000000Z'
-                      updated_at: '2024-09-19T02:55:52.000000Z'
-                    -
-                      id: 2
-                      name: Americas
-                      created_at: '2024-09-19T02:55:52.000000Z'
-                      updated_at: '2024-09-19T02:55:52.000000Z'
-                    -
-                      id: 3
-                      name: Asia
-                      created_at: '2024-09-19T02:55:52.000000Z'
-                      updated_at: '2024-09-19T02:55:52.000000Z'
-                    -
-                      id: 4
-                      name: Europe
-                      created_at: '2024-09-19T02:55:52.000000Z'
-                      updated_at: '2024-09-19T02:55:52.000000Z'
-                    -
-                      id: 5
-                      name: Oceania
-                      created_at: '2024-09-19T02:55:52.000000Z'
-                      updated_at: '2024-09-19T02:55:52.000000Z'
-                    -
-                      id: 6
-                      name: Polar
-                      created_at: '2024-09-19T02:55:52.000000Z'
-                      updated_at: '2024-09-19T02:55:52.000000Z'
-                properties:
-                  success:
-                    type: boolean
-                    example: true
-                  message:
-                    type: string
-                    example: 'Regions retrieved successfully'
-                  data:
-                    type: array
-                    example:
-                      -
-                        id: 1
-                        name: Africa
-                        created_at: '2024-09-19T02:55:52.000000Z'
-                        updated_at: '2024-09-19T02:55:52.000000Z'
-                      -
-                        id: 2
-                        name: Americas
-                        created_at: '2024-09-19T02:55:52.000000Z'
-                        updated_at: '2024-09-19T02:55:52.000000Z'
-                      -
-                        id: 3
-                        name: Asia
-                        created_at: '2024-09-19T02:55:52.000000Z'
-                        updated_at: '2024-09-19T02:55:52.000000Z'
-                      -
-                        id: 4
-                        name: Europe
-                        created_at: '2024-09-19T02:55:52.000000Z'
-                        updated_at: '2024-09-19T02:55:52.000000Z'
-                      -
-                        id: 5
-                        name: Oceania
-                        created_at: '2024-09-19T02:55:52.000000Z'
-                        updated_at: '2024-09-19T02:55:52.000000Z'
-                      -
-                        id: 6
-                        name: Polar
-                        created_at: '2024-09-19T02:55:52.000000Z'
-                        updated_at: '2024-09-19T02:55:52.000000Z'
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          example: 1
-                        name:
-                          type: string
-                          example: Africa
-                        created_at:
-                          type: string
-                          example: '2024-09-19T02:55:52.000000Z'
-                        updated_at:
-                          type: string
-                          example: '2024-09-19T02:55:52.000000Z'
-      tags:
-        - Endpoints
-      security: []
-  '/api/v1/regions/{id}':
-    get:
-      summary: 'Retrieve a single region'
-      operationId: retrieveASingleRegion
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  success: true
-                  message: 'Region retrieved successfully.'
-                  data:
-                    -
-                      id: 1
-                      name: Africa
-                      created_at: '2024-09-19T02:55:52.000000Z'
-                      updated_at: '2024-09-19T02:55:52.000000Z'
-                properties:
-                  success:
-                    type: boolean
-                    example: true
-                  message:
-                    type: string
-                    example: 'Region retrieved successfully.'
-                  data:
-                    type: array
-                    example:
-                      -
-                        id: 1
-                        name: Africa
-                        created_at: '2024-09-19T02:55:52.000000Z'
-                        updated_at: '2024-09-19T02:55:52.000000Z'
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          example: 1
-                        name:
-                          type: string
-                          example: Africa
-                        created_at:
-                          type: string
-                          example: '2024-09-19T02:55:52.000000Z'
-                        updated_at:
-                          type: string
-                          example: '2024-09-19T02:55:52.000000Z'
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the region.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  '/api/v1/companies/trash/{id}':
-    get:
-      summary: 'Restore the specified soft deleted company from trash.'
-      operationId: restoreTheSpecifiedSoftDeletedCompanyFromTrash
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  success: true
-                  message: 'Company with id: perspiciatis restored'
-                  data: perspiciatis
-                properties:
-                  success:
-                    type: boolean
-                    example: true
-                  message:
-                    type: string
-                    example: 'Company with id: perspiciatis restored'
-                  data:
-                    type: string
-                    example: perspiciatis
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the trash.'
-        example: perspiciatis
-        required: true
-        schema:
-          type: string
   /api/v1/companies:
     get:
       summary: 'List all companies.'
@@ -233,43 +25,36 @@ paths:
                   message: 'Retrieved companies'
                   data:
                     -
-                      name: 'Berge, Murazik and Graham'
-                      city: Schmelerfort
-                      state: land
-                      country: Mongolia
-                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3833.tmp'
+                      name: "O'Hara-Beatty"
+                      city: Collierville
+                      state: side
+                      country: Ghana
+                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E11.tmp'
                       extension: tmp
                     -
-                      name: Lakin-Effertz
-                      city: Vivahaven
-                      state: burgh
-                      country: Gibraltar
-                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3834.tmp'
+                      name: Tromp-Ritchie
+                      city: 'Port Ayana'
+                      state: furt
+                      country: Uzbekistan
+                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E12.tmp'
                       extension: tmp
                     -
-                      name: 'Robel Ltd'
-                      city: 'Lake Helga'
-                      state: town
-                      country: Norway
-                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3835.tmp'
+                      name: 'Streich PLC'
+                      city: 'Port Nyasiaburgh'
+                      state: stad
+                      country: Guyana
+                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E13.tmp'
                       extension: tmp
                     -
-                      name: 'Weber, Pouros and Heidenreich'
-                      city: 'South Horaciohaven'
-                      state: bury
-                      country: Poland
-                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3836.tmp'
-                      extension: tmp
-                    -
-                      name: 'Champlin Inc'
-                      city: Michealfort
-                      state: town
-                      country: Austria
-                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3837.tmp'
+                      name: 'Roob LLC'
+                      city: Leslieland
+                      state: mouth
+                      country: 'New Zealand'
+                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
                       extension: tmp
                     -
                       name: Woolies
-                      city: York
+                      city: Yorke
                       state: Liquid
                       country: Atlantis
                       logo_path: null
@@ -285,43 +70,36 @@ paths:
                     type: array
                     example:
                       -
-                        name: 'Berge, Murazik and Graham'
-                        city: Schmelerfort
-                        state: land
-                        country: Mongolia
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3833.tmp'
+                        name: "O'Hara-Beatty"
+                        city: Collierville
+                        state: side
+                        country: Ghana
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E11.tmp'
                         extension: tmp
                       -
-                        name: Lakin-Effertz
-                        city: Vivahaven
-                        state: burgh
-                        country: Gibraltar
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3834.tmp'
+                        name: Tromp-Ritchie
+                        city: 'Port Ayana'
+                        state: furt
+                        country: Uzbekistan
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E12.tmp'
                         extension: tmp
                       -
-                        name: 'Robel Ltd'
-                        city: 'Lake Helga'
-                        state: town
-                        country: Norway
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3835.tmp'
+                        name: 'Streich PLC'
+                        city: 'Port Nyasiaburgh'
+                        state: stad
+                        country: Guyana
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E13.tmp'
                         extension: tmp
                       -
-                        name: 'Weber, Pouros and Heidenreich'
-                        city: 'South Horaciohaven'
-                        state: bury
-                        country: Poland
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3836.tmp'
-                        extension: tmp
-                      -
-                        name: 'Champlin Inc'
-                        city: Michealfort
-                        state: town
-                        country: Austria
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3837.tmp'
+                        name: 'Roob LLC'
+                        city: Leslieland
+                        state: mouth
+                        country: 'New Zealand'
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
                         extension: tmp
                       -
                         name: Woolies
-                        city: York
+                        city: Yorke
                         state: Liquid
                         country: Atlantis
                         logo_path: null
@@ -331,19 +109,19 @@ paths:
                       properties:
                         name:
                           type: string
-                          example: 'Berge, Murazik and Graham'
+                          example: "O'Hara-Beatty"
                         city:
                           type: string
-                          example: Schmelerfort
+                          example: Collierville
                         state:
                           type: string
-                          example: land
+                          example: side
                         country:
                           type: string
-                          example: Mongolia
+                          example: Ghana
                         logo_path:
                           type: string
-                          example: 'C:\Users\Lori\AppData\Local\Temp\fak3833.tmp'
+                          example: 'C:\Users\Lori\AppData\Local\Temp\fak5E11.tmp'
                         extension:
                           type: string
                           example: tmp
@@ -366,50 +144,18 @@ paths:
       description: ''
       parameters: []
       responses:
-        200:
+        500:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  success: true
-                  message: 'Retrieved company'
-                  data:
-                    name: 'Berge, Murazik and Graham'
-                    city: Schmelerfort
-                    state: land
-                    country: Mongolia
-                    logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak3833.tmp'
-                    extension: tmp
+                  message: 'Server Error'
                 properties:
-                  success:
-                    type: boolean
-                    example: true
                   message:
                     type: string
-                    example: 'Retrieved company'
-                  data:
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                        example: 'Berge, Murazik and Graham'
-                      city:
-                        type: string
-                        example: Schmelerfort
-                      state:
-                        type: string
-                        example: land
-                      country:
-                        type: string
-                        example: Mongolia
-                      logo_path:
-                        type: string
-                        example: 'C:\Users\Lori\AppData\Local\Temp\fak3833.tmp'
-                      extension:
-                        type: string
-                        example: tmp
+                    example: 'Server Error'
       tags:
         - Endpoints
       security: []
@@ -421,35 +167,6 @@ paths:
       responses: {  }
       tags:
         - Endpoints
-      requestBody:
-        required: true
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must be between 2 and 255 characters.'
-                  example: grf
-                city:
-                  type: string
-                  description: 'Must be between 2 and 255 characters.'
-                  example: ub
-                state:
-                  type: string
-                  description: 'Must be between 2 and 16 characters.'
-                  example: yw
-                country:
-                  type: string
-                  description: 'Must be between 2 and 255 characters.'
-                  example: flp
-                logo:
-                  type: string
-                  format: binary
-                  description: 'Must be an image.'
-              required:
-                - name
       security: []
     delete:
       summary: 'Soft delete the specified company from the database'
@@ -465,6 +182,251 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/positions:
+    get:
+      summary: 'List all positions'
+      operationId: listAllPositions
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Retrieved positions'
+                  data:
+                    -
+                      company:
+                        name: 'Roob LLC'
+                        city: Leslieland
+                        state: mouth
+                        country: 'New Zealand'
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                        extension: tmp
+                      start: '1975-05-25'
+                      end: '2015-06-28'
+                      title: 'Recreational Vehicle Service Technician'
+                      description: 'Delectus qui voluptatibus voluptatem ut fuga.'
+                      min_salary: 45011
+                      max_salary: 100280
+                      currency: TMT
+                      benefits: 'et quod eius quo laudantium'
+                      requirements: 'ea id ratione quis dignissimos eaque quia incidunt sint cumque'
+                      type: unde
+                    -
+                      company:
+                        name: 'Roob LLC'
+                        city: Leslieland
+                        state: mouth
+                        country: 'New Zealand'
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                        extension: tmp
+                      start: '1994-04-10'
+                      end: '2006-02-02'
+                      title: 'Instrument Sales Representative'
+                      description: 'Enim sapiente non aut fuga in rem.'
+                      min_salary: 52046
+                      max_salary: 111734
+                      currency: GMD
+                      benefits: 'vero quibusdam molestiae reiciendis sapiente'
+                      requirements: 'laboriosam voluptate ut aut et quia sint qui magni dolores'
+                      type: vitae
+                    -
+                      company:
+                        name: 'Roob LLC'
+                        city: Leslieland
+                        state: mouth
+                        country: 'New Zealand'
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                        extension: tmp
+                      start: '1999-06-16'
+                      end: '2006-06-27'
+                      title: Bartender
+                      description: 'Eum molestias qui alias qui maxime aliquam.'
+                      min_salary: 44122
+                      max_salary: 112760
+                      currency: CZK
+                      benefits: 'ipsam cupiditate dolorum id eaque'
+                      requirements: 'numquam autem et eius ut impedit sit distinctio cupiditate delectus'
+                      type: vitae
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Retrieved positions'
+                  data:
+                    type: array
+                    example:
+                      -
+                        company:
+                          name: 'Roob LLC'
+                          city: Leslieland
+                          state: mouth
+                          country: 'New Zealand'
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                          extension: tmp
+                        start: '1975-05-25'
+                        end: '2015-06-28'
+                        title: 'Recreational Vehicle Service Technician'
+                        description: 'Delectus qui voluptatibus voluptatem ut fuga.'
+                        min_salary: 45011
+                        max_salary: 100280
+                        currency: TMT
+                        benefits: 'et quod eius quo laudantium'
+                        requirements: 'ea id ratione quis dignissimos eaque quia incidunt sint cumque'
+                        type: unde
+                      -
+                        company:
+                          name: 'Roob LLC'
+                          city: Leslieland
+                          state: mouth
+                          country: 'New Zealand'
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                          extension: tmp
+                        start: '1994-04-10'
+                        end: '2006-02-02'
+                        title: 'Instrument Sales Representative'
+                        description: 'Enim sapiente non aut fuga in rem.'
+                        min_salary: 52046
+                        max_salary: 111734
+                        currency: GMD
+                        benefits: 'vero quibusdam molestiae reiciendis sapiente'
+                        requirements: 'laboriosam voluptate ut aut et quia sint qui magni dolores'
+                        type: vitae
+                      -
+                        company:
+                          name: 'Roob LLC'
+                          city: Leslieland
+                          state: mouth
+                          country: 'New Zealand'
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                          extension: tmp
+                        start: '1999-06-16'
+                        end: '2006-06-27'
+                        title: Bartender
+                        description: 'Eum molestias qui alias qui maxime aliquam.'
+                        min_salary: 44122
+                        max_salary: 112760
+                        currency: CZK
+                        benefits: 'ipsam cupiditate dolorum id eaque'
+                        requirements: 'numquam autem et eius ut impedit sit distinctio cupiditate delectus'
+                        type: vitae
+                    items:
+                      type: object
+                      properties:
+                        company:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: 'Roob LLC'
+                            city:
+                              type: string
+                              example: Leslieland
+                            state:
+                              type: string
+                              example: mouth
+                            country:
+                              type: string
+                              example: 'New Zealand'
+                            logo_path:
+                              type: string
+                              example: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                            extension:
+                              type: string
+                              example: tmp
+                        start:
+                          type: string
+                          example: '1975-05-25'
+                        end:
+                          type: string
+                          example: '2015-06-28'
+                        title:
+                          type: string
+                          example: 'Recreational Vehicle Service Technician'
+                        description:
+                          type: string
+                          example: 'Delectus qui voluptatibus voluptatem ut fuga.'
+                        min_salary:
+                          type: integer
+                          example: 45011
+                        max_salary:
+                          type: integer
+                          example: 100280
+                        currency:
+                          type: string
+                          example: TMT
+                        benefits:
+                          type: string
+                          example: 'et quod eius quo laudantium'
+                        requirements:
+                          type: string
+                          example: 'ea id ratione quis dignissimos eaque quia incidunt sint cumque'
+                        type:
+                          type: string
+                          example: unde
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Positions
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/positions/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1PositionsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ''
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1PositionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1PositionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the position.'
         example: 1
         required: true
         schema:

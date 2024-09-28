@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RegionSeeder::class,
         ]);
-        Company::factory(6)->create();
-        Position::factory(3)->create();
+        Company::factory(3)->create();
+        Position::factory(3)->for(Company::factory())->create();
     }
 }
