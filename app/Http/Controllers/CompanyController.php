@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Company
+ *
+ * API endpoints for companies
+ */
 class CompanyController extends Controller
 {
     /**
@@ -63,19 +68,19 @@ class CompanyController extends Controller
             'logo' => 'sometimes|image|mimes:jpg,jpeg,png'
         ]);
 
-        try {
-            $validator->validate();
-        } catch (ValidationException $e) {
-            $messages = $e->errors();
+        if ($validator->fails()) {
+            $messages = $validator->errors()->messages();
             return self::sendFailure($messages, 422);
         }
 
+        $validated = $validator->safe()->all();
+
         if ($request->hasFile('logo')) {
             $logo_path = $request->file('logo')->store('public');
-            $request->merge(['logo_path' => $logo_path]);
+            $validated = $validator->safe()->merge(['logo_path' => $logo_path])->all();
         }
 
-        $company = Company::create($request->all());
+        $company = Company::create($validated);
         $company = new CompanyResource($company);
 
         return self::sendSuccess($company,
@@ -134,19 +139,19 @@ class CompanyController extends Controller
             'logo' => 'sometimes|image|mimes:jpg,jpeg,png',
         ]);
 
-        try {
-            $validator->validate();
-        } catch (ValidationException $e) {
-            $message = $e->errors();
-            return self::sendFailure($message, 422);
+        if ($validator->fails()) {
+            $messages = $validator->errors()->messages();
+            return self::sendFailure($messages, 422);
         }
+
+        $validated = $validator->safe()->all();
 
         if ($request->hasFile('logo')) {
             $logo_path = $request->file('logo')->store('public');
-            $request->merge(['logo_path' => $logo_path]);
+            $validated = $validator->safe()->merge(['logo_path' => $logo_path])->all();
         }
 
-        $company->update($request->all());
+        $company->update($validated);
 
         $company = new CompanyResource($company);
         return self::sendSuccess($company, "Company with id: $id updated", 201);

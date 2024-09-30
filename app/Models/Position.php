@@ -26,7 +26,6 @@ class Position extends Model
         'description',
         'min_salary',
         'max_salary',
-        'company',
         'currency',
         'benefits',
         'requirements',

@@ -19,8 +19,8 @@ class PositionFactory extends Factory
     {
         return [
             'company_id' => Company::factory(),
-            'start'=> $this->faker->date(),
-            'end'=> $this->faker->date(max: now()->addMonth()),
+            'start'=> $this->faker->dateTimeBetween('now')->format(\DateTimeInterface::ATOM),
+            'end'=> $this->faker->dateTimeBetween('+1 month', '+3 months')->format(\DateTimeInterface::ATOM),
             'title'=> $this->faker->jobTitle(),
             'description'=> $this->faker->sentence(),
             'min_salary'=> $this->faker->numberBetween(40000,80000),
@@ -28,7 +28,7 @@ class PositionFactory extends Factory
             'currency'=> $this->faker->currencyCode(),
             'benefits'=> $this->faker->words(5, true),
             'requirements'=> $this->faker->words(10, true),
-            'type'=> $this->faker->word(),
+            'type'=> $this->faker->randomElement(['Casual', 'Part-Time', 'Full-Time', 'Contract']),
         ];
     }
 }

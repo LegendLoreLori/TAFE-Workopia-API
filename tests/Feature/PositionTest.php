@@ -47,3 +47,19 @@ test('position.index returns correctly formatted error response on failure',
                 'message' => 'Unable to retrieve positions at this time, please contact your system administrator'
             ]);
     });
+
+test('position.store success response format', function () {
+    $company = Company::factory()->create();
+
+    $position = Position::factory()->for($company)->makeOne()->toArray();
+
+    $response = $this->postJson('api/v1/positions', $position);
+
+    $response
+        ->assertStatus(201)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', "Position for Company: $company->name created")
+            ->has('data')
+            ->etc());
+});
