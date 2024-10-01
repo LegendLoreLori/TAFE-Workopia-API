@@ -110,13 +110,55 @@ class PositionController extends Controller
             return self::sendFailure('Specified position not found', 404);
         }
 
-        return self::sendSuccess(new PositionResource($position), "Retrieved position with id: $position->id");
+        return self::sendSuccess(new PositionResource($position),
+            "Retrieved position with id: $position->id");
 
     }
 
-    public function update(Request $request, string $id)
+    /**
+     * Update the specified position in the database.
+     *
+     * @param  Request  $request
+     * @param  string  $id
+     * @return JsonResponse
+     */
+    public function update(Request $request, string $id): JsonResponse
     {
-        //
+        $position = Position::find($id);
+
+        if ($position === null) {
+            return self::sendFailure("Position with id: $id not found", 404);
+        }
+
+        $validator = validator::make($request->all(), [
+            'company_id' => 'prohibited',
+            'start' => 'prohibited',
+            'end' => 'sometimes|date|after:now',
+            'title' => 'sometimes|required|string|between:2,255',
+            'description' => 'sometimes|string|min:2',
+            'min_salary' => 'sometimes|integer',
+            'max_salary' => 'sometimes|integer|gte:min_salary',
+            'currency' => ['sometimes', 'string', Rule::in(currencyCodes)],
+            'benefits' => 'sometimes|string|min:2',
+            'requirements' => 'sometimes|string|min:2',
+            'type' => [
+                'sometimes', 'string', Rule::in([
+                    'Casual', 'Part-Time', 'Full-Time', 'Contract'
+                ])
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            $messages = $validator->errors()->messages();
+            return self::sendFailure($messages, 422);
+        }
+
+        $validated = $validator->safe()->all();
+
+        $position->update($validated);
+
+         return self::sendSuccess(new PositionResource($position),
+            "Position with id: $position->id updated", 201);
     }
 
     public function destroy(string $id)

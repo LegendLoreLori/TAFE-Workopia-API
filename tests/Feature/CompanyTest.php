@@ -136,6 +136,22 @@ test('companies.update returns correct success response', function () {
             ));
 });
 
+test('companies.update early terminates if id does not exist', function () {
+    $response = $this->putJson('api/v1/companies/2', [
+        "name" => "foo",
+        "city" => "bar",
+        "state" => "baz",
+        "country" => "qux"
+    ]);
+
+    $response
+        ->assertStatus(404)
+        ->assertExactJson([
+           'success' => false,
+           'message' => 'Company with id: 2 not found'
+        ]);
+});
+
 test('companies.destroy returns correct success response', function () {
     $company = Company::factory()->create();
 

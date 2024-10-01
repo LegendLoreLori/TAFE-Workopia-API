@@ -112,6 +112,11 @@ class CompanyController extends Controller
     public function update(Request $request, string $id): JsonResponse
     {
         $company = Company::find($id);
+
+        if ($company === null) {
+            return self::sendFailure("Company with id: $id not found", 404);
+        }
+
         $validator = validator::make($request->all(), [
             'name' => [
                 'required', 'string', 'between:2,255',

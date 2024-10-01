@@ -2,6 +2,7 @@
 
 use App\Models\Company;
 use App\Models\Position;
+use Illuminate\Support\Carbon;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 test('positions.index returns correct response on success', function () {
@@ -48,7 +49,7 @@ test('position.index returns correctly formatted error response on failure',
             ]);
     });
 
-test('position.store success response format', function () {
+test('positions.store success response format', function () {
     $company = Company::factory()->create();
 
     $position = Position::factory()->for($company)->makeOne()->toArray();
@@ -64,7 +65,7 @@ test('position.store success response format', function () {
             ->etc());
 });
 
-test('position.show returns with company on success', function () {
+test('positions.show returns with company on success', function () {
     Position::factory(3)->for(Company::factory())->create();
 
     $response = $this->getJson('api/v1/positions/2');
@@ -78,4 +79,55 @@ test('position.show returns with company on success', function () {
                 ->has('company')
                 ->has('title')
                 ->etc()));
+});
+
+
+test('positions.update returns correct format on success', function () {
+    $position = Position::factory()->for(Company::factory())->create();
+    $now = now();
+
+    $data = [
+        'title' => 'Junior Software Developer',
+        'end' => $now->addMonth()->format(DATE_ATOM),
+        'type' => 'Part-Time'
+    ];
+
+    $response = $this->putJson('api/v1/positions/1', $data);
+
+    $response
+        ->assertStatus(201)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', "Position with id: $position->id updated")
+            ->has('data', fn(AssertableJson $json) => $json
+                ->has('company')
+                ->where('title', $data['title'])
+                ->where('end', $data['end'])
+                ->where('type', $data['type'])
+                ->etc()
+            ));
+});
+
+test('positions.update validates start and end dates', function () {
+    $now = now();
+    Position::factory(2)->for(Company::factory())->create();
+
+    $response1 = $this->putJson('api/v1/positions/1',
+        ['start' => $now->addDay()]);
+    $response2 = $this->putJson('api/v1/positions/2',
+        ['end' => $now->subDay()]);
+
+    $response1
+        ->assertStatus(422)
+        ->assertExactJson([
+            'success' => false,
+            'message' => ['start' => ['The start field is prohibited.']],
+        ]);
+
+    $response2
+        ->assertStatus(422)
+        ->assertExactJson([
+            'success' => false,
+            'message' => ['end' => ['The end field must be a date after now.']],
+        ]);
 });
