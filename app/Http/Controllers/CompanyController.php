@@ -44,7 +44,7 @@ class CompanyController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $validator = validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'city' => 'required|string|between:2,255',
             'state' => 'required|string|between:2,16',
             'country' => 'required|string|between:2,255',
@@ -117,7 +117,7 @@ class CompanyController extends Controller
             return self::sendFailure("Company with id: $id not found", 404);
         }
 
-        $validator = validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => [
                 'required', 'string', 'between:2,255',
                 function (

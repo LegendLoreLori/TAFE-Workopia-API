@@ -66,7 +66,7 @@ class PositionController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $validator = validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'company_id' => 'required|integer|exists:companies,id',
             'start' => 'required|date',
             'end' => 'required|date|after:start',
@@ -130,7 +130,7 @@ class PositionController extends Controller
             return self::sendFailure("Position with id: $id not found", 404);
         }
 
-        $validator = validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'company_id' => 'prohibited',
             'start' => 'prohibited',
             'end' => 'sometimes|date|after:now',
@@ -164,6 +164,8 @@ class PositionController extends Controller
     /**
      * Soft delete the specified position from the database
      *
+     * @urlParam id integer required The ID of the position.
+     *
      * @param  string  $id
      * @return JsonResponse
      */
@@ -181,6 +183,8 @@ class PositionController extends Controller
 
     /**
      * Restore the specified soft deleted company from trash.
+     *
+     * @urlParam id integer required The ID of the position.
      *
      * @param  string  $id
      * @return JsonResponse

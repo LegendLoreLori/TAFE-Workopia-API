@@ -10,14 +10,14 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "258b853e-1f48-4b2b-8cb3-8651df2e4c82",
+        "_postman_id": "1cc49c8d-e82e-410e-8e3a-60a2dce365f0",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
-            "description": "",
+            "name": "Company",
+            "description": "\nAPI endpoints for companies",
             "item": [
                 {
                     "name": "List all companies.",
@@ -80,14 +80,47 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "city",
+                                    "value": "cqn",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 255 characters."
+                                },
+                                {
+                                    "key": "state",
+                                    "value": "fx",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 16 characters."
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "nsf",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 255 characters."
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "ba",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 255 characters."
+                                },
+                                {
+                                    "key": "logo",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -96,7 +129,7 @@
                     "response": []
                 },
                 {
-                    "name": "Display a single company.",
+                    "name": "Retrieve a single company.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -145,8 +178,8 @@
                                     "value": "*"
                                 }
                             ],
-                            "code": 500,
-                            "body": "{\n    \"message\": \"Server Error\"\n}",
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Retrieved company with id: 1\",\"data\":{\"name\":\"O'Hara-Beatty\",\"city\":\"Collierville\",\"state\":\"side\",\"country\":\"Ghana\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E11.tmp\",\"extension\":\"tmp\"}}",
                             "name": ""
                         }
                     ]
@@ -168,18 +201,56 @@
                                 }
                             ]
                         },
-                        "method": "PUT",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "mn",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 255 characters."
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "mw",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 255 characters."
+                                },
+                                {
+                                    "key": "state",
+                                    "value": "mj",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 16 characters."
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "dm",
+                                    "type": "text",
+                                    "description": "Must be between 2 and 255 characters."
+                                },
+                                {
+                                    "key": "logo",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -223,6 +294,68 @@
                     },
                     "response": []
                 },
+                {
+                    "name": "Restore the specified soft deleted company from trash.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/trash\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/trash\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "ipsa",
+                                    "description": "The ID of the trash."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Company with id: ipsa restored\",\"data\":\"ipsa\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Position",
+            "description": "\nAPI endpoints for job positions",
+            "item": [
                 {
                     "name": "List all positions",
                     "request": {
@@ -272,7 +405,7 @@
                     ]
                 },
                 {
-                    "name": "POST api\/v1\/positions",
+                    "name": "Add a position for a company to the database",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -291,7 +424,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"company_id\":2,\"start\":\"2024-10-01T03:24:28\",\"end\":\"2028-02-14\",\"title\":\"gr\",\"description\":\"Totam et vel earum qui totam consequuntur.\",\"min_salary\":9,\"max_salary\":10,\"currency\":\"quae\",\"benefits\":\"auxpkfehhtxighgdjgmgmgebusktskjtydlevjvrlesmwxvbwgkfxslwtmhvludohvmdx\",\"requirements\":\"eeuhbaeyjjioetlhnzxaryzcxkeuacgaxkfrriwvl\",\"type\":\"doloribus\"}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -300,7 +436,7 @@
                     "response": []
                 },
                 {
-                    "name": "GET api\/v1\/positions\/{id}",
+                    "name": "Retrieve a single position and its related company.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -337,12 +473,12 @@
                         {
                             "header": [
                                 {
-                                    "key": "content-type",
-                                    "value": "text\/html; charset=UTF-8"
-                                },
-                                {
                                     "key": "cache-control",
                                     "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -350,13 +486,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "",
+                            "body": "{\"success\":true,\"message\":\"Retrieved position with id: 1\",\"data\":{\"company\":{\"name\":\"Roob LLC\",\"city\":\"Leslieland\",\"state\":\"mouth\",\"country\":\"New Zealand\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak5E43.tmp\",\"extension\":\"tmp\"},\"start\":\"1975-05-25\",\"end\":\"2015-06-28\",\"title\":\"Recreational Vehicle Service Technician\",\"description\":\"Delectus qui voluptatibus voluptatem ut fuga.\",\"min_salary\":45011,\"max_salary\":100280,\"currency\":\"TMT\",\"benefits\":\"et quod eius quo laudantium\",\"requirements\":\"ea id ratione quis dignissimos eaque quia incidunt sint cumque\",\"type\":\"unde\"}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "PUT api\/v1\/positions\/{id}",
+                    "name": "Update the specified position in the database.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -383,7 +519,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"end\":\"2093-10-29\",\"title\":\"iei\",\"description\":\"Animi placeat eum ratione ipsam sed fugiat aut tempora.\",\"min_salary\":4,\"max_salary\":14,\"currency\":\"sit\",\"benefits\":\"unvvtdeadxazbrdebcrerrewfxkwilezjxwwfvthjjleoxsukeztlisqmutnrabwuwr\",\"requirements\":\"xzcwyflsmxkzywzifcxzphgehzkqbyocdxasulqmhrdmgfxpiajmseawxbtqqqsmblsjjlqi\",\"type\":\"perferendis\"}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -392,7 +531,7 @@
                     "response": []
                 },
                 {
-                    "name": "DELETE api\/v1\/positions\/{id}",
+                    "name": "Soft delete the specified position from the database",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -403,7 +542,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "13",
                                     "description": "The ID of the position."
                                 }
                             ]
@@ -426,6 +565,62 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "Restore the specified soft deleted company from trash.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/positions\/trash\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/positions\/trash\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "11",
+                                    "description": "The ID of the position."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Position with id: 11 restored\",\"data\":\"11\"}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         }

@@ -126,7 +126,7 @@ paths:
                           type: string
                           example: tmp
       tags:
-        - Endpoints
+        - Company
       security: []
     post:
       summary: 'Add a company to the database.'
@@ -135,29 +135,93 @@ paths:
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - Company
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: cqn
+                state:
+                  type: string
+                  description: 'Must be between 2 and 16 characters.'
+                  example: fx
+                country:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: nsf
+                name:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: ba
+                logo:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
+              required:
+                - city
+                - state
+                - country
+                - name
       security: []
   '/api/v1/companies/{id}':
     get:
-      summary: 'Display a single company.'
-      operationId: displayASingleCompany
+      summary: 'Retrieve a single company.'
+      operationId: retrieveASingleCompany
       description: ''
       parameters: []
       responses:
-        500:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'Server Error'
+                  success: true
+                  message: 'Retrieved company with id: 1'
+                  data:
+                    name: "O'Hara-Beatty"
+                    city: Collierville
+                    state: side
+                    country: Ghana
+                    logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E11.tmp'
+                    extension: tmp
                 properties:
+                  success:
+                    type: boolean
+                    example: true
                   message:
                     type: string
-                    example: 'Server Error'
+                    example: 'Retrieved company with id: 1'
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: "O'Hara-Beatty"
+                      city:
+                        type: string
+                        example: Collierville
+                      state:
+                        type: string
+                        example: side
+                      country:
+                        type: string
+                        example: Ghana
+                      logo_path:
+                        type: string
+                        example: 'C:\Users\Lori\AppData\Local\Temp\fak5E11.tmp'
+                      extension:
+                        type: string
+                        example: tmp
       tags:
-        - Endpoints
+        - Company
       security: []
     put:
       summary: 'Update the specified company in the database.'
@@ -166,7 +230,36 @@ paths:
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - Company
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: mn
+                city:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: mw
+                state:
+                  type: string
+                  description: 'Must be between 2 and 16 characters.'
+                  example: mj
+                country:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: dm
+                logo:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
+              required:
+                - name
       security: []
     delete:
       summary: 'Soft delete the specified company from the database'
@@ -175,7 +268,7 @@ paths:
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - Company
       security: []
     parameters:
       -
@@ -186,6 +279,45 @@ paths:
         required: true
         schema:
           type: integer
+  '/api/v1/companies/trash/{id}':
+    get:
+      summary: 'Restore the specified soft deleted company from trash.'
+      operationId: restoreTheSpecifiedSoftDeletedCompanyFromTrash
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Company with id: ipsa restored'
+                  data: ipsa
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Company with id: ipsa restored'
+                  data:
+                    type: string
+                    example: ipsa
+      tags:
+        - Company
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the trash.'
+        example: ipsa
+        required: true
+        schema:
+          type: string
   /api/v1/positions:
     get:
       summary: 'List all positions'
@@ -376,51 +508,248 @@ paths:
                           type: string
                           example: unde
       tags:
-        - Endpoints
+        - Position
       security: []
     post:
-      summary: ''
-      operationId: postApiV1Positions
+      summary: 'Add a position for a company to the database'
+      operationId: addAPositionForACompanyToTheDatabase
       description: ''
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - Position
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: integer
+                  description: ''
+                  example: 2
+                start:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-10-01T03:24:28'
+                end:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after <code>start</code>.'
+                  example: '2028-02-14'
+                title:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: gr
+                description:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: 'Totam et vel earum qui totam consequuntur.'
+                min_salary:
+                  type: integer
+                  description: ''
+                  example: 9
+                max_salary:
+                  type: integer
+                  description: ''
+                  example: 10
+                currency:
+                  type: string
+                  description: ''
+                  example: quae
+                benefits:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: auxpkfehhtxighgdjgmgmgebusktskjtydlevjvrlesmwxvbwgkfxslwtmhvludohvmdx
+                requirements:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: eeuhbaeyjjioetlhnzxaryzcxkeuacgaxkfrriwvl
+                type:
+                  type: string
+                  description: ''
+                  example: doloribus
+              required:
+                - company_id
+                - start
+                - end
+                - title
+                - description
+                - min_salary
+                - max_salary
+                - currency
+                - benefits
+                - requirements
+                - type
       security: []
   '/api/v1/positions/{id}':
     get:
-      summary: ''
-      operationId: getApiV1PositionsId
+      summary: 'Retrieve a single position and its related company.'
+      operationId: retrieveASinglePositionAndItsRelatedCompany
       description: ''
       parameters: []
       responses:
         200:
           description: ''
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: ''
+                type: object
+                example:
+                  success: true
+                  message: 'Retrieved position with id: 1'
+                  data:
+                    company:
+                      name: 'Roob LLC'
+                      city: Leslieland
+                      state: mouth
+                      country: 'New Zealand'
+                      logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                      extension: tmp
+                    start: '1975-05-25'
+                    end: '2015-06-28'
+                    title: 'Recreational Vehicle Service Technician'
+                    description: 'Delectus qui voluptatibus voluptatem ut fuga.'
+                    min_salary: 45011
+                    max_salary: 100280
+                    currency: TMT
+                    benefits: 'et quod eius quo laudantium'
+                    requirements: 'ea id ratione quis dignissimos eaque quia incidunt sint cumque'
+                    type: unde
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Retrieved position with id: 1'
+                  data:
+                    type: object
+                    properties:
+                      company:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: 'Roob LLC'
+                          city:
+                            type: string
+                            example: Leslieland
+                          state:
+                            type: string
+                            example: mouth
+                          country:
+                            type: string
+                            example: 'New Zealand'
+                          logo_path:
+                            type: string
+                            example: 'C:\Users\Lori\AppData\Local\Temp\fak5E43.tmp'
+                          extension:
+                            type: string
+                            example: tmp
+                      start:
+                        type: string
+                        example: '1975-05-25'
+                      end:
+                        type: string
+                        example: '2015-06-28'
+                      title:
+                        type: string
+                        example: 'Recreational Vehicle Service Technician'
+                      description:
+                        type: string
+                        example: 'Delectus qui voluptatibus voluptatem ut fuga.'
+                      min_salary:
+                        type: integer
+                        example: 45011
+                      max_salary:
+                        type: integer
+                        example: 100280
+                      currency:
+                        type: string
+                        example: TMT
+                      benefits:
+                        type: string
+                        example: 'et quod eius quo laudantium'
+                      requirements:
+                        type: string
+                        example: 'ea id ratione quis dignissimos eaque quia incidunt sint cumque'
+                      type:
+                        type: string
+                        example: unde
       tags:
-        - Endpoints
+        - Position
       security: []
     put:
-      summary: ''
-      operationId: putApiV1PositionsId
+      summary: 'Update the specified position in the database.'
+      operationId: updateTheSpecifiedPositionInTheDatabase
       description: ''
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - Position
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: string
+                  description: ''
+                  example: null
+                start:
+                  type: string
+                  description: ''
+                  example: null
+                end:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after <code>now</code>.'
+                  example: '2093-10-29'
+                title:
+                  type: string
+                  description: 'Must be between 2 and 255 characters.'
+                  example: iei
+                description:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: 'Animi placeat eum ratione ipsam sed fugiat aut tempora.'
+                min_salary:
+                  type: integer
+                  description: ''
+                  example: 4
+                max_salary:
+                  type: integer
+                  description: ''
+                  example: 14
+                currency:
+                  type: string
+                  description: ''
+                  example: sit
+                benefits:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: unvvtdeadxazbrdebcrerrewfxkwilezjxwwfvthjjleoxsukeztlisqmutnrabwuwr
+                requirements:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: xzcwyflsmxkzywzifcxzphgehzkqbyocdxasulqmhrdmgfxpiajmseawxbtqqqsmblsjjlqi
+                type:
+                  type: string
+                  description: ''
+                  example: perferendis
+              required:
+                - title
       security: []
     delete:
-      summary: ''
-      operationId: deleteApiV1PositionsId
+      summary: 'Soft delete the specified position from the database'
+      operationId: softDeleteTheSpecifiedPositionFromTheDatabase
       description: ''
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - Position
       security: []
     parameters:
       -
@@ -431,7 +760,49 @@ paths:
         required: true
         schema:
           type: integer
+  '/api/v1/positions/trash/{id}':
+    get:
+      summary: 'Restore the specified soft deleted company from trash.'
+      operationId: restoreTheSpecifiedSoftDeletedCompanyFromTrash
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Position with id: 11 restored'
+                  data: '11'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Position with id: 11 restored'
+                  data:
+                    type: string
+                    example: '11'
+      tags:
+        - Position
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the position.'
+        example: 11
+        required: true
+        schema:
+          type: integer
 tags:
   -
-    name: Endpoints
-    description: ''
+    name: Company
+    description: "\nAPI endpoints for companies"
+  -
+    name: Position
+    description: "\nAPI endpoints for job positions"

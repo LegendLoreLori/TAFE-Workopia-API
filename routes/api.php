@@ -16,10 +16,10 @@ Route::group(['prefix' => 'v1'], function () {
 });
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::get('/companies/trash/{id}', [CompanyController::class, 'restore']);
-    Route::get('/positions/trash/{id}', [PositionController::class, 'restore']);
     Route::apiResources([
             'companies' => CompanyController::class,
             'positions' => PositionController::class]
     );
+    Route::get('/companies/trash/{id}', [CompanyController::class, 'restore']);
+    Route::get('/positions/trash/{id}', [PositionController::class, 'restore']);
 });

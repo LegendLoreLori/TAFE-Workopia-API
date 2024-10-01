@@ -1,13 +1,17 @@
-name: Endpoints
-description: ''
+name: Company
+description: |-
+
+  API endpoints for companies
 endpoints:
   -
     httpMethods:
       - GET
     uri: api/v1/companies
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Company
+      groupDescription: |-
+
+        API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
       title: 'List all companies.'
@@ -45,8 +49,10 @@ endpoints:
       - POST
     uri: api/v1/companies
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Company
+      groupDescription: |-
+
+        API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
       title: 'Add a company to the database.'
@@ -54,15 +60,65 @@ endpoints:
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      city:
+        name: city
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: cqn
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      state:
+        name: state
+        description: 'Must be between 2 and 16 characters.'
+        required: true
+        example: fx
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      country:
+        name: country
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: nsf
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      name:
+        name: name
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: ba
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      logo:
+        name: logo
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      city: cqn
+      state: fx
+      country: nsf
+      name: ba
+    fileParameters:
+      logo: null
     responses: []
     responseFields: []
     auth: []
@@ -75,11 +131,13 @@ endpoints:
       - GET
     uri: 'api/v1/companies/{id}'
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Company
+      groupDescription: |-
+
+        API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a single company.'
+      title: 'Retrieve a single company.'
       description: ''
       authenticated: false
       custom: []
@@ -105,11 +163,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 200
+        content: '{"success":true,"message":"Retrieved company with id: 1","data":{"name":"O''Hara-Beatty","city":"Collierville","state":"side","country":"Ghana","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E11.tmp","extension":"tmp"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -128,8 +183,10 @@ endpoints:
       - PATCH
     uri: 'api/v1/companies/{id}'
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Company
+      groupDescription: |-
+
+        API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
       title: 'Update the specified company in the database.'
@@ -137,7 +194,7 @@ endpoints:
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       id:
@@ -153,9 +210,59 @@ endpoints:
       id: 1
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: mn
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      city:
+        name: city
+        description: 'Must be between 2 and 255 characters.'
+        required: false
+        example: mw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      state:
+        name: state
+        description: 'Must be between 2 and 16 characters.'
+        required: false
+        example: mj
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      country:
+        name: country
+        description: 'Must be between 2 and 255 characters.'
+        required: false
+        example: dm
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      logo:
+        name: logo
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: mn
+      city: mw
+      state: mj
+      country: dm
+    fileParameters:
+      logo: null
     responses: []
     responseFields: []
     auth: []
@@ -168,8 +275,10 @@ endpoints:
       - DELETE
     uri: 'api/v1/companies/{id}'
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Company
+      groupDescription: |-
+
+        API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
       title: 'Soft delete the specified company from the database'
@@ -206,21 +315,33 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/positions
+    uri: 'api/v1/companies/trash/{id}'
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Company
+      groupDescription: |-
+
+        API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all positions'
+      title: 'Restore the specified soft deleted company from trash.'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the trash.'
+        required: true
+        example: ipsa
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: ipsa
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -229,173 +350,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"success":true,"message":"Retrieved positions","data":[{"company":{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},"start":"1975-05-25","end":"2015-06-28","title":"Recreational Vehicle Service Technician","description":"Delectus qui voluptatibus voluptatem ut fuga.","min_salary":45011,"max_salary":100280,"currency":"TMT","benefits":"et quod eius quo laudantium","requirements":"ea id ratione quis dignissimos eaque quia incidunt sint cumque","type":"unde"},{"company":{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},"start":"1994-04-10","end":"2006-02-02","title":"Instrument Sales Representative","description":"Enim sapiente non aut fuga in rem.","min_salary":52046,"max_salary":111734,"currency":"GMD","benefits":"vero quibusdam molestiae reiciendis sapiente","requirements":"laboriosam voluptate ut aut et quia sint qui magni dolores","type":"vitae"},{"company":{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},"start":"1999-06-16","end":"2006-06-27","title":"Bartender","description":"Eum molestias qui alias qui maxime aliquam.","min_salary":44122,"max_salary":112760,"currency":"CZK","benefits":"ipsam cupiditate dolorum id eaque","requirements":"numquam autem et eius ut impedit sit distinctio cupiditate delectus","type":"vitae"}]}'
+        content: '{"success":true,"message":"Company with id: ipsa restored","data":"ipsa"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/v1/positions
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/positions/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the position.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: ''
-        headers:
-          content-type: 'text/html; charset=UTF-8'
-          cache-control: 'no-cache, private'
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/v1/positions/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the position.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/positions/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the position.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null
