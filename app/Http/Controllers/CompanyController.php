@@ -175,7 +175,7 @@ class CompanyController extends Controller
         }
         $company->delete();
 
-        return self::sendSuccess(new CompanyResource($company), "Company with id: $company->id deleted", 200);
+        return self::sendSuccess(new CompanyResource($company), "Company with id: $company->id deleted");
     }
 
     /**
@@ -190,6 +190,6 @@ class CompanyController extends Controller
             ->where('id', $id)
             ->restore();
 
-        return self::sendSuccess($id, "Company with id: $id restored", 200);
+        return self::sendSuccess($id, "Company with id: $id restored");
     }
 }

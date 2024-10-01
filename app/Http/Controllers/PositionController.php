@@ -161,14 +161,36 @@ class PositionController extends Controller
             "Position with id: $position->id updated", 201);
     }
 
-    public function destroy(string $id)
+    /**
+     * Soft delete the specified position from the database
+     *
+     * @param  string  $id
+     * @return JsonResponse
+     */
+    public function destroy(string $id): JsonResponse
     {
-        //
+        $position = Position::find($id);
+        if ($position === null) {
+            return self::sendFailure("Specified position not found", 404);
+        }
+        $position->delete();
+
+        return self::sendSuccess(new PositionResource($position), "Position with id: $position->id deleted", 200);
     }
 
 
-    public function restore(string $id)
+    /**
+     * Restore the specified soft deleted company from trash.
+     *
+     * @param  string  $id
+     * @return JsonResponse
+     */
+    public function restore(string $id):JsonResponse
     {
-        //
+        Position::withTrashed()
+            ->where('id', $id)
+            ->restore();
+
+        return self::sendSuccess($id, "Position with id: $id restored", 200);
     }
 }

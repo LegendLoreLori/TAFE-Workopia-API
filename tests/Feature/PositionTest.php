@@ -131,3 +131,36 @@ test('positions.update validates start and end dates', function () {
             'message' => ['end' => ['The end field must be a date after now.']],
         ]);
 });
+
+test('positions.destroy returns correct success response', function () {
+    $position = Position::factory()->create();
+
+    $response = $this->deleteJson("/api/v1/positions/$position->id");
+
+    $this->assertSoftDeleted($position);
+    $response
+        ->assertStatus(200)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', "Position with id: $position->id deleted")
+            ->has('data'));
+});
+
+test('positions.restore restores a deleted resource and returns correct message on success',
+    function () {
+        $position = Position::factory()->create();
+
+        $this->deleteJson("/api/v1/positions/$position->id");
+        $this->assertSoftDeleted($position);
+
+        $response = $this->getJson("/api/v1/positions/trash/$position->id");
+        $this->assertNotSoftDeleted($position);
+
+        $response
+            ->assertStatus(200)
+            ->assertJson(fn(AssertableJson $json) => $json
+                ->where('success', true)
+                ->where('message', "Position with id: 1 restored")
+                ->where('data', '1')
+            );
+    });
