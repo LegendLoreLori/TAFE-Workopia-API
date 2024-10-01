@@ -34,6 +34,16 @@ test('companies.index returns formatted response on failure', function () {
         );
 });
 
+test('companies.show returns formatted response on failure', function () {
+   $response = $this->getJson('api/v1/companies/1');
+
+   $response->assertStatus(404)
+       ->assertExactJson([
+          'success' => false,
+          'message' => 'Specified company not found'
+       ]);
+});
+
 test('companies.store returns correct response on success', function () {
     Storage::fake('local');
 

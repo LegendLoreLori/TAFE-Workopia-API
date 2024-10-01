@@ -93,13 +93,25 @@ class PositionController extends Controller
         $company = Company::with('positions')->find($validated['company_id']);
         $position = $company->positions()->create($validated);
 
-        return self::sendSuccess(PositionResource::make($position),
+        return self::sendSuccess(new PositionResource($position),
             "Position for Company: $company->name created", 201);
     }
 
-    public function show(Position $position)
+    /**
+     * Retrieve a single position and its related company.
+     *
+     * @param  string  $id
+     * @return JsonResponse
+     */
+    public function show(string $id): JsonResponse
     {
-        //
+        $position = Position::with('company')->find($id);
+        if ($position === null) {
+            return self::sendFailure('Specified position not found', 404);
+        }
+
+        return self::sendSuccess(new PositionResource($position), "Retrieved position with id: $position->id");
+
     }
 
     public function update(Request $request, string $id)

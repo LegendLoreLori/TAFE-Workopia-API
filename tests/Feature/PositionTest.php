@@ -63,3 +63,19 @@ test('position.store success response format', function () {
             ->has('data')
             ->etc());
 });
+
+test('position.show returns with company on success', function () {
+    Position::factory(3)->for(Company::factory())->create();
+
+    $response = $this->getJson('api/v1/positions/2');
+
+    $response
+        ->assertStatus(200)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', "Retrieved position with id: 2")
+            ->has('data', fn(AssertableJson $json) => $json
+                ->has('company')
+                ->has('title')
+                ->etc()));
+});

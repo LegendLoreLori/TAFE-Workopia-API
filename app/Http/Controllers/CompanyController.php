@@ -80,27 +80,26 @@ class CompanyController extends Controller
             $validated = $validator->safe()->merge(['logo_path' => $logo_path])->all();
         }
 
-        $company = Company::create($validated);
-        $company = new CompanyResource($company);
+        $company = new CompanyResource(Company::create($validated));
 
         return self::sendSuccess($company,
             "Company created with id: $company->id", 201);
     }
 
     /**
-     * Display a single company.
+     * Retrieve a single company.
      *
      * @param  string  $id
      * @return JsonResponse
      */
     public function show(string $id): JsonResponse
     {
-        $company = new CompanyResource(Company::find($id));
-        if ($company->isEmpty()) {
+        $company = Company::query()->find($id);
+        if ($company === null) {
             return self::sendFailure('Specified company not found', 404);
         }
 
-        return self::sendSuccess($company, "Retrieved company");
+        return self::sendSuccess(new CompanyResource($company), "Retrieved company with id: $company->id");
     }
 
     /**
@@ -153,8 +152,7 @@ class CompanyController extends Controller
 
         $company->update($validated);
 
-        $company = new CompanyResource($company);
-        return self::sendSuccess($company, "Company with id: $id updated", 201);
+        return self::sendSuccess(new CompanyResource($company), "Company with id: $company->id updated", 201);
     }
 
 
@@ -171,9 +169,8 @@ class CompanyController extends Controller
             return self::sendFailure("Specified company not found", 404);
         }
         $company->delete();
-        $company = new CompanyResource($company);
 
-        return self::sendSuccess($company, "Company with id: $id deleted", 200);
+        return self::sendSuccess(new CompanyResource($company), "Company with id: $company->id deleted", 200);
     }
 
     /**
