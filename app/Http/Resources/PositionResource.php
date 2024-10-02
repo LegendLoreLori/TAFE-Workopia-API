@@ -16,9 +16,11 @@ class PositionResource extends JsonResource
     {
 
         $company = CompanyResource::make($this->company);
+        $user = UserResource::make($this->user);
 
         return [
             'company' => $company,
+            'user' => $user,
             'start' => $this->start,
             'end' => $this->end,
             'title' => $this->title,

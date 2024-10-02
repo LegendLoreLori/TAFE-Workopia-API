@@ -5,7 +5,7 @@ use App\Models\Position;
 use Illuminate\Support\Carbon;
 use Illuminate\Testing\Fluent\AssertableJson;
 
-test('positions.index returns correct response on success', function () {
+test('positions response format on success', function () {
     Position::factory(3)->for(Company::factory())->create();
 
     $response = $this->getJson('api/v1/positions');
@@ -24,6 +24,14 @@ test('positions.index returns correct response on success', function () {
                     ->has('logo_path')
                     ->has('name')
                     ->has('state'))
+                ->has('user', fn(AssertableJson $json) => $json
+                    ->has('name')
+                    ->has('family_name')
+                    ->has('username')
+                    ->has('email')
+                    ->has('type')
+                    ->has('company_id')
+                    ->has('status'))
                 ->has('start')
                 ->has('end')
                 ->has('title')
@@ -49,7 +57,7 @@ test('position.index returns correctly formatted error response on failure',
             ]);
     });
 
-test('positions.store success response format', function () {
+test('positions.store success response', function () {
     $company = Company::factory()->create();
 
     $position = Position::factory()->for($company)->makeOne()->toArray();

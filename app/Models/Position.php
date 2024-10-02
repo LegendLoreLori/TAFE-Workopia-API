@@ -20,6 +20,7 @@ class Position extends Model
      */
     protected $fillable = [
         'company_id',
+        'user_id',
         'start',
         'end',
         'title',
@@ -51,6 +52,16 @@ class Position extends Model
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
+    }
+
+    /**
+     * Get the client that owns this position.
+     *
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 
     /**

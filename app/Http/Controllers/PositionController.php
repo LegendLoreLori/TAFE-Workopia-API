@@ -68,6 +68,7 @@ class PositionController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'company_id' => 'required|integer|exists:companies,id',
+            'user_id' => 'required|integer|exists:users,id',
             'start' => 'required|date',
             'end' => 'required|date|after:start',
             'title' => 'required|string|between:2,255',
@@ -132,6 +133,7 @@ class PositionController extends Controller
 
         $validator = Validator::make($request->all(), [
             'company_id' => 'prohibited',
+            'user_id' => 'prohibited',
             'start' => 'prohibited',
             'end' => 'sometimes|date|after:now',
             'title' => 'sometimes|required|string|between:2,255',

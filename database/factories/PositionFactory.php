@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,10 @@ class PositionFactory extends Factory
     public function definition(): array
     {
         return [
-            'company_id' => Company::factory(),
+            'user_id' => User::factory()->state(['type' => 'Client']),
+            'company_id' => function (array $attributes) {
+                return User::find($attributes['user_id'])->company;
+            },
             'start'=> $this->faker->dateTimeBetween('now')->format(\DateTimeInterface::ATOM),
             'end'=> $this->faker->dateTimeBetween('+1 month', '+3 months')->format(\DateTimeInterface::ATOM),
             'title'=> $this->faker->jobTitle(),
