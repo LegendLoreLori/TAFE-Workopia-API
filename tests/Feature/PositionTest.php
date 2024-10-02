@@ -2,7 +2,6 @@
 
 use App\Models\Company;
 use App\Models\Position;
-use Illuminate\Support\Carbon;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 test('positions response format on success', function () {
@@ -55,7 +54,7 @@ test('position.index returns correctly formatted error response on failure',
                 'success' => false,
                 'message' => 'Unable to retrieve positions at this time, please contact your system administrator'
             ]);
-    });
+});
 
 test('positions.store success response', function () {
     $company = Company::factory()->create();
