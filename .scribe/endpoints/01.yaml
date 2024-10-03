@@ -31,7 +31,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"success":true,"message":"Retrieved positions","data":[{"company":{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},"start":"1975-05-25","end":"2015-06-28","title":"Recreational Vehicle Service Technician","description":"Delectus qui voluptatibus voluptatem ut fuga.","min_salary":45011,"max_salary":100280,"currency":"TMT","benefits":"et quod eius quo laudantium","requirements":"ea id ratione quis dignissimos eaque quia incidunt sint cumque","type":"unde"},{"company":{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},"start":"1994-04-10","end":"2006-02-02","title":"Instrument Sales Representative","description":"Enim sapiente non aut fuga in rem.","min_salary":52046,"max_salary":111734,"currency":"GMD","benefits":"vero quibusdam molestiae reiciendis sapiente","requirements":"laboriosam voluptate ut aut et quia sint qui magni dolores","type":"vitae"},{"company":{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},"start":"1999-06-16","end":"2006-06-27","title":"Bartender","description":"Eum molestias qui alias qui maxime aliquam.","min_salary":44122,"max_salary":112760,"currency":"CZK","benefits":"ipsam cupiditate dolorum id eaque","requirements":"numquam autem et eius ut impedit sit distinctio cupiditate delectus","type":"vitae"}]}'
+        content: '{"success":true,"message":"Retrieved positions","data":[{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-20T22:22:33+00:00","title":"Aircraft Rigging Assembler","description":"Velit sed ipsam culpa.","min_salary":48110,"max_salary":124869,"currency":"JOD","benefits":"facere facere aut accusamus eius","requirements":"nostrum eaque incidunt qui sunt necessitatibus doloribus vero sit rerum","type":"Contract"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-14T07:53:22+00:00","title":"Forensic Science Technician","description":"Architecto quos repellat dolorem et est earum exercitationem accusantium.","min_salary":43994,"max_salary":132603,"currency":"CDF","benefits":"nihil consectetur ut consequatur facere","requirements":"et et quia possimus consequatur est quia quae facere dolorem","type":"Casual"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-05T09:36:28+00:00","title":"Forest and Conservation Technician","description":"Aliquid ipsa magni qui repellat.","min_salary":74920,"max_salary":112958,"currency":"TJS","benefits":"neque odit nostrum impedit quia","requirements":"modi aliquam et rerum velit id ullam facere iusto deserunt","type":"Contract"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Prof. Ross Kuhic","family_name":"Wolff","username":"elmira.schumm","email":"runolfsdottir.damaris@example.com","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-20T07:46:32+00:00","title":"Poet OR Lyricist","description":"Id aut dolorem quaerat enim ut sunt.","min_salary":61862,"max_salary":113596,"currency":"BGN","benefits":"quas inventore sint at saepe","requirements":"ut et molestias ut numquam culpa autem ut cupiditate voluptas","type":"Contract"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Leta Halvorson","family_name":"Dickens","username":"damian.cummerata","email":"shanahan.garrison@example.net","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-31T10:09:26+00:00","title":"Electrical Engineer","description":"Quidem quae nesciunt sunt ut rerum ipsa aut.","min_salary":57024,"max_salary":114949,"currency":"BGN","benefits":"quaerat et debitis nemo ea","requirements":"libero ratione nesciunt et inventore facere explicabo error minima suscipit","type":"Contract"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":{"name":"Herminia Rempel","family_name":"Huel","username":"vadams","email":"towne.estefania@example.com","type":"Client","company_id":3,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-28T10:29:55+00:00","title":"Choreographer","description":"Consectetur dolor velit et commodi.","min_salary":48463,"max_salary":136922,"currency":"TWD","benefits":"reprehenderit officiis sit ut dicta","requirements":"omnis et culpa deserunt magnam doloremque earum qui quasi occaecati","type":"Full-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-21T16:05:39+00:00","title":"Obstetrician","description":"Incidunt eaque in voluptas eaque numquam.","min_salary":67744,"max_salary":138634,"currency":"XCD","benefits":"veritatis nisi perferendis est hic","requirements":"consequatur temporibus aperiam dolor id explicabo optio molestiae non architecto","type":"Casual"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Ronny Ziemann PhD","family_name":"Carroll","username":"morton91","email":"ernestine.bruen@example.net","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-05T01:13:59+00:00","title":"Radar Technician","description":"In deleniti dolor cum quia odio veniam.","min_salary":51088,"max_salary":95021,"currency":"BGN","benefits":"soluta nulla sequi nisi ut","requirements":"odit maxime rerum dolorem est placeat est odio placeat enim","type":"Casual"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Leta Halvorson","family_name":"Dickens","username":"damian.cummerata","email":"shanahan.garrison@example.net","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-17T20:18:49+00:00","title":"Custom Tailor","description":"Et labore beatae non nulla autem.","min_salary":50630,"max_salary":141580,"currency":"GTQ","benefits":"quidem saepe et aliquam harum","requirements":"aut quo id ut atque quibusdam est doloribus alias sapiente","type":"Part-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-20T12:46:56+00:00","title":"Insurance Claims Clerk","description":"Et autem quod voluptatem et ratione occaecati.","min_salary":73283,"max_salary":127096,"currency":"FJD","benefits":"consequuntur dicta laborum aliquam molestiae","requirements":"autem voluptas dolores qui fuga sunt laudantium assumenda et hic","type":"Full-Time"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-07T18:03:17+00:00","title":"Private Sector Executive","description":"Voluptatem veniam et possimus distinctio est aut.","min_salary":49468,"max_salary":142138,"currency":"MNT","benefits":"reiciendis voluptas aut soluta est","requirements":"et debitis delectus ut repudiandae sunt cupiditate consectetur eos aperiam","type":"Full-Time"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-04T22:56:30+00:00","title":"Nuclear Technician","description":"Ratione perspiciatis cumque modi rem.","min_salary":70864,"max_salary":90294,"currency":"SSP","benefits":"officiis voluptatem mollitia vel temporibus","requirements":"atque omnis necessitatibus soluta atque facere quis qui iste id","type":"Casual"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":{"name":"Herminia Rempel","family_name":"Huel","username":"vadams","email":"towne.estefania@example.com","type":"Client","company_id":3,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-24T08:29:12+00:00","title":"Structural Metal Fabricator","description":"Autem incidunt recusandae at voluptas exercitationem dolorum et ratione.","min_salary":47122,"max_salary":107037,"currency":"KGS","benefits":"sint eius impedit perspiciatis sed","requirements":"et sed illo illum nihil recusandae voluptas aut voluptate rerum","type":"Part-Time"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Prof. Ross Kuhic","family_name":"Wolff","username":"elmira.schumm","email":"runolfsdottir.damaris@example.com","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-05T11:21:33+00:00","title":"Maintenance Supervisor","description":"Architecto sit eligendi minus consequatur ad occaecati quia consectetur.","min_salary":77084,"max_salary":121238,"currency":"NAD","benefits":"hic aut magnam rerum eveniet","requirements":"sed quis eum asperiores quia qui assumenda magnam nulla nobis","type":"Part-Time"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-11T00:58:42+00:00","title":"Administrative Law Judge","description":"Molestias temporibus omnis non velit eligendi aliquam dolor.","min_salary":50615,"max_salary":94260,"currency":"TND","benefits":"ea numquam aliquam aspernatur quam","requirements":"eos id dolorum minus magni nulla error quidem laborum aliquam","type":"Part-Time"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-22T04:01:55+00:00","title":"Conveyor Operator","description":"Perspiciatis sit ut suscipit aspernatur est excepturi enim.","min_salary":46858,"max_salary":147031,"currency":"SSP","benefits":"qui saepe at aut minima","requirements":"quasi voluptas eligendi et non ullam numquam ullam dignissimos est","type":"Part-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2025-01-01T16:29:03+00:00","title":"Business Development Manager","description":"Soluta molestias corporis aut aliquid sed nesciunt dolores enim.","min_salary":49816,"max_salary":126700,"currency":"XCD","benefits":"mollitia ut cumque maxime dolor","requirements":"voluptatem ex excepturi adipisci nulla ut rerum et sequi consectetur","type":"Casual"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Ronny Ziemann PhD","family_name":"Carroll","username":"morton91","email":"ernestine.bruen@example.net","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-17T20:43:45+00:00","title":"Agricultural Sciences Teacher","description":"Animi at placeat animi.","min_salary":47139,"max_salary":106835,"currency":"FJD","benefits":"cum rerum velit voluptatem harum","requirements":"similique sint voluptates enim animi ab sequi deserunt id architecto","type":"Contract"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-12T09:51:30+00:00","title":"Telephone Station Installer and Repairer","description":"Iure sapiente rerum qui est nisi in dolores.","min_salary":51294,"max_salary":146164,"currency":"TWD","benefits":"temporibus corrupti aliquam repellendus ab","requirements":"tenetur et expedita quas assumenda cupiditate aut et natus dolores","type":"Casual"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Prof. Ross Kuhic","family_name":"Wolff","username":"elmira.schumm","email":"runolfsdottir.damaris@example.com","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-24T08:43:13+00:00","title":"Precious Stone Worker","description":"Ea ut officiis et fugit et dolor.","min_salary":74688,"max_salary":100733,"currency":"HNL","benefits":"voluptates beatae quaerat voluptas eum","requirements":"aliquid repellat dolor eveniet veritatis fuga molestias cumque velit aliquam","type":"Contract"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":{"name":"Herminia Rempel","family_name":"Huel","username":"vadams","email":"towne.estefania@example.com","type":"Client","company_id":3,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-03T09:33:24+00:00","title":"Engineering Manager","description":"Id ipsum praesentium facilis totam mollitia voluptatem.","min_salary":41166,"max_salary":118336,"currency":"CVE","benefits":"quia porro consequatur sit architecto","requirements":"omnis sequi a asperiores sed suscipit neque deserunt officiis non","type":"Contract"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Felix Marquardt","family_name":"Konopelski","username":"bmertz","email":"hal.flatley@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-11T23:35:46+00:00","title":"New Accounts Clerk","description":"Ipsam necessitatibus delectus minima neque veniam.","min_salary":79261,"max_salary":130195,"currency":"IQD","benefits":"placeat praesentium in iusto quod","requirements":"voluptas reprehenderit itaque perferendis tempore est quia ut voluptatem consequatur","type":"Part-Time"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":{"name":"Herminia Rempel","family_name":"Huel","username":"vadams","email":"towne.estefania@example.com","type":"Client","company_id":3,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-26T02:41:04+00:00","title":"First-Line Supervisor-Manager of Landscaping, Lawn Service, and Groundskeeping Worker","description":"Doloremque atque necessitatibus earum ipsa qui voluptas quia amet.","min_salary":70956,"max_salary":132783,"currency":"IRR","benefits":"est ipsam et quo facilis","requirements":"amet molestiae explicabo eum aliquam qui et omnis iusto quo","type":"Full-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-24T13:18:28+00:00","title":"Forming Machine Operator","description":"Libero saepe natus pariatur rerum esse in quae.","min_salary":65895,"max_salary":130664,"currency":"LRD","benefits":"reiciendis odit in voluptas ratione","requirements":"dolorum soluta veniam rerum laborum est perspiciatis sed magnam modi","type":"Casual"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Prof. Ross Kuhic","family_name":"Wolff","username":"elmira.schumm","email":"runolfsdottir.damaris@example.com","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-13T04:58:17+00:00","title":"Interpreter OR Translator","description":"Maiores quos praesentium aut eaque necessitatibus.","min_salary":53796,"max_salary":141632,"currency":"BTN","benefits":"quibusdam repudiandae ut unde eos","requirements":"sint minima ratione voluptatem rerum praesentium facilis velit sed quia","type":"Contract"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-11T17:35:19+00:00","title":"School Bus Driver","description":"Est harum rerum dolores excepturi et.","min_salary":50026,"max_salary":139092,"currency":"CLP","benefits":"magnam dolor et ratione quo","requirements":"explicabo rerum fuga beatae veniam accusamus non voluptas expedita ut","type":"Part-Time"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-16T14:34:33+00:00","title":"Brazer","description":"Sunt reprehenderit sint vel pariatur.","min_salary":43482,"max_salary":137134,"currency":"CHF","benefits":"quia quae aliquid fuga consequuntur","requirements":"enim consequatur nemo aut non repellat ab qui qui deleniti","type":"Casual"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Prof. Ross Kuhic","family_name":"Wolff","username":"elmira.schumm","email":"runolfsdottir.damaris@example.com","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-31T00:56:29+00:00","title":"Nonfarm Animal Caretaker","description":"Dolor consequatur explicabo inventore sed.","min_salary":59667,"max_salary":108936,"currency":"MWK","benefits":"voluptatem eum laborum nesciunt dicta","requirements":"iste sunt vitae deserunt iure blanditiis repellendus ut voluptatem fuga","type":"Full-Time"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-23T09:16:02+00:00","title":"Medical Scientists","description":"Atque officiis ullam vero assumenda voluptas dolor.","min_salary":72822,"max_salary":138197,"currency":"BSD","benefits":"mollitia qui omnis doloribus aliquam","requirements":"qui omnis enim vero quisquam consequatur et fugiat unde provident","type":"Full-Time"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":{"name":"Herminia Rempel","family_name":"Huel","username":"vadams","email":"towne.estefania@example.com","type":"Client","company_id":3,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-12T05:25:19+00:00","title":"Respiratory Therapy Technician","description":"Repellat aut labore laboriosam veritatis.","min_salary":72811,"max_salary":101179,"currency":"GMD","benefits":"eaque occaecati quo qui et","requirements":"voluptatem qui quo molestiae sunt praesentium magni reprehenderit ut nisi","type":"Casual"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-27T17:35:53+00:00","title":"Loan Interviewer","description":"Consequuntur exercitationem deleniti consequatur et perferendis.","min_salary":67493,"max_salary":99122,"currency":"SLL","benefits":"consequatur aut tempora optio et","requirements":"et expedita omnis temporibus nesciunt voluptatem est voluptatem asperiores consequatur","type":"Full-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-26T18:57:03+00:00","title":"Aircraft Launch Specialist","description":"Molestias mollitia non libero et.","min_salary":52520,"max_salary":111118,"currency":"IDR","benefits":"architecto harum facilis non sint","requirements":"occaecati consequuntur occaecati ipsum sit earum doloribus officiis qui ut","type":"Full-Time"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Felix Marquardt","family_name":"Konopelski","username":"bmertz","email":"hal.flatley@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-28T15:16:49+00:00","title":"Roof Bolters Mining","description":"Non nihil et est eaque aliquid doloribus nihil.","min_salary":45149,"max_salary":102359,"currency":"BYN","benefits":"voluptas cumque doloremque velit eos","requirements":"labore vel ut non provident ab in autem recusandae molestiae","type":"Contract"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-25T11:25:48+00:00","title":"Medical Transcriptionist","description":"Maxime consequatur quae quo dolorem cupiditate eum voluptates.","min_salary":72035,"max_salary":96439,"currency":"KWD","benefits":"facilis dolorem quia quibusdam quis","requirements":"nesciunt delectus omnis ut ea dolorum nihil eligendi quod est","type":"Casual"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-05T04:01:48+00:00","title":"Licensing Examiner and Inspector","description":"Facilis architecto unde ut nihil aut eveniet deserunt harum.","min_salary":76900,"max_salary":105578,"currency":"AWG","benefits":"quia qui perspiciatis et quia","requirements":"nemo reiciendis omnis minima cupiditate dolores velit est modi omnis","type":"Contract"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Leta Halvorson","family_name":"Dickens","username":"damian.cummerata","email":"shanahan.garrison@example.net","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-21T10:45:29+00:00","title":"Occupational Therapist Assistant","description":"Porro vero tempore molestiae eveniet quod cumque eos.","min_salary":42286,"max_salary":138614,"currency":"TZS","benefits":"recusandae sed recusandae cupiditate praesentium","requirements":"sit dolorem eligendi dignissimos ratione temporibus quaerat maiores voluptatibus autem","type":"Casual"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-07T07:42:03+00:00","title":"Diesel Engine Specialist","description":"Sunt distinctio asperiores nobis dolor dolores sed.","min_salary":45681,"max_salary":113899,"currency":"NOK","benefits":"expedita earum earum similique quia","requirements":"voluptatem enim ut occaecati ut explicabo sequi nemo optio blanditiis","type":"Casual"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-14T10:00:41+00:00","title":"Welder and Cutter","description":"Blanditiis id eveniet facere est quasi blanditiis.","min_salary":79913,"max_salary":107736,"currency":"RSD","benefits":"quisquam et voluptatum non illum","requirements":"veritatis voluptate dolores libero in asperiores et sit harum perspiciatis","type":"Full-Time"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-02T05:17:21+00:00","title":"Door To Door Sales","description":"Aut eos tenetur consequatur ea eveniet.","min_salary":72058,"max_salary":143164,"currency":"COP","benefits":"consequatur in eum voluptatum iste","requirements":"id sit quia dignissimos ut quo dicta officiis ipsum repudiandae","type":"Casual"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-21T23:13:50+00:00","title":"Wind Instrument Repairer","description":"Ea quae tenetur quis.","min_salary":53949,"max_salary":133067,"currency":"LAK","benefits":"voluptas vel iste neque impedit","requirements":"odit et delectus veritatis praesentium fugiat rerum aperiam incidunt hic","type":"Casual"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Prof. Ross Kuhic","family_name":"Wolff","username":"elmira.schumm","email":"runolfsdottir.damaris@example.com","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-30T14:38:23+00:00","title":"Exhibit Designer","description":"Ut fuga temporibus necessitatibus autem ratione esse animi.","min_salary":55735,"max_salary":109191,"currency":"PYG","benefits":"nobis laudantium sequi autem qui","requirements":"distinctio optio quod nihil dolor perspiciatis saepe ut exercitationem et","type":"Full-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-05T08:58:14+00:00","title":"Excavating Machine Operator","description":"Id aliquam esse sed asperiores accusamus.","min_salary":53952,"max_salary":105645,"currency":"UAH","benefits":"facilis quisquam eius vero sed","requirements":"ullam maxime animi et est nisi sed sint consequuntur est","type":"Contract"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-03T10:03:11+00:00","title":"Interviewer","description":"Cumque quaerat repellat qui ducimus aliquid.","min_salary":54071,"max_salary":117381,"currency":"TZS","benefits":"expedita quas sit qui praesentium","requirements":"iste iure minus ab quibusdam qui iusto mollitia ea aut","type":"Part-Time"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-12-02T01:18:54+00:00","title":"Bill and Account Collector","description":"Quia nostrum iure et odit.","min_salary":47242,"max_salary":116276,"currency":"ALL","benefits":"molestiae et aut labore quia","requirements":"voluptas accusamus qui tempora omnis minus voluptatem repellendus non voluptates","type":"Full-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-25T10:46:41+00:00","title":"Metal Fabricator","description":"Sapiente ratione aut ipsa quidem.","min_salary":74190,"max_salary":108979,"currency":"ZAR","benefits":"repellat qui et dolorem repellat","requirements":"et rem deserunt necessitatibus rem sequi aut enim perspiciatis consequatur","type":"Full-Time"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":{"name":"Dr. Ronny Ziemann PhD","family_name":"Carroll","username":"morton91","email":"ernestine.bruen@example.net","type":"Client","company_id":4,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-12-03T05:44:08+00:00","title":"Production Control Manager","description":"Nulla maiores expedita voluptate ipsa ea.","min_salary":56848,"max_salary":99029,"currency":"FKP","benefits":"non ut amet occaecati officia","requirements":"iure ut rerum eius architecto tempore velit et repellat et","type":"Contract"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-16T11:22:24+00:00","title":"Mathematician","description":"Sint ut saepe at doloremque tempore sunt.","min_salary":76991,"max_salary":99721,"currency":"CZK","benefits":"ex perspiciatis dicta aut vero","requirements":"et laborum inventore est enim itaque aut et occaecati ducimus","type":"Contract"},{"company":{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-17T05:59:30+00:00","title":"Automotive Glass Installers","description":"Veniam qui est nulla mollitia ab veniam.","min_salary":57814,"max_salary":131839,"currency":"AWG","benefits":"corrupti eum ut et ducimus","requirements":"consequatur sint quasi ex inventore porro ratione quidem soluta omnis","type":"Contract"},{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Leta Halvorson","family_name":"Dickens","username":"damian.cummerata","email":"shanahan.garrison@example.net","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-03T10:11:07+00:00","title":"Cardiovascular Technologist","description":"Ut atque explicabo perspiciatis accusantium a voluptatum.","min_salary":55880,"max_salary":143863,"currency":"YER","benefits":"dolorem nesciunt et sit in","requirements":"vel minima eligendi nobis voluptatem nihil ut corporis labore natus","type":"Casual"},{"company":{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},"user":null,"start":"2024-10-02T03:23:47+00:00","end":"2024-11-16T05:29:42+00:00","title":"Visual Designer","description":"Expedita dicta aut magnam explicabo rem est sint.","min_salary":67200,"max_salary":149718,"currency":"YER","benefits":"voluptas qui voluptas voluptas error","requirements":"id et ipsum aut minima dicta unde quasi dolores enim","type":"Casual"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -71,7 +71,16 @@ endpoints:
         name: company_id
         description: ''
         required: true
-        example: 2
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -80,7 +89,7 @@ endpoints:
         name: start
         description: 'Must be a valid date.'
         required: true
-        example: '2024-10-01T03:24:28'
+        example: '2024-10-03T04:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -89,7 +98,7 @@ endpoints:
         name: end
         description: 'Must be a valid date. Must be a date after <code>start</code>.'
         required: true
-        example: '2028-02-14'
+        example: '2025-11-19'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -98,7 +107,7 @@ endpoints:
         name: title
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: gr
+        example: vr
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -107,7 +116,7 @@ endpoints:
         name: description
         description: 'Must be at least 2 characters.'
         required: true
-        example: 'Totam et vel earum qui totam consequuntur.'
+        example: 'Ullam porro ea dolores consequuntur consequuntur aut alias.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -116,7 +125,7 @@ endpoints:
         name: min_salary
         description: ''
         required: true
-        example: 9
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -125,7 +134,7 @@ endpoints:
         name: max_salary
         description: ''
         required: true
-        example: 10
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -134,7 +143,7 @@ endpoints:
         name: currency
         description: ''
         required: true
-        example: quae
+        example: repellendus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -143,7 +152,7 @@ endpoints:
         name: benefits
         description: 'Must be at least 2 characters.'
         required: true
-        example: auxpkfehhtxighgdjgmgmgebusktskjtydlevjvrlesmwxvbwgkfxslwtmhvludohvmdx
+        example: bblkwrplxvdwuntkbecokltucjfwqficewfbxxtdkzyanydvirdmvodimvugeqqakmihwszlfgtw
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,7 +161,7 @@ endpoints:
         name: requirements
         description: 'Must be at least 2 characters.'
         required: true
-        example: eeuhbaeyjjioetlhnzxaryzcxkeuacgaxkfrriwvl
+        example: omwdzpvyvgsxaujwxolgcm
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -161,23 +170,24 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: doloribus
+        example: quaerat
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      company_id: 2
-      start: '2024-10-01T03:24:28'
-      end: '2028-02-14'
-      title: gr
-      description: 'Totam et vel earum qui totam consequuntur.'
-      min_salary: 9
-      max_salary: 10
-      currency: quae
-      benefits: auxpkfehhtxighgdjgmgmgebusktskjtydlevjvrlesmwxvbwgkfxslwtmhvludohvmdx
-      requirements: eeuhbaeyjjioetlhnzxaryzcxkeuacgaxkfrriwvl
-      type: doloribus
+      company_id: 5
+      user_id: 15
+      start: '2024-10-03T04:09:08'
+      end: '2025-11-19'
+      title: vr
+      description: 'Ullam porro ea dolores consequuntur consequuntur aut alias.'
+      min_salary: 17
+      max_salary: 18
+      currency: repellendus
+      benefits: bblkwrplxvdwuntkbecokltucjfwqficewfbxxtdkzyanydvirdmvodimvugeqqakmihwszlfgtw
+      requirements: omwdzpvyvgsxaujwxolgcm
+      type: quaerat
     fileParameters: []
     responses: []
     responseFields: []
@@ -224,7 +234,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"success":true,"message":"Retrieved position with id: 1","data":{"company":{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},"start":"1975-05-25","end":"2015-06-28","title":"Recreational Vehicle Service Technician","description":"Delectus qui voluptatibus voluptatem ut fuga.","min_salary":45011,"max_salary":100280,"currency":"TMT","benefits":"et quod eius quo laudantium","requirements":"ea id ratione quis dignissimos eaque quia incidunt sint cumque","type":"unde"}}'
+        content: '{"success":true,"message":"Retrieved position with id: 1","data":{"company":{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"},"user":{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},"start":"2024-10-02T03:23:47+00:00","end":"2024-11-20T22:22:33+00:00","title":"Aircraft Rigging Assembler","description":"Velit sed ipsam culpa.","min_salary":48110,"max_salary":124869,"currency":"JOD","benefits":"facere facere aut accusamus eius","requirements":"nostrum eaque incidunt qui sunt necessitatibus doloribus vero sit rerum","type":"Contract"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -249,7 +259,7 @@ endpoints:
         API endpoints for job positions
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified position in the database.'
+      title: 'Update the specified position in the database'
       description: ''
       authenticated: false
       custom: []
@@ -280,6 +290,15 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
       start:
         name: start
         description: ''
@@ -293,7 +312,7 @@ endpoints:
         name: end
         description: 'Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2093-10-29'
+        example: '2111-10-30'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -302,7 +321,7 @@ endpoints:
         name: title
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: iei
+        example: kje
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -311,7 +330,7 @@ endpoints:
         name: description
         description: 'Must be at least 2 characters.'
         required: false
-        example: 'Animi placeat eum ratione ipsam sed fugiat aut tempora.'
+        example: 'Ullam accusamus explicabo ab eum libero.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -329,7 +348,7 @@ endpoints:
         name: max_salary
         description: ''
         required: false
-        example: 14
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -338,7 +357,7 @@ endpoints:
         name: currency
         description: ''
         required: false
-        example: sit
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -347,7 +366,7 @@ endpoints:
         name: benefits
         description: 'Must be at least 2 characters.'
         required: false
-        example: unvvtdeadxazbrdebcrerrewfxkwilezjxwwfvthjjleoxsukeztlisqmutnrabwuwr
+        example: nozmrevhxz
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -356,7 +375,7 @@ endpoints:
         name: requirements
         description: 'Must be at least 2 characters.'
         required: false
-        example: xzcwyflsmxkzywzifcxzphgehzkqbyocdxasulqmhrdmgfxpiajmseawxbtqqqsmblsjjlqi
+        example: hrohhsbfhabjenqrlggxgpyaopyxgzifimthj
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -365,21 +384,21 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: perferendis
+        example: molestias
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      end: '2093-10-29'
-      title: iei
-      description: 'Animi placeat eum ratione ipsam sed fugiat aut tempora.'
+      end: '2111-10-30'
+      title: kje
+      description: 'Ullam accusamus explicabo ab eum libero.'
       min_salary: 4
-      max_salary: 14
-      currency: sit
-      benefits: unvvtdeadxazbrdebcrerrewfxkwilezjxwwfvthjjleoxsukeztlisqmutnrabwuwr
-      requirements: xzcwyflsmxkzywzifcxzphgehzkqbyocdxasulqmhrdmgfxpiajmseawxbtqqqsmblsjjlqi
-      type: perferendis
+      max_salary: 5
+      currency: aut
+      benefits: nozmrevhxz
+      requirements: hrohhsbfhabjenqrlggxgpyaopyxgzifimthj
+      type: molestias
     fileParameters: []
     responses: []
     responseFields: []
@@ -411,13 +430,13 @@ endpoints:
         name: id
         description: 'The ID of the position.'
         required: true
-        example: 13
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 13
+      id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -453,13 +472,13 @@ endpoints:
         name: id
         description: 'The ID of the position.'
         required: true
-        example: 11
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 11
+      id: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -468,7 +487,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"success":true,"message":"Position with id: 11 restored","data":"11"}'
+        content: '{"success":true,"message":"Position with id: 20 restored","data":"20"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

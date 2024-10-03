@@ -1,0 +1,433 @@
+name: User
+description: |-
+
+  API endpoints for users
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/users
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        API endpoints for users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all users'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Retrieved users","data":[{"name":"Dr. Keshawn Jakubowski Sr.","family_name":"Botsford","username":"superadmin","email":"test@email.com","type":"Staff","company_id":null,"status":"Unconfirmed"},{"name":"Herminia Rempel","family_name":"Huel","username":"vadams","email":"towne.estefania@example.com","type":"Client","company_id":3,"status":"Active"},{"name":"Felix Marquardt","family_name":"Konopelski","username":"bmertz","email":"hal.flatley@example.org","type":"Client","company_id":5,"status":"Active"},{"name":"Leta Halvorson","family_name":"Dickens","username":"damian.cummerata","email":"shanahan.garrison@example.net","type":"Client","company_id":5,"status":"Active"},{"name":"Dr. Alec Hammes","family_name":"Larson","username":"ward.johan","email":"fahey.virgil@example.org","type":"Client","company_id":4,"status":"Active"},{"name":"Prof. Ross Kuhic","family_name":"Wolff","username":"elmira.schumm","email":"runolfsdottir.damaris@example.com","type":"Client","company_id":5,"status":"Active"},{"name":"Dr. Ronny Ziemann PhD","family_name":"Carroll","username":"morton91","email":"ernestine.bruen@example.net","type":"Client","company_id":4,"status":"Active"},{"name":"Beaulah Jerde MD","family_name":"Robel","username":"ocrist","email":"okey66@example.org","type":"Client","company_id":5,"status":"Active"},{"name":"Wilton Schultz","family_name":"Bailey","username":"mertz.blake","email":"klocko.jordi@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Dahlia Sanford","family_name":"Boyer","username":"courtney18","email":"torp.forest@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Mr. Hilton Howe","family_name":"Homenick","username":"halvorson.delta","email":"vwalker@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Jordyn Spencer","family_name":"Fadel","username":"kassulke.nicholas","email":"garnet.hickle@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Prof. Kenna Zboncak","family_name":"Medhurst","username":"yschamberger","email":"shields.margie@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Isac Funk","family_name":"Goldner","username":"mohammed.pollich","email":"michelle.bernier@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Dr. Sid O''Connell","family_name":"Mohr","username":"dach.imelda","email":"kristy.gerlach@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Mr. Cristina Mosciski Jr.","family_name":"Stokes","username":"keegan49","email":"keeling.lindsay@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Jeffrey Kuvalis","family_name":"Mraz","username":"xander.yost","email":"zora73@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Dr. Tracy Daniel","family_name":"Reynolds","username":"wyman.murphy","email":"fwehner@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Jennifer Padberg","family_name":"Franecki","username":"schinner.trevor","email":"alison78@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Ms. Meredith Feest DVM","family_name":"McCullough","username":"murphy.raphael","email":"genesis.kovacek@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Delilah Harvey","family_name":"Hermann","username":"ejohnson","email":"antonio.gleason@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Miss Dominique Nikolaus DVM","family_name":"Ruecker","username":"lboyle","email":"whilpert@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Maryjane Kuhic","family_name":"Simonis","username":"donnelly.treva","email":"murphy.benny@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Renee McClure","family_name":"Kovacek","username":"zieme.naomi","email":"anya23@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Jalon Haag","family_name":"Sporer","username":"laisha21","email":"mariane.lakin@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Dr. Jacey Dooley III","family_name":"Prosacco","username":"antonetta65","email":"kpowlowski@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Bertrand Hudson","family_name":"Gusikowski","username":"leonard.armstrong","email":"dayna.stoltenberg@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Garth Abernathy","family_name":"Runolfsdottir","username":"estrella63","email":"hoppe.giles@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Ms. Cordie Kozey","family_name":"Johnston","username":"pinkie94","email":"cremin.patricia@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Dolly Pfeffer II","family_name":"Carroll","username":"llewellyn10","email":"yessenia71@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Savanah Effertz","family_name":"Borer","username":"qhilpert","email":"xzulauf@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Meggie Casper","family_name":"Gusikowski","username":"emmerich.retta","email":"foster.hodkiewicz@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Laurence Champlin","family_name":"Kutch","username":"mraz.rose","email":"gstracke@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Elmer Glover","family_name":"Blanda","username":"wuckert.marcus","email":"susie.simonis@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Madison Davis","family_name":"Fisher","username":"hipolito49","email":"bogan.carlo@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Dr. Judd O''Reilly Jr.","family_name":"Bayer","username":"tobin.feest","email":"lenna80@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Leatha Bogisich","family_name":"Simonis","username":"crystel.bartell","email":"vincenza.braun@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Noble Waelchi","family_name":"Abshire","username":"maximillian.moen","email":"margaretta.fahey@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Carlo Nolan","family_name":"Cummerata","username":"beverly.west","email":"heidenreich.mathias@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Maci Volkman","family_name":"Bergstrom","username":"xbernhard","email":"lorenz.nicolas@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Prof. Rhea Mertz","family_name":"King","username":"mosciski.zane","email":"ehills@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Aryanna Cormier","family_name":"Ledner","username":"colleen44","email":"philpert@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Brayan Boehm","family_name":"DuBuque","username":"asha.homenick","email":"nolan.pamela@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Alexandre Nicolas","family_name":"Mayert","username":"hane.lonie","email":"wtorphy@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Ernest Kessler","family_name":"Turner","username":"strosin.marilou","email":"alexandria.parisian@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Zachery Kunze DVM","family_name":"Hammes","username":"mconn","email":"kuvalis.stefanie@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Miss Lura Lebsack III","family_name":"Carroll","username":"will.sadie","email":"hsimonis@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Mr. Broderick Kozey III","family_name":"Bode","username":"beth71","email":"osinski.axel@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Nicholas Kautzer III","family_name":"Kihn","username":"kessler.ernestina","email":"clifford.rosenbaum@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Dr. Chadrick Yost DVM","family_name":"Prosacco","username":"juliet79","email":"baron11@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Samantha Fisher","family_name":"Braun","username":"liam.hill","email":"makayla37@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Miss Jennifer Trantow I","family_name":"Jones","username":"ena06","email":"lurline75@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Berenice Simonis","family_name":"Turner","username":"morar.tiana","email":"jarred.grant@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Verdie Carter","family_name":"Mosciski","username":"rudy.botsford","email":"owunsch@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Arlene Lemke","family_name":"Upton","username":"roscoe.carter","email":"laney36@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Doris Jacobs","family_name":"Steuber","username":"fritsch.esmeralda","email":"howe.nova@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Leslie Medhurst","family_name":"Lueilwitz","username":"eugenia68","email":"janick.cruickshank@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Wanda Hudson","family_name":"Ziemann","username":"ullrich.cecil","email":"hansen.abagail@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Dr. Merl Mante","family_name":"Ritchie","username":"hane.nils","email":"maia.daugherty@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Eliane Howe DDS","family_name":"Bergnaum","username":"champlin.torey","email":"dayton56@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Wade Bode","family_name":"Wisoky","username":"virginie.weissnat","email":"americo39@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Rhiannon Toy","family_name":"Yost","username":"nader.kaela","email":"prohaska.darrick@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Alexis Ryan Jr.","family_name":"Schuster","username":"verona.little","email":"tbreitenberg@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Ruben O''Hara II","family_name":"Yundt","username":"sasha72","email":"lavinia.boyer@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Dr. Amaya Gusikowski II","family_name":"Weissnat","username":"name95","email":"sabryna.trantow@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Eino Smith","family_name":"Monahan","username":"xlittle","email":"julie.vonrueden@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Jessica Cormier","family_name":"Gusikowski","username":"dare.axel","email":"leuschke.jamir@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Kenny Kilback Sr.","family_name":"Kemmer","username":"juanita.romaguera","email":"khalil.nader@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Aletha Huel","family_name":"Gutkowski","username":"bette.deckow","email":"senger.maud@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Domenick Schmidt","family_name":"Williamson","username":"collins.torey","email":"carrie.hauck@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Prof. Angus Turcotte","family_name":"Kemmer","username":"jackson94","email":"ericka74@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Mrs. Macy Feest MD","family_name":"Rath","username":"paige66","email":"rey.pollich@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Mr. Stan Leuschke I","family_name":"Thompson","username":"jkeeling","email":"rasheed.quitzon@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Wade Lowe","family_name":"Wiza","username":"stanton.dan","email":"jacobi.marcellus@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Prof. Caesar Ratke DDS","family_name":"Bayer","username":"tharris","email":"zstroman@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Charlotte Hagenes","family_name":"Russel","username":"alexandra67","email":"bettie00@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Haylie Glover V","family_name":"Satterfield","username":"steuber.madison","email":"anne27@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Molly Kutch","family_name":"Rau","username":"annabel10","email":"zieme.simone@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Kassandra Russel","family_name":"Rodriguez","username":"rosa.bogisich","email":"pearl.turcotte@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Woodrow Schuster","family_name":"Harber","username":"cummings.alexander","email":"briana56@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Adelle Schroeder","family_name":"Ortiz","username":"sbergnaum","email":"huel.brenden@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Ariane Smith","family_name":"Nolan","username":"davis.michael","email":"ledner.murl@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Morton Jones Sr.","family_name":"Ortiz","username":"bmaggio","email":"estefania21@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Shad Auer","family_name":"Kunze","username":"estevan.hammes","email":"kris.kyla@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Bradley Fahey III","family_name":"Will","username":"mann.harley","email":"leann.kunde@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Elvie Altenwerth","family_name":"Prosacco","username":"stehr.daisha","email":"mauricio17@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Hettie Schoen","family_name":"Williamson","username":"okuneva.bryce","email":"pkemmer@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Jett Parisian","family_name":"Crona","username":"karl36","email":"matteo.stiedemann@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Arielle Zulauf","family_name":"Swift","username":"winfield.beier","email":"watsica.marjolaine@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Harry Bahringer","family_name":"Steuber","username":"judd.thompson","email":"keeley.douglas@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Kayley White","family_name":"Cremin","username":"sharon10","email":"kayden59@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Elijah Doyle PhD","family_name":"Schulist","username":"franco35","email":"sammy.carter@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Angela Mante","family_name":"Miller","username":"don79","email":"billie.dicki@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Rosamond Kuhn","family_name":"Smitham","username":"hazel.white","email":"adele.jones@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Freddy Dibbert","family_name":"Johnston","username":"ueichmann","email":"xblick@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Austin Bashirian DDS","family_name":"Conn","username":"johnston.myra","email":"goyette.amos@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Madilyn Grant","family_name":"Oberbrunner","username":"iwalker","email":"birdie90@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mr. Lukas Jast","family_name":"Daugherty","username":"theidenreich","email":"carlos.miller@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Mrs. Nella Krajcik","family_name":"Zieme","username":"dare.jayne","email":"yesenia70@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Prof. Andy Cassin","family_name":"Konopelski","username":"bode.cordelia","email":"clifton.windler@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Laisha White II","family_name":"Little","username":"bertrand.pouros","email":"will.kailee@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Clare Barrows","family_name":"Olson","username":"rosendo.rodriguez","email":"kali.zieme@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Lori Klein","family_name":"Auer","username":"bmann","email":"sdickinson@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Prof. Marlen Blanda MD","family_name":"Schimmel","username":"kenya44","email":"consuelo.blick@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Dr. Florence Stehr","family_name":"Gottlieb","username":"wshields","email":"gwendolyn69@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Erna Swift","family_name":"Osinski","username":"dario.dicki","email":"hkiehn@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Emely Pacocha","family_name":"Wiegand","username":"schumm.rickie","email":"kenyatta00@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Dr. Milan Howe I","family_name":"Smitham","username":"jharris","email":"shomenick@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Joshuah Klocko","family_name":"Denesik","username":"glover.camron","email":"jude.rolfson@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Queenie Mitchell","family_name":"Marvin","username":"beer.hoyt","email":"susan.collier@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Keshawn Wilderman","family_name":"Padberg","username":"dereck.mraz","email":"qstokes@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Elliot Armstrong III","family_name":"Jast","username":"arno.langosh","email":"telly.johns@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Ilene Botsford","family_name":"Leffler","username":"mhirthe","email":"turner.lindsey@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Felicia Grant","family_name":"Nader","username":"laurie.will","email":"crona.murray@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Candelario Pfeffer","family_name":"Wiegand","username":"tbraun","email":"mpaucek@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Mrs. Roxanne Pfeffer MD","family_name":"Graham","username":"nova.kovacek","email":"ozella10@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mr. Jose Erdman","family_name":"Koss","username":"ullrich.marilou","email":"weldon39@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Enrique Homenick","family_name":"Rippin","username":"akeebler","email":"botsford.joseph@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Leta Hahn","family_name":"Thiel","username":"benjamin.beier","email":"carmelo.schiller@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Dr. Judge Harvey III","family_name":"Smith","username":"cullrich","email":"shanon.romaguera@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Benedict Greenholt","family_name":"Dickinson","username":"smitham.bud","email":"cleve51@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Kelli Stamm","family_name":"Ward","username":"wisoky.gracie","email":"elinor70@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Lexus Casper DDS","family_name":"Hickle","username":"hershel.weber","email":"xfeeney@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Colby Gleason I","family_name":"Greenfelder","username":"hartmann.adolphus","email":"lilian.kub@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Ruth Howell","family_name":"Feest","username":"wwill","email":"bud45@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Cullen Schimmel","family_name":"Gerhold","username":"lemke.micaela","email":"leffler.rosario@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Kasey Johnston","family_name":"Krajcik","username":"reed65","email":"uwiza@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Willow Block","family_name":"Miller","username":"gunner97","email":"janick.okon@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Jettie McClure","family_name":"Smitham","username":"yheathcote","email":"mark.nitzsche@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Lacy Kozey","family_name":"Langosh","username":"zbergstrom","email":"reichert.ayden@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Lexie Franecki","family_name":"Kassulke","username":"jayne.gorczany","email":"wisozk.elizabeth@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Prof. Johnathan Murazik","family_name":"Herzog","username":"kdietrich","email":"maryse27@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Mr. David Mraz V","family_name":"Sanford","username":"adrianna.mohr","email":"lempi.marquardt@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Isabella Reinger","family_name":"Runolfsson","username":"connor48","email":"peggie94@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Carley Carter","family_name":"Olson","username":"millie.lesch","email":"betty.thompson@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Anderson Wehner","family_name":"Connelly","username":"ohara.ansley","email":"hassan93@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Mr. Oswaldo Wyman Jr.","family_name":"Stehr","username":"cummings.hilma","email":"zetta.bednar@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Dax Altenwerth","family_name":"Carroll","username":"ykris","email":"princess88@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Mr. Gavin Blick Sr.","family_name":"Smitham","username":"zmccullough","email":"frida24@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mollie Langworth","family_name":"Prosacco","username":"ivah78","email":"iwalker@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Mrs. Emma Hammes","family_name":"Metz","username":"ebert.margaretta","email":"bhamill@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Alessandro Swift","family_name":"Barton","username":"kbode","email":"swuckert@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Dillan Price","family_name":"Gutmann","username":"hrowe","email":"jerod66@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Evert Heidenreich DDS","family_name":"Boyer","username":"wilton.jacobson","email":"hruecker@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Joel Kohler","family_name":"Shields","username":"watsica.amanda","email":"lbosco@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Veronica Jacobson","family_name":"Hane","username":"lela10","email":"duncan36@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Ismael Durgan","family_name":"Lehner","username":"swaniawski.lila","email":"pkirlin@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mrs. Thalia Frami III","family_name":"Wolf","username":"mills.jazmin","email":"rahul69@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Coty Donnelly","family_name":"Satterfield","username":"icrona","email":"adaline.gorczany@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Dewitt Boyer","family_name":"Beahan","username":"schaden.alexandria","email":"runolfsson.colby@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Nora Heidenreich","family_name":"Rempel","username":"ivy87","email":"little.israel@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Lilla Schaden","family_name":"Friesen","username":"rickie07","email":"london.hansen@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Madelynn Herman","family_name":"Durgan","username":"oheidenreich","email":"johnnie.abshire@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Domingo Oberbrunner MD","family_name":"Collins","username":"waters.laury","email":"alison.bode@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Lawrence Gorczany II","family_name":"Kuhlman","username":"nstamm","email":"vanessa14@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Luz Bernhard MD","family_name":"Stiedemann","username":"percy19","email":"jlittle@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Chadd Fahey","family_name":"Smitham","username":"okshlerin","email":"gerry16@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Meta Corwin","family_name":"Lakin","username":"olga.prosacco","email":"kautzer.waylon@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Norbert Auer","family_name":"Block","username":"sbruen","email":"aglae80@example.org","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Prof. Karolann Orn Sr.","family_name":"Bergstrom","username":"thintz","email":"cristian.effertz@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Jovanny Nikolaus Jr.","family_name":"Wintheiser","username":"sosinski","email":"eschneider@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Prof. Mariela Brown","family_name":"Ankunding","username":"genevieve.hauck","email":"dsteuber@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Vernon Koepp","family_name":"King","username":"sydni65","email":"botsford.mackenzie@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Layne Ullrich","family_name":"Huels","username":"cormier.sonia","email":"nbergnaum@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Dino Wyman Jr.","family_name":"Reichel","username":"percy57","email":"psatterfield@example.org","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Lysanne Douglas III","family_name":"Bashirian","username":"israel.metz","email":"ytromp@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Ms. Shannon Thompson Jr.","family_name":"O''Reilly","username":"apowlowski","email":"dorcas.littel@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Beau D''Amore","family_name":"Thompson","username":"karli06","email":"randi54@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Ms. Delores O''Connell MD","family_name":"Parisian","username":"dhaag","email":"madelyn.yundt@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Berniece Blick","family_name":"Towne","username":"rempel.jesse","email":"rosenbaum.josiah@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Karley Bartoletti II","family_name":"Cassin","username":"sven48","email":"stracke.quinn@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Felix Beier","family_name":"Spencer","username":"graciela54","email":"shania.mcclure@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Pink Stokes","family_name":"Hartmann","username":"meredith42","email":"borer.lee@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Lynn Bergstrom PhD","family_name":"Heaney","username":"carrie.schowalter","email":"tjakubowski@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Mervin Steuber PhD","family_name":"Botsford","username":"christelle.bashirian","email":"esmith@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Darrick Cummings","family_name":"Cormier","username":"bashirian.maximo","email":"branson63@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Lamar Nicolas","family_name":"Botsford","username":"bechtelar.mellie","email":"williamson.isai@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Dr. Manuel Ondricka","family_name":"O''Connell","username":"raynor.retta","email":"wilburn.hamill@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Austyn Eichmann IV","family_name":"D''Amore","username":"gina18","email":"ccronin@example.net","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Aisha Lueilwitz","family_name":"O''Conner","username":"tanner32","email":"lupe94@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mrs. Winnifred Senger","family_name":"Streich","username":"duncan25","email":"schumm.erik@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Marlin Sawayn","family_name":"Hansen","username":"ehansen","email":"deon.lehner@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Misty Gleichner","family_name":"Schaden","username":"trent.hill","email":"cecilia.abbott@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Emanuel Wuckert DDS","family_name":"Skiles","username":"eryan","email":"elouise.johnson@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mr. Jovani Schamberger DVM","family_name":"Gislason","username":"hillary55","email":"conroy.verlie@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mitchel Predovic DDS","family_name":"Hettinger","username":"itzel.nicolas","email":"gusikowski.harmony@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Dayton Waelchi I","family_name":"Hegmann","username":"vstehr","email":"walker.sonny@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Aida Johnston","family_name":"Klein","username":"ebosco","email":"senger.sheldon@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Emmet Senger","family_name":"Erdman","username":"victor.mccullough","email":"strosin.jackson@example.org","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Annamae Beatty","family_name":"Kunze","username":"juliana77","email":"nankunding@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Oral Pfannerstill MD","family_name":"Wyman","username":"hettinger.broderick","email":"tmitchell@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Mr. Daren Lebsack","family_name":"Lowe","username":"rhowell","email":"donnelly.lavinia@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Jarret Walker Sr.","family_name":"Mayer","username":"miracle.feeney","email":"kenny.wyman@example.com","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Winston Mayer","family_name":"Effertz","username":"mosciski.franz","email":"lavern36@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Dr. Melvina Lind Jr.","family_name":"Harvey","username":"sunny.kilback","email":"adrain.russel@example.org","type":"Applicant","company_id":null,"status":"Active"},{"name":"Aditya Dach","family_name":"Funk","username":"gspinka","email":"haven.witting@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Mr. Ola Hand DVM","family_name":"Larson","username":"carol66","email":"chad91@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Trey D''Amore Jr.","family_name":"Dibbert","username":"georgianna55","email":"jaycee.spinka@example.net","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Dr. Monserrate Cummerata","family_name":"Beatty","username":"jace.gleichner","email":"jayda.littel@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Prof. Edison Ward","family_name":"Little","username":"uhane","email":"tquitzon@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Thaddeus Bernier","family_name":"Harber","username":"hyman03","email":"vdibbert@example.net","type":"Applicant","company_id":null,"status":"Active"},{"name":"Antonette Morar PhD","family_name":"Veum","username":"jaylin10","email":"sheridan.hahn@example.net","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Mckayla Quigley DVM","family_name":"Runolfsson","username":"nathanael.tromp","email":"pzulauf@example.org","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Dr. Randall Lueilwitz IV","family_name":"Roberts","username":"kessler.brisa","email":"gaylord.gonzalo@example.com","type":"Applicant","company_id":null,"status":"Unconfirmed"},{"name":"Dr. Agustin Lind IV","family_name":"Kuhlman","username":"jfadel","email":"gladys11@example.com","type":"Applicant","company_id":null,"status":"Active"},{"name":"Zoey Bogan","family_name":"Bednar","username":"breanna.cummings","email":"antwan.ratke@example.com","type":"Applicant","company_id":null,"status":"Suspended"},{"name":"Nelle Gibson","family_name":"Reynolds","username":"sfeest","email":"roxanne86@example.net","type":"Applicant","company_id":null,"status":"Banned"},{"name":"Dayton Watsica","family_name":"Friesen","username":"rodriguez.rita","email":"skylar96@example.com","type":"Applicant","company_id":null,"status":"Unknown"},{"name":"Jane","family_name":"Doe","username":"AwesomeUsername","email":"hillard.kuphal@example.com","type":"Client","company_id":3,"status":"Active"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/users
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        API endpoints for users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add a user to the database'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: ia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      family_name:
+        name: family_name
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: xon
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      username:
+        name: username
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: rkgx
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: reyna27@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: placeat
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: ''
+        required: true
+        example: tenetur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      type:
+        name: type
+        description: ''
+        required: true
+        example: sunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      company_id:
+        name: company_id
+        description: ''
+        required: false
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: ia
+      family_name: xon
+      username: rkgx
+      email: reyna27@example.org
+      password: placeat
+      password_confirmation: tenetur
+      type: sunt
+      company_id: 11
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        API endpoints for users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retrieve a single user'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Retrieved user with id: 1","data":{"name":"Dr. Keshawn Jakubowski Sr.","family_name":"Botsford","username":"superadmin","email":"test@email.com","type":"Staff","company_id":null,"status":"Unconfirmed"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        API endpoints for users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified user in the database'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must be between 2 and 255 characters.'
+        required: false
+        example: ws
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      family_name:
+        name: family_name
+        description: 'Must be between 2 and 255 characters.'
+        required: false
+        example: hkw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      username:
+        name: username
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: flatley.gladys@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: id
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'This field is required when <code>password</code> is present.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      type:
+        name: type
+        description: ''
+        required: false
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      company_id:
+        name: company_id
+        description: ''
+        required: false
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: true
+        example: quod
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: ws
+      family_name: hkw
+      email: flatley.gladys@example.com
+      password: id
+      type: aut
+      company_id: 11
+      status: quod
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        API endpoints for users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Soft delete the specified user from the database'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 6
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/trash/{id}'
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        API endpoints for users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Restore the specified soft deleted user from trash'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 12
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"User with id: 12 restored","data":"12"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

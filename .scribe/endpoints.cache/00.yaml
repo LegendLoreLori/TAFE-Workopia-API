@@ -33,7 +33,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"success":true,"message":"Retrieved companies","data":[{"name":"O''Hara-Beatty","city":"Collierville","state":"side","country":"Ghana","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E11.tmp","extension":"tmp"},{"name":"Tromp-Ritchie","city":"Port Ayana","state":"furt","country":"Uzbekistan","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E12.tmp","extension":"tmp"},{"name":"Streich PLC","city":"Port Nyasiaburgh","state":"stad","country":"Guyana","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E13.tmp","extension":"tmp"},{"name":"Roob LLC","city":"Leslieland","state":"mouth","country":"New Zealand","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E43.tmp","extension":"tmp"},{"name":"Woolies","city":"Yorke","state":"Liquid","country":"Atlantis","logo_path":null,"extension":null}]}'
+        content: '{"success":true,"message":"Retrieved companies","data":[{"name":"Pfannerstill-Marvin","city":"Port Leonor","state":"view","country":"Norway","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927A.tmp","extension":"tmp"},{"name":"Hoeger-Metz","city":"South Floyberg","state":"burgh","country":"Ghana","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927B.tmp","extension":"tmp"},{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -73,7 +73,7 @@ endpoints:
         name: city
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: cqn
+        example: lcj
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -82,7 +82,7 @@ endpoints:
         name: state
         description: 'Must be between 2 and 16 characters.'
         required: true
-        example: fx
+        example: sxm
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -91,7 +91,7 @@ endpoints:
         name: country
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: nsf
+        example: nmp
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -100,7 +100,7 @@ endpoints:
         name: name
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: ba
+        example: qfy
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -115,10 +115,10 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      city: cqn
-      state: fx
-      country: nsf
-      name: ba
+      city: lcj
+      state: sxm
+      country: nmp
+      name: qfy
     fileParameters:
       logo: null
     responses: []
@@ -166,7 +166,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"success":true,"message":"Retrieved company with id: 1","data":{"name":"O''Hara-Beatty","city":"Collierville","state":"side","country":"Ghana","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak5E11.tmp","extension":"tmp"}}'
+        content: '{"success":true,"message":"Retrieved company with id: 1","data":{"name":"Pfannerstill-Marvin","city":"Port Leonor","state":"view","country":"Norway","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927A.tmp","extension":"tmp"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -217,7 +217,7 @@ endpoints:
         name: name
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: mn
+        example: il
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -226,7 +226,7 @@ endpoints:
         name: city
         description: 'Must be between 2 and 255 characters.'
         required: false
-        example: mw
+        example: ie
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -235,7 +235,7 @@ endpoints:
         name: state
         description: 'Must be between 2 and 16 characters.'
         required: false
-        example: mj
+        example: uz
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -244,7 +244,7 @@ endpoints:
         name: country
         description: 'Must be between 2 and 255 characters.'
         required: false
-        example: dm
+        example: sbx
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -259,10 +259,10 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: mn
-      city: mw
-      state: mj
-      country: dm
+      name: il
+      city: ie
+      state: uz
+      country: sbx
     fileParameters:
       logo: null
     responses: []
@@ -295,13 +295,13 @@ endpoints:
         name: id
         description: 'The ID of the company.'
         required: true
-        example: 1
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -335,15 +335,15 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the trash.'
+        description: 'The ID of the company.'
         required: true
-        example: ipsa
-        type: string
+        example: 3
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: ipsa
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -352,7 +352,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"success":true,"message":"Company with id: ipsa restored","data":"ipsa"}'
+        content: '{"success":true,"message":"Company with id: 3 restored","data":"3"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
