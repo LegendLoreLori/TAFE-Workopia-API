@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Company;
 use App\Models\Position;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 test('users.index correct format on success response', function () {
@@ -37,4 +38,44 @@ test('users.index returns error response on failure',
                 'success' => false,
                 'message' => 'Unable to retrieve users at this time, please contact your system administrator'
             ]);
+    });
+
+test('users.store company_id state for client and applicant creation', function () {
+    $password = [
+     'password' => 'Password1',
+     'password_confirmation' => 'Password1',
+    ];
+    $applicant = User::factory()->state([
+        'company_id' => null,
+        'type' => 'Applicant',
+    ])->makeOne()->toArray();
+    $applicant = array_merge($applicant, $password);
+
+    $client = User::factory()->state([
+        'type' => 'Client',
+    ])->makeOne()->toArray();
+    $client = array_merge($client, $password);
+
+    $responseApplicant = $this->postJson('api/v1/users', $applicant);
+    $responseClient = $this->postJson('api/v1/users', $client);
+
+    $responseApplicant
+        ->assertStatus(201)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', 'User with id: 1 created')
+            ->has('data', fn(AssertableJson $json) => $json
+                ->where('company_id', null)
+                ->where('type', 'Applicant')
+                ->etc()));
+
+    $responseClient
+        ->assertStatus(201)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', 'User with id: 2 created')
+            ->has('data', fn(AssertableJson $json) => $json
+                ->where('company_id', 1)
+                ->where('type', 'Client')
+                ->etc()));
 });
