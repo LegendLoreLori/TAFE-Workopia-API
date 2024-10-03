@@ -79,3 +79,52 @@ test('users.store company_id state for client and applicant creation', function 
                 ->where('type', 'Client')
                 ->etc()));
 });
+
+
+test('user.show success format', function () {
+    User::factory()->create();
+
+    $response = $this->getJson('api/v1/users/1');
+
+    $response
+        ->assertStatus(200)
+        ->assertJson([
+            'success' => true,
+            'message' => 'Retrieved user with id: 1',
+            'data' => [],
+        ]);
+});
+
+
+test('users.destroy returns correct success response', function () {
+    $user = User::factory()->create();
+
+    $response = $this->deleteJson("/api/v1/users/$user->id");
+
+    $this->assertSoftDeleted($user);
+    $response
+        ->assertStatus(200)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', "User with id: $user->id deleted")
+            ->has('data'));
+});
+
+test('users.restore restores a deleted resource and returns correct message on success',
+    function () {
+        $user = User::factory()->create();
+
+        $this->deleteJson("/api/v1/users/$user->id");
+        $this->assertSoftDeleted($user);
+
+        $response = $this->getJson("/api/v1/users/trash/$user->id");
+        $this->assertNotSoftDeleted($user);
+
+        $response
+            ->assertStatus(200)
+            ->assertJson(fn(AssertableJson $json) => $json
+                ->where('success', true)
+                ->where('message', "User with id: 1 restored")
+                ->where('data', '1')
+            );
+});

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use App\Models\Company;
-use App\Models\Position;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -84,11 +82,20 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Retrieve a single user
+     *
+     * @param  string  $id
+     * @return JsonResponse
      */
-    public function show(string $id)
+    public function show(string $id): JsonResponse
     {
-        //
+        $user = User::find($id);
+        if ($user === null) {
+            return self::sendFailure('Specified user not found', 404);
+        }
+
+        return self::sendSuccess(new UserResource($user),
+            "Retrieved user with id: $user->id");
     }
 
     /**
@@ -100,10 +107,38 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Soft delete the specified user from the database
+     *
+     * @urlParam id integer required The ID of the user.
+     *
+     * @param  string  $id
+     * @return JsonResponse
      */
-    public function destroy(string $id)
+    public function destroy(string $id): JsonResponse
     {
-        //
+        $user = User::find($id);
+        if ($user === null) {
+            return self::sendFailure("Specified user not found", 404);
+        }
+        $user->delete();
+
+        return self::sendSuccess(new UserResource($user), "User with id: $user->id deleted", 200);
+    }
+
+    /**
+     * Restore the specified soft deleted user from trash
+     *
+     * @urlParam id integer required The ID of the company.
+     *
+     * @param  string  $id
+     * @return JsonResponse
+     */
+    public function restore(string $id): JsonResponse
+    {
+        User::withTrashed()
+            ->where('id', $id)
+            ->restore();
+
+        return self::sendSuccess($id, "User with id: $id restored", 200);
     }
 }

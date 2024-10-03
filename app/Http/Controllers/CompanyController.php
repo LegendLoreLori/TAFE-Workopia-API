@@ -164,6 +164,8 @@ class CompanyController extends Controller
     /**
      * Soft delete the specified company from the database
      *
+     * @urlParam id integer required The ID of the company.
+     *
      * @param  string  $id
      * @return JsonResponse
      */
@@ -180,6 +182,8 @@ class CompanyController extends Controller
 
     /**
      * Restore the specified soft deleted company from trash.
+     *
+     * @urlParam id integer required The ID of the company.
      *
      * @param  string  $id
      * @return JsonResponse
