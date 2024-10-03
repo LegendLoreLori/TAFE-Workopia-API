@@ -117,7 +117,7 @@ class PositionController extends Controller
     }
 
     /**
-     * Update the specified position in the database.
+     * Update the specified position in the database
      *
      * @param  Request  $request
      * @param  string  $id

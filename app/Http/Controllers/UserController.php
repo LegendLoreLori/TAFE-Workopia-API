@@ -49,7 +49,7 @@ class UserController extends Controller
             'name' => 'required|string|between:2,255',
             'family_name' => 'required|string|between:2,255',
             'username' => 'required|string|unique:users|min:2',
-            'email' => 'required|email:rfc',
+            'email' => 'required|email:rfc|unique:users',
             'password' => [
                 'required', 'confirmed',
                 Password::min(8)->mixedCase()->numbers()
@@ -59,11 +59,6 @@ class UserController extends Controller
                 'required', 'string', Rule::in(["Client", "Staff", "Applicant"])
             ],
             'company_id' => 'bail|exclude_unless:type,Client|integer|exists:companies,id',
-            'status' => [
-                'required', 'string', Rule::in([
-                    'Active', 'Unconfirmed', 'Unknown', 'Suspended', 'Banned'
-                ])
-            ],
         ]);
 
         if ($validator->fails()) {
@@ -74,7 +69,7 @@ class UserController extends Controller
             return self::sendFailure($messages, 422);
         }
 
-        $validated = $validator->safe()->all();
+        $validated = $validator->safe()->merge(['status' => 'Active'])->all();
         $user = new UserResource(User::create($validated));
 
         return self::sendSuccess($user,
@@ -99,11 +94,52 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in the database
+     *
+     * @param  Request  $request
+     * @param  string  $id
+     * @return JsonResponse
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): JsonResponse
     {
-        //
+        $user = User::find($id);
+
+        if ($user === null) {
+            return self::sendFailure("User with id: $id not found", 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'sometimes|string|between:2,255',
+            'family_name' => 'sometimes|string|between:2,255',
+            'username' => 'prohibited',
+            'email' => ['required', 'email:rfc', Rule::unique('users')->ignore($user->id)],
+            'password' => [
+                'sometimes','required', 'confirmed',
+                Password::min(8)->mixedCase()->numbers()
+            ],
+            'password_confirmation' => 'required_with:password',
+            'type' => [
+                'sometimes', 'string', Rule::in(["Client", "Staff", "Applicant"])
+            ],
+            'company_id' => 'bail|exclude_unless:type,Client|integer|exists:companies,id',
+            'status' => [
+                'sometimes', 'required', 'string', Rule::in([
+                    'Active', 'Unconfirmed', 'Unknown', 'Suspended', 'Banned'
+                ])
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            $messages = $validator->errors()->messages();
+            return self::sendFailure($messages, 422);
+        }
+
+        $validated = $validator->safe()->all();
+
+        $user->update($validated);
+
+        return self::sendSuccess(new UserResource($user),
+            "User with id: $user->id updated", 201);
     }
 
     /**
@@ -120,6 +156,7 @@ class UserController extends Controller
         if ($user === null) {
             return self::sendFailure("Specified user not found", 404);
         }
+        $user->update(['status' => 'Unconfirmed']);
         $user->delete();
 
         return self::sendSuccess(new UserResource($user), "User with id: $user->id deleted", 200);

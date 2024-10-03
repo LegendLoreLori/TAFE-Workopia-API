@@ -17,13 +17,14 @@ Route::group(['prefix' => 'v1'], function () {
 });
 
 Route::group(['prefix' => 'v1'], function () {
+    Route::get('/users/trash/{id}', [UserController::class, 'restore']);
+    Route::get('/companies/trash/{id}', [CompanyController::class, 'restore']);
+    Route::get('/positions/trash/{id}', [PositionController::class, 'restore']);
+
     Route::apiResources([
             'companies' => CompanyController::class,
             'positions' => PositionController::class,
             'users' => UserController::class,
         ]
     );
-    Route::get('/users/trash/{id}', [UserController::class, 'restore']);
-    Route::get('/companies/trash/{id}', [CompanyController::class, 'restore']);
-    Route::get('/positions/trash/{id}', [PositionController::class, 'restore']);
 });

@@ -40,45 +40,46 @@ test('users.index returns error response on failure',
             ]);
     });
 
-test('users.store company_id state for client and applicant creation', function () {
-    $password = [
-     'password' => 'Password1',
-     'password_confirmation' => 'Password1',
-    ];
-    $applicant = User::factory()->state([
-        'company_id' => null,
-        'type' => 'Applicant',
-    ])->makeOne()->toArray();
-    $applicant = array_merge($applicant, $password);
+test('users.store company_id state for client and applicant creation',
+    function () {
+        $password = [
+            'password' => 'Password1',
+            'password_confirmation' => 'Password1',
+        ];
+        $applicant = User::factory()->state([
+            'company_id' => null,
+            'type' => 'Applicant',
+        ])->makeOne()->toArray();
+        $applicant = array_merge($applicant, $password);
 
-    $client = User::factory()->state([
-        'type' => 'Client',
-    ])->makeOne()->toArray();
-    $client = array_merge($client, $password);
+        $client = User::factory()->state([
+            'type' => 'Client',
+        ])->makeOne()->toArray();
+        $client = array_merge($client, $password);
 
-    $responseApplicant = $this->postJson('api/v1/users', $applicant);
-    $responseClient = $this->postJson('api/v1/users', $client);
+        $responseApplicant = $this->postJson('api/v1/users', $applicant);
+        $responseClient = $this->postJson('api/v1/users', $client);
 
-    $responseApplicant
-        ->assertStatus(201)
-        ->assertJson(fn(AssertableJson $json) => $json
-            ->where('success', true)
-            ->where('message', 'User with id: 1 created')
-            ->has('data', fn(AssertableJson $json) => $json
-                ->where('company_id', null)
-                ->where('type', 'Applicant')
-                ->etc()));
+        $responseApplicant
+            ->assertStatus(201)
+            ->assertJson(fn(AssertableJson $json) => $json
+                ->where('success', true)
+                ->where('message', 'User with id: 1 created')
+                ->has('data', fn(AssertableJson $json) => $json
+                    ->where('company_id', null)
+                    ->where('type', 'Applicant')
+                    ->etc()));
 
-    $responseClient
-        ->assertStatus(201)
-        ->assertJson(fn(AssertableJson $json) => $json
-            ->where('success', true)
-            ->where('message', 'User with id: 2 created')
-            ->has('data', fn(AssertableJson $json) => $json
-                ->where('company_id', 1)
-                ->where('type', 'Client')
-                ->etc()));
-});
+        $responseClient
+            ->assertStatus(201)
+            ->assertJson(fn(AssertableJson $json) => $json
+                ->where('success', true)
+                ->where('message', 'User with id: 2 created')
+                ->has('data', fn(AssertableJson $json) => $json
+                    ->where('company_id', 1)
+                    ->where('type', 'Client')
+                    ->etc()));
+    });
 
 
 test('user.show success format', function () {
@@ -95,6 +96,34 @@ test('user.show success format', function () {
         ]);
 });
 
+test('users.update handles email from input', function () {
+    $users = User::factory(2)->create();
+
+    $data = [
+        'name' => 'Jane',
+        'email' => $users[0]["email"],
+    ];
+
+    $response1 = $this->putJson('api/v1/users/1', $data);
+    $response2 = $this->putJson('api/v1/users/2', $data);
+
+    $response1
+        ->assertStatus(201)
+        ->assertJson(fn(AssertableJson $json) => $json
+            ->where('success', true)
+            ->where('message', 'User with id: 1 updated')
+            ->has('data', fn(AssertableJson $json) => $json
+                ->where('name', 'Jane')
+                ->etc()));
+
+    $response2
+        ->assertStatus(422)
+        ->assertJson([
+            'success' => false,
+            'message' => ['email' => 'The email has already been taken.']
+        ]);
+
+});
 
 test('users.destroy returns correct success response', function () {
     $user = User::factory()->create();
@@ -127,4 +156,4 @@ test('users.restore restores a deleted resource and returns correct message on s
                 ->where('message', "User with id: 1 restored")
                 ->where('data', '1')
             );
-});
+    });
