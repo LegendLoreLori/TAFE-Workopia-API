@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
     Route::get('regions', [RegionController::class, 'index']);
     Route::get('regions/{id}', [RegionController::class, 'show']);
-})->middleware('auth:sanctum');
+});
+
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/users/trash/{id}', [UserController::class, 'restore']);
@@ -25,4 +26,8 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
     );
 });
 
+Route::apiResource('v1/positions',PositionController::class)->only(['index']);
+
+
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     /**
-     * Create a sanctum token for an existing user
+     * Create a session token for an existing user
      *
      * @param  Request  $request
      * @return JsonResponse
@@ -38,6 +38,27 @@ class AuthController extends Controller
             ], 503);
         }
 
-        return response()->json(["token" => $user->createToken($request->device_name)->plainTextToken]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Login',
+            'token' => $user->createToken($request->device_name)->plainTextToken]
+        );
+
+    }
+
+    /**
+     * Delete the session token for the currently authenticated user
+     *
+     * @param  Request  $request
+     * @return JsonResponse
+     */
+    public function logout(Request $request): JsonResponse
+    {
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Logout'
+        ]);
     }
 }
