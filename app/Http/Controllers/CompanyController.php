@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Resources\CompanyResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -44,6 +45,10 @@ class CompanyController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
+        if (Auth::user()->tokenCan('companies:view')) {
+
+        }
+
         $validator = Validator::make($request->all(), [
             'city' => 'required|string|between:2,255',
             'state' => 'required|string|between:2,16',

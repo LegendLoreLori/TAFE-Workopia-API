@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -34,16 +35,42 @@ class AuthController extends Controller
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
+
                 'message' => 'Login invalid'
             ], 503);
         }
 
+        if ($user->type == 'Staff') {
+            return response()->json([
+                    'success' => true,
+                    'message' => 'Login',
+                    'token' => $user->createToken("staff-$request->device_name",
+                        [
+                            'users:administer',
+                            'positions:administer',
+                            'companies:administer'
+                        ])->plainTextToken
+                ]
+            );
+        }
+        if ($user->type == 'Client') {
+            return response()->json([
+                    'success' => true,
+                    'message' => 'Login',
+                    'token' => $user->createToken("client-$request->device_name",
+                        [
+                            'companies:view', 'companies:edit'
+                        ])->plainTextToken
+                ]
+            );
+        }
         return response()->json([
-            'success' => true,
-            'message' => 'Login',
-            'token' => $user->createToken($request->device_name)->plainTextToken]
+                'success' => true,
+                'message' => 'Login',
+                'token' => $user->createToken("applicant-$request->device_name",
+                    [])->plainTextToken
+            ]
         );
-
     }
 
     /**
