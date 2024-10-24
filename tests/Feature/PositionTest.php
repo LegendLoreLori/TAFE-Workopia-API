@@ -68,7 +68,7 @@ test('position.index returns correctly formatted error response on failure',
                 'success' => false,
                 'message' => 'Unable to retrieve positions at this time, please contact your system administrator'
             ]);
-});
+    });
 
 test('positions.store success response', function () {
     $company = Company::factory()->create();

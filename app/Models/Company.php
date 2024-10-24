@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class Company extends Model
@@ -53,7 +52,7 @@ class Company extends Model
      *
      * @return HasMany
      */
-    public function positions():HasMany
+    public function positions(): HasMany
     {
         return $this->hasMany(Position::class);
     }

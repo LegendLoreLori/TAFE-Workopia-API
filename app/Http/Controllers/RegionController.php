@@ -16,10 +16,10 @@ class RegionController extends Controller
     {
         $regions = Region::all();
 
-        if($regions->isEmpty()) {
+        if ($regions->isEmpty()) {
             return response()->json([
-               'success' => false,
-               'message' => 'Regions not found'
+                'success' => false,
+                'message' => 'Regions not found'
             ], 404);
         }
 
@@ -29,14 +29,14 @@ class RegionController extends Controller
     /**
      * Retrieve a single region
      *
-     * @param string $id
+     * @param  string  $id
      * @return JsonResponse
      */
     public function show(string $id): JsonResponse
     {
         $region = Region::query()->where('id', $id)->get();
 
-        if($region->isEmpty()) {
+        if ($region->isEmpty()) {
             return response()->json([
                 'success' => false,
                 'message' => "Region with id: $id not found"

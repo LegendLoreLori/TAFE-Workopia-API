@@ -48,34 +48,36 @@ test('companies.index returns formatted response on failure', function () {
         );
 });
 
-test('companies.show returns formatted response when company does not exist', function () {
-    $response = $this->getJson('api/v1/companies/1');
+test('companies.show returns formatted response when company does not exist',
+    function () {
+        $response = $this->getJson('api/v1/companies/1');
 
-    $response->assertStatus(404)
-        ->assertExactJson([
-            'success' => false,
-            'message' => 'Specified company not found'
-        ]);
-});
+        $response->assertStatus(404)
+            ->assertExactJson([
+                'success' => false,
+                'message' => 'Specified company not found'
+            ]);
+    });
 
-test('companies.show returns formatted response when ids do not match', function () {
-    Sanctum::actingAs(
-        User::factory()->state([
-            'type' => 'Client',
-            'company_id' => 2,
-        ])->create(), ['companies:view']
-    );
+test('companies.show returns formatted response when ids do not match',
+    function () {
+        Sanctum::actingAs(
+            User::factory()->state([
+                'type' => 'Client',
+                'company_id' => 2,
+            ])->create(), ['companies:view']
+        );
 
-    Company::factory()->create();
+        Company::factory()->create();
 
-    $response = $this->getJson('api/v1/companies/1');
+        $response = $this->getJson('api/v1/companies/1');
 
-    $response->assertStatus(401)
-        ->assertExactJson([
-            'success' => false,
-            'message' => 'Unauthorised, user and company ID do not match.'
-        ]);
-});
+        $response->assertStatus(401)
+            ->assertExactJson([
+                'success' => false,
+                'message' => 'Unauthorised, user and company ID do not match.'
+            ]);
+    });
 
 test('companies.store returns correct response on success', function () {
     Storage::fake('local');

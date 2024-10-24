@@ -25,7 +25,7 @@ class AuthController extends Controller
      * @param  Request  $request
      * @return JsonResponse
      */
-    public function register(Request $request):JsonResponse
+    public function register(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|between:2,255',

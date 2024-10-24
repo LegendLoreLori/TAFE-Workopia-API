@@ -1,20 +1,72 @@
-name: Company
+name: User
 description: |-
 
-  API endpoints for companies
+  API endpoints for users
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/companies
+    uri: 'api/v1/users/trash/{id}'
     metadata:
-      groupName: Company
+      groupName: User
       groupDescription: |-
 
-        API endpoints for companies
+        API endpoints for users
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all companies.'
+      title: 'Restore the specified soft deleted user from trash'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 11
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/users
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        API endpoints for users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all users'
       description: ''
       authenticated: false
       custom: []
@@ -30,8 +82,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"success":true,"message":"Retrieved companies","data":[{"name":"Pfannerstill-Marvin","city":"Port Leonor","state":"view","country":"Norway","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927A.tmp","extension":"tmp"},{"name":"Hoeger-Metz","city":"South Floyberg","state":"burgh","country":"Ghana","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927B.tmp","extension":"tmp"},{"name":"Romaguera-Schulist","city":"Lake Johan","state":"burgh","country":"Lao People''s Democratic Republic","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927C.tmp","extension":"tmp"},{"name":"Gottlieb-Schimmel","city":"Wunschtown","state":"furt","country":"Bangladesh","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927D.tmp","extension":"tmp"},{"name":"Langosh-Fahey","city":"North Johannmouth","state":"chester","country":"Niger","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak928E.tmp","extension":"tmp"}]}'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -47,78 +99,116 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/companies
+    uri: api/v1/users
     metadata:
-      groupName: Company
+      groupName: User
       groupDescription: |-
 
-        API endpoints for companies
+        API endpoints for users
       subgroup: ''
       subgroupDescription: ''
-      title: 'Add a company to the database.'
+      title: 'Add a user to the database'
       description: ''
       authenticated: false
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      city:
-        name: city
-        description: 'Must be between 2 and 255 characters.'
-        required: true
-        example: lcj
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      state:
-        name: state
-        description: 'Must be between 2 and 16 characters.'
-        required: true
-        example: sxm
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      country:
-        name: country
-        description: 'Must be between 2 and 255 characters.'
-        required: true
-        example: nmp
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
       name:
         name: name
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: qfy
+        example: th
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
-      logo:
-        name: logo
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
+      family_name:
+        name: family_name
+        description: 'Must be between 2 and 255 characters.'
+        required: true
+        example: pv
+        type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
+        custom: []
+      username:
+        name: username
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: gefihoemnua
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: wyatt26@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: ''
+        required: true
+        example: velit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      type:
+        name: type
+        description: ''
+        required: true
+        example: fugiat
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      company_id:
+        name: company_id
+        description: 'The <code>id</code> of an existing record in the companies table.'
+        required: false
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
-      city: lcj
-      state: sxm
-      country: nmp
-      name: qfy
-    fileParameters:
-      logo: null
+      name: th
+      family_name: pv
+      username: gefihoemnua
+      email: wyatt26@example.net
+      password: rerum
+      password_confirmation: velit
+      type: fugiat
+      company_id: 14
+    fileParameters: []
     responses: []
     responseFields: []
     auth: []
@@ -129,15 +219,15 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/companies/{id}'
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Company
+      groupName: User
       groupDescription: |-
 
-        API endpoints for companies
+        API endpoints for users
       subgroup: ''
       subgroupDescription: ''
-      title: 'Retrieve a single company.'
+      title: 'Retrieve a single user'
       description: ''
       authenticated: false
       custom: []
@@ -147,12 +237,13 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the company.'
+        description: 'The ID of the user.'
         required: true
         example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
       id: 1
@@ -163,8 +254,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"success":true,"message":"Retrieved company with id: 1","data":{"name":"Pfannerstill-Marvin","city":"Port Leonor","state":"view","country":"Norway","logo_path":"C:\\Users\\Lori\\AppData\\Local\\Temp\\fak927A.tmp","extension":"tmp"}}'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -181,30 +272,31 @@ endpoints:
     httpMethods:
       - PUT
       - PATCH
-    uri: 'api/v1/companies/{id}'
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Company
+      groupName: User
       groupDescription: |-
 
-        API endpoints for companies
+        API endpoints for users
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified company in the database.'
+      title: 'Update the specified user in the database'
       description: ''
       authenticated: false
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         name: id
-        description: 'The ID of the company.'
+        description: 'The ID of the user.'
         required: true
         example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
       id: 1
@@ -214,55 +306,102 @@ endpoints:
       name:
         name: name
         description: 'Must be between 2 and 255 characters.'
-        required: true
-        example: il
+        required: false
+        example: jb
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
-      city:
-        name: city
+      family_name:
+        name: family_name
         description: 'Must be between 2 and 255 characters.'
         required: false
-        example: ie
+        example: al
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
-      state:
-        name: state
-        description: 'Must be between 2 and 16 characters.'
-        required: false
-        example: uz
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      country:
-        name: country
-        description: 'Must be between 2 and 255 characters.'
-        required: false
-        example: sbx
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      logo:
-        name: logo
-        description: 'Must be an image.'
+      username:
+        name: username
+        description: ''
         required: false
         example: null
-        type: file
+        type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: gusikowski.kurt@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: soluta
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'This field is required when <code>password</code> is present.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      type:
+        name: type
+        description: ''
+        required: false
+        example: deserunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      company_id:
+        name: company_id
+        description: 'The <code>id</code> of an existing record in the companies table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: true
+        example: assumenda
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
-      name: il
-      city: ie
-      state: uz
-      country: sbx
-    fileParameters:
-      logo: null
+      name: jb
+      family_name: al
+      email: gusikowski.kurt@example.org
+      password: soluta
+      type: deserunt
+      company_id: 2
+      status: assumenda
+    fileParameters: []
     responses: []
     responseFields: []
     auth: []
@@ -273,15 +412,15 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/companies/{id}'
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Company
+      groupName: User
       groupDescription: |-
 
-        API endpoints for companies
+        API endpoints for users
       subgroup: ''
       subgroupDescription: ''
-      title: 'Soft delete the specified company from the database'
+      title: 'Soft delete the specified user from the database'
       description: ''
       authenticated: false
       custom: []
@@ -291,72 +430,22 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the company.'
+        description: 'The ID of the user.'
         required: true
-        example: 12
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
-      id: 12
+      id: 14
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/companies/trash/{id}'
-    metadata:
-      groupName: Company
-      groupDescription: |-
-
-        API endpoints for companies
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Restore the specified soft deleted company from trash.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the company.'
-        required: true
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 3
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"success":true,"message":"Company with id: 3 restored","data":"3"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null

@@ -1,9 +1,7 @@
 <?php
 
-use App\Models\User;
 use App\Models\Company;
-use App\Models\Position;
-use Illuminate\Database\Eloquent\Factories\Sequence;
+use App\Models\User;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Laravel\Sanctum\Sanctum;
 
