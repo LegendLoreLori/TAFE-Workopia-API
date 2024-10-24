@@ -2,7 +2,21 @@
 
 use App\Models\Company;
 use App\Models\Position;
+use App\Models\User;
 use Illuminate\Testing\Fluent\AssertableJson;
+use Laravel\Sanctum\Sanctum;
+
+beforeEach(function () {
+    Sanctum::actingAs(
+        User::factory()->state([
+            'type' => 'Staff',
+            'username' => 'superadmin',
+            'password' => 'password',
+            'email' => 'test@email.com',
+            'company_id' => null,
+        ])->create(), ['positions:administer']
+    );
+});
 
 test('positions response format on success', function () {
     Position::factory(3)->for(Company::factory())->create();

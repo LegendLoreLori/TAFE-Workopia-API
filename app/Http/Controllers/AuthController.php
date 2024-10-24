@@ -59,7 +59,8 @@ class AuthController extends Controller
                     'message' => 'Login',
                     'token' => $user->createToken("client-$request->device_name",
                         [
-                            'companies:view', 'companies:edit', 'companies:add'
+                            'companies:view', 'companies:edit', 'companies:add',
+                            'positions:view', 'positions:edit', 'positions:add'
                         ])->plainTextToken
                 ]
             );
@@ -68,7 +69,9 @@ class AuthController extends Controller
                 'success' => true,
                 'message' => 'Login',
                 'token' => $user->createToken("applicant-$request->device_name",
-                    [])->plainTextToken
+                    [
+                        'positions:view'
+                    ])->plainTextToken
             ]
         );
     }

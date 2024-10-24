@@ -43,11 +43,16 @@ class PositionController extends Controller
     /**
      * List all positions
      *
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $positions = Position::with('company')->get();
+        if ($request->user() === null) {
+            $positions = Position::with('company')->inRandomOrder()->limit(6)->get();
+        } else {
+            $positions = Position::with('company')->paginate(6);
+        }
 
         if ($positions->isEmpty()) {
             return self::sendFailure('Unable to retrieve positions at this time, please contact your system administrator',
@@ -66,6 +71,11 @@ class PositionController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('positions:administer') && !$request->user()->tokenCan('positions:add')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $validator = Validator::make($request->all(), [
             'company_id' => 'required|integer|exists:companies,id',
             'user_id' => 'required|integer|exists:users,id',
@@ -91,6 +101,12 @@ class PositionController extends Controller
         }
 
         $validated = $validator->safe()->all();
+
+        if ($request->user()->tokenCan('positions:add') && $request->user()->company_id != $validated['company_id']) {
+            return self::sendFailure('Unauthorised, user and company ID do not match.',
+                401);
+        }
+
         $company = Company::with('positions')->find($validated['company_id']);
         $position = $company->positions()->create($validated);
 
@@ -102,10 +118,16 @@ class PositionController extends Controller
      * Retrieve a single position and its related company.
      *
      * @param  string  $id
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function show(string $id): JsonResponse
+    public function show(string $id, Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('positions:administer') && !$request->user()->tokenCan('positions:view')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $position = Position::with('company')->find($id);
         if ($position === null) {
             return self::sendFailure('Specified position not found', 404);
@@ -125,6 +147,11 @@ class PositionController extends Controller
      */
     public function update(Request $request, string $id): JsonResponse
     {
+        if (!$request->user()->tokenCan('positions:administer') && !$request->user()->tokenCan('positions:edit')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $position = Position::find($id);
 
         if ($position === null) {
@@ -157,9 +184,14 @@ class PositionController extends Controller
 
         $validated = $validator->safe()->all();
 
+        if ($request->user()->tokenCan('positions:edit') && $request->user()->company_id != $validated['company_id']) {
+            return self::sendFailure('Unauthorised, user and company ID do not match.',
+                401);
+        }
+
         $position->update($validated);
 
-         return self::sendSuccess(new PositionResource($position),
+        return self::sendSuccess(new PositionResource($position),
             "Position with id: $position->id updated", 201);
     }
 
@@ -169,17 +201,28 @@ class PositionController extends Controller
      * @urlParam id integer required The ID of the position.
      *
      * @param  string  $id
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function destroy(string $id): JsonResponse
+    public function destroy(string $id, Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('positions:administer') && !$request->user()->tokenCan('positions:edit')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $position = Position::find($id);
         if ($position === null) {
             return self::sendFailure("Specified position not found", 404);
         }
+        if ($request->user()->tokenCan('positions:edit') && $request->user()->company_id != $position->company_id) {
+            return self::sendFailure('Unauthorised, user and company ID do not match.',
+                401);
+        }
         $position->delete();
 
-        return self::sendSuccess(new PositionResource($position), "Position with id: $position->id deleted", 200);
+        return self::sendSuccess(new PositionResource($position),
+            "Position with id: $position->id deleted", 200);
     }
 
 
@@ -189,10 +232,16 @@ class PositionController extends Controller
      * @urlParam id integer required The ID of the position.
      *
      * @param  string  $id
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function restore(string $id):JsonResponse
+    public function restore(string $id, Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('positions:administer')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         Position::withTrashed()
             ->where('id', $id)
             ->restore();
