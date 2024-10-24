@@ -28,6 +28,6 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
 
 Route::apiResource('v1/positions',PositionController::class)->only(['index']);
 
-
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');

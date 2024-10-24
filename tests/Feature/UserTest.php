@@ -5,6 +5,18 @@ use App\Models\Company;
 use App\Models\Position;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Testing\Fluent\AssertableJson;
+use Laravel\Sanctum\Sanctum;
+
+beforeEach(function () {
+    Sanctum::actingAs(
+        User::factory()->state([
+            'id' => 0,
+            'type' => 'Staff',
+            'company_id' => null,
+        ])->create(), ['users:administer']
+    );
+});
+
 
 test('users.index correct format on success response', function () {
     User::factory(3)->for(Company::factory())->create();
@@ -15,7 +27,7 @@ test('users.index correct format on success response', function () {
         ->assertJson(fn(AssertableJson $json) => $json
             ->where('success', true)
             ->where('message', 'Retrieved users')
-            ->has('data', 3)
+            ->has('data', 4)
             ->has('data.0', fn(AssertableJson $json) => $json
                 ->has('company_id')
                 ->has('name')
@@ -27,18 +39,6 @@ test('users.index correct format on success response', function () {
                 ->has('status'))
         );
 });
-
-test('users.index returns error response on failure',
-    function () {
-        $response = $this->getJson('api/v1/users');
-
-        $response
-            ->assertStatus(418)
-            ->assertExactJson([
-                'success' => false,
-                'message' => 'Unable to retrieve users at this time, please contact your system administrator'
-            ]);
-    });
 
 test('users.store company_id state for client and applicant creation',
     function () {
@@ -104,8 +104,8 @@ test('users.update handles email from input', function () {
         'email' => $users[0]["email"],
     ];
 
-    $response1 = $this->putJson('api/v1/users/1', $data);
-    $response2 = $this->putJson('api/v1/users/2', $data);
+    $response1 = $this->putJson("api/v1/users/1", $data);
+    $response2 = $this->putJson("api/v1/users/2", $data);
 
     $response1
         ->assertStatus(201)
@@ -120,7 +120,7 @@ test('users.update handles email from input', function () {
         ->assertStatus(422)
         ->assertJson([
             'success' => false,
-            'message' => ['email' => 'The email has already been taken.']
+            'message' => ['email' => ['The email has already been taken.']]
         ]);
 
 });

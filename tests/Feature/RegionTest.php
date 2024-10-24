@@ -1,6 +1,18 @@
 <?php
 
 use App\Models\Region;
+use App\Models\User;
+use Laravel\Sanctum\Sanctum;
+
+beforeEach(function () {
+    Sanctum::actingAs(
+        User::factory()->state([
+            'id' => 0,
+            'type' => 'Staff',
+            'company_id' => null,
+        ])->create(), ['*']
+    );
+});
 
 test('v1/regions retrieves successfully', function () {
     Region::factory()->create();
