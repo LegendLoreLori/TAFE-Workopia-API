@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -23,10 +24,16 @@ class CompanyController extends Controller
     /**
      * List all companies.
      *
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('companies:administer') && !$request->user()->tokenCan('companies:view')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $companies = Company::all();
         if ($companies->isEmpty()) {
             return self::sendFailure('Unable to retrieve companies at this time, please contact your administrator',
@@ -45,8 +52,9 @@ class CompanyController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        if (Auth::user()->tokenCan('companies:view')) {
-
+        if (!$request->user()->tokenCan('companies:administer') && !$request->user()->tokenCan('companies:add')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
         }
 
         $validator = Validator::make($request->all(), [
@@ -95,16 +103,28 @@ class CompanyController extends Controller
      * Retrieve a single company.
      *
      * @param  string  $id
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function show(string $id): JsonResponse
+    public function show(string $id, Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('companies:administer') && !$request->user()->tokenCan('companies:view')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $company = Company::query()->find($id);
         if ($company === null) {
             return self::sendFailure('Specified company not found', 404);
         }
 
-        return self::sendSuccess(new CompanyResource($company), "Retrieved company with id: $company->id");
+        if ($request->user()->tokenCan('companies:view') && $request->user()->company_id != $company->id) {
+            return self::sendFailure('Unauthorised, user and company ID do not match.',
+                401);
+        }
+
+        return self::sendSuccess(new CompanyResource($company),
+            "Retrieved company with id: $company->id");
     }
 
     /**
@@ -116,10 +136,20 @@ class CompanyController extends Controller
      */
     public function update(Request $request, string $id): JsonResponse
     {
+        if (!$request->user()->tokenCan('companies:administer') && !$request->user()->tokenCan('companies:edit')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $company = Company::find($id);
 
         if ($company === null) {
             return self::sendFailure("Company with id: $id not found", 404);
+        }
+
+        if ($request->user()->tokenCan('companies:edit') && $request->user()->company_id != $company->id) {
+            return self::sendFailure('Unauthorised, user and company ID do not match.',
+                401);
         }
 
         $validator = Validator::make($request->all(), [
@@ -162,7 +192,8 @@ class CompanyController extends Controller
 
         $company->update($validated);
 
-        return self::sendSuccess(new CompanyResource($company), "Company with id: $company->id updated", 201);
+        return self::sendSuccess(new CompanyResource($company),
+            "Company with id: $company->id updated", 201);
     }
 
 
@@ -172,17 +203,29 @@ class CompanyController extends Controller
      * @urlParam id integer required The ID of the company.
      *
      * @param  string  $id
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function destroy(string $id): JsonResponse
+    public function destroy(string $id, Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('companies:administer') && !$request->user()->tokenCan('companies:edit')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         $company = Company::find($id);
         if ($company === null) {
             return self::sendFailure("Specified company not found", 404);
         }
+        if ($request->user()->tokenCan('companies:edit') && $request->user()->company_id != $company->id) {
+            return self::sendFailure('Unauthorised, user and company ID do not match.',
+                401);
+        }
+
         $company->delete();
 
-        return self::sendSuccess(new CompanyResource($company), "Company with id: $company->id deleted");
+        return self::sendSuccess(new CompanyResource($company),
+            "Company with id: $company->id deleted");
     }
 
     /**
@@ -191,10 +234,16 @@ class CompanyController extends Controller
      * @urlParam id integer required The ID of the company.
      *
      * @param  string  $id
+     * @param  Request  $request
      * @return JsonResponse
      */
-    public function restore(string $id): JsonResponse
+    public function restore(string $id, Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('companies:administer')) {
+            return self::sendFailure('You are unauthorised to make this request',
+                401);
+        }
+
         Company::withTrashed()
             ->where('id', $id)
             ->restore();
