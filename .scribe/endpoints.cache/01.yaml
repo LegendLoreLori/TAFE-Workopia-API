@@ -28,14 +28,14 @@ endpoints:
         name: id
         description: 'The ID of the company.'
         required: true
-        example: 17
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -68,7 +68,7 @@ endpoints:
         API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all companies.'
+      title: 'Retrieve a list of companies'
       description: ''
       authenticated: false
       custom: []
@@ -109,8 +109,22 @@ endpoints:
         API endpoints for companies
       subgroup: ''
       subgroupDescription: ''
-      title: 'Add a company to the database.'
-      description: ''
+      title: 'Handles the creation of a new company in the database.'
+      description: |-
+        Requires the user to have appropriate permissions as an administrator or a client.
+
+        This endpoint validates the input data for the company being added, checks for uniqueness
+        of the company name within the specified city, state, and country, and optionally stores
+        a logo file. Upon successful validation, it creates the company record and returns a JSON response
+        with the created company's details.
+
+        - Ensure you are authenticated and have the required scopes (`companies:administer` or `companies:add`).
+        - Make a POST request to this endpoint with the necessary fields in the request body.
+        - If a logo file is included, ensure it is in `jpg`, `jpeg`, or `png` format.
+
+        - **Success (201)**: Returns the newly created company details in JSON format.
+        - **Failure (401)**: Unauthorized access if the user lacks the required permissions.
+        - **Failure (422)**: Validation errors if the input data is invalid.
       authenticated: false
       custom: []
     headers:
@@ -125,7 +139,7 @@ endpoints:
         name: city
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: nzi
+        example: ws
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,7 +149,7 @@ endpoints:
         name: state
         description: 'Must be between 2 and 16 characters.'
         required: true
-        example: xs
+        example: mmw
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -145,7 +159,7 @@ endpoints:
         name: country
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: pa
+        example: xwd
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -155,7 +169,7 @@ endpoints:
         name: name
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: yv
+        example: qpe
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -172,10 +186,10 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      city: nzi
-      state: xs
-      country: pa
-      name: yv
+      city: ws
+      state: mmw
+      country: xwd
+      name: qpe
     fileParameters:
       logo: null
     responses: []
@@ -208,14 +222,14 @@ endpoints:
         name: id
         description: 'The ID of the company.'
         required: true
-        example: fugit
+        example: rem
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: fugit
+      id: rem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -261,14 +275,14 @@ endpoints:
         name: id
         description: 'The ID of the company.'
         required: true
-        example: beatae
+        example: molestias
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: beatae
+      id: molestias
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -276,7 +290,7 @@ endpoints:
         name: name
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: mqy
+        example: vni
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -286,7 +300,7 @@ endpoints:
         name: city
         description: 'Must be between 2 and 255 characters.'
         required: false
-        example: tmm
+        example: qwq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -296,7 +310,7 @@ endpoints:
         name: state
         description: 'Must be between 2 and 16 characters.'
         required: false
-        example: vt
+        example: iq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -306,7 +320,7 @@ endpoints:
         name: country
         description: 'Must be between 2 and 255 characters.'
         required: false
-        example: cdg
+        example: nlb
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -323,10 +337,10 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: mqy
-      city: tmm
-      state: vt
-      country: cdg
+      name: vni
+      city: qwq
+      state: iq
+      country: nlb
     fileParameters:
       logo: null
     responses: []
@@ -359,14 +373,14 @@ endpoints:
         name: id
         description: 'The ID of the company.'
         required: true
-        example: 17
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

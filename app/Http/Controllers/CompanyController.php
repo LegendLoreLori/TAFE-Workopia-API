@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Validator;
 class CompanyController extends Controller
 {
     /**
-     * List all companies.
+     * Retrieve a list of companies
      *
      * @param  Request  $request
      * @return JsonResponse
@@ -40,7 +40,21 @@ class CompanyController extends Controller
     }
 
     /**
-     * Add a company to the database.
+     * Handles the creation of a new company in the database. 
+     * Requires the user to have appropriate permissions as an administrator or a client.
+     *
+     * This endpoint validates the input data for the company being added, checks for uniqueness 
+     * of the company name within the specified city, state, and country, and optionally stores 
+     * a logo file. Upon successful validation, it creates the company record and returns a JSON response 
+     * with the created company's details.
+     *
+     * - Ensure you are authenticated and have the required scopes (`companies:administer` or `companies:add`).
+     * - Make a POST request to this endpoint with the necessary fields in the request body.
+     * - If a logo file is included, ensure it is in `jpg`, `jpeg`, or `png` format.
+     *
+     * - **Success (201)**: Returns the newly created company details in JSON format.
+     * - **Failure (401)**: Unauthorized access if the user lacks the required permissions.
+     * - **Failure (422)**: Validation errors if the input data is invalid.
      *
      * @param  Request  $request
      * @return JsonResponse

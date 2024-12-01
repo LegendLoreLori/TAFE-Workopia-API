@@ -32,7 +32,7 @@ endpoints:
         name: name
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: tpa
+        example: pn
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,7 +42,7 @@ endpoints:
         name: family_name
         description: 'Must be between 2 and 255 characters.'
         required: true
-        example: bxv
+        example: wqd
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -52,7 +52,7 @@ endpoints:
         name: username
         description: 'Must be at least 2 characters.'
         required: true
-        example: ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket
+        example: wyzkgxnouduwgkvmajwblpudkujr
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -62,7 +62,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: kamren40@example.org
+        example: conner.eichmann@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -72,7 +72,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: sunt
+        example: libero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -82,7 +82,7 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: voluptatem
+        example: quae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -92,7 +92,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: in
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -102,21 +102,21 @@ endpoints:
         name: company_id
         description: 'The <code>id</code> of an existing record in the companies table.'
         required: false
-        example: 5
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: tpa
-      family_name: bxv
-      username: ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket
-      email: kamren40@example.org
-      password: sunt
-      password_confirmation: voluptatem
-      type: in
-      company_id: 5
+      name: pn
+      family_name: wqd
+      username: wyzkgxnouduwgkvmajwblpudkujr
+      email: conner.eichmann@example.net
+      password: libero
+      password_confirmation: quae
+      type: rerum
+      company_id: 11
     fileParameters: []
     responses: []
     responseFields: []
@@ -152,7 +152,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: ray.runolfsdottir@example.com
+        example: angelina55@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -162,7 +162,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: iste
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -172,16 +172,16 @@ endpoints:
         name: device_name
         description: ''
         required: true
-        example: omnis
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: ray.runolfsdottir@example.com
-      password: iste
-      device_name: omnis
+      email: angelina55@example.com
+      password: est
+      device_name: ut
     fileParameters: []
     responses: []
     responseFields: []

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "1080f5fc-a778-49db-b7ad-5f6754f426e4",
+        "_postman_id": "07bbe82b-83ba-4fde-8df5-e9c4ee4bc8d5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -31,7 +31,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "12",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -76,7 +76,7 @@
                     ]
                 },
                 {
-                    "name": "List all companies.",
+                    "name": "Retrieve a list of companies",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -124,7 +124,7 @@
                     ]
                 },
                 {
-                    "name": "Add a company to the database.",
+                    "name": "Handles the creation of a new company in the database.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -148,25 +148,25 @@
                             "formdata": [
                                 {
                                     "key": "city",
-                                    "value": "nzi",
+                                    "value": "ws",
                                     "type": "text",
                                     "description": "Must be between 2 and 255 characters."
                                 },
                                 {
                                     "key": "state",
-                                    "value": "xs",
+                                    "value": "mmw",
                                     "type": "text",
                                     "description": "Must be between 2 and 16 characters."
                                 },
                                 {
                                     "key": "country",
-                                    "value": "pa",
+                                    "value": "xwd",
                                     "type": "text",
                                     "description": "Must be between 2 and 255 characters."
                                 },
                                 {
                                     "key": "name",
-                                    "value": "yv",
+                                    "value": "qpe",
                                     "type": "text",
                                     "description": "Must be between 2 and 255 characters."
                                 },
@@ -177,7 +177,7 @@
                                 }
                             ]
                         },
-                        "description": "",
+                        "description": "Requires the user to have appropriate permissions as an administrator or a client.\n\nThis endpoint validates the input data for the company being added, checks for uniqueness\nof the company name within the specified city, state, and country, and optionally stores\na logo file. Upon successful validation, it creates the company record and returns a JSON response\nwith the created company's details.\n\n- Ensure you are authenticated and have the required scopes (`companies:administer` or `companies:add`).\n- Make a POST request to this endpoint with the necessary fields in the request body.\n- If a logo file is included, ensure it is in `jpg`, `jpeg`, or `png` format.\n\n- **Success (201)**: Returns the newly created company details in JSON format.\n- **Failure (401)**: Unauthorized access if the user lacks the required permissions.\n- **Failure (422)**: Validation errors if the input data is invalid.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -196,7 +196,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "fugit",
+                                    "value": "rem",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -252,7 +252,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "beatae",
+                                    "value": "molestias",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -273,25 +273,25 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "mqy",
+                                    "value": "vni",
                                     "type": "text",
                                     "description": "Must be between 2 and 255 characters."
                                 },
                                 {
                                     "key": "city",
-                                    "value": "tmm",
+                                    "value": "qwq",
                                     "type": "text",
                                     "description": "Must be between 2 and 255 characters."
                                 },
                                 {
                                     "key": "state",
-                                    "value": "vt",
+                                    "value": "iq",
                                     "type": "text",
                                     "description": "Must be between 2 and 16 characters."
                                 },
                                 {
                                     "key": "country",
-                                    "value": "cdg",
+                                    "value": "nlb",
                                     "type": "text",
                                     "description": "Must be between 2 and 255 characters."
                                 },
@@ -326,7 +326,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "3",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -368,7 +368,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "18",
                                     "description": "The ID of the position."
                                 }
                             ]
@@ -455,7 +455,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Retrieved positions\",\"data\":[{\"company\":{\"name\":\"Casper, Monahan and Pfannerstill\",\"city\":\"Millerberg\",\"state\":\"side\",\"country\":\"Saint Barthelemy\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak46E1.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Rosella Kerluke\",\"family_name\":\"Gutkowski\",\"username\":\"mraz.kendall\",\"email\":\"orempel@example.org\",\"type\":\"Client\",\"company_id\":3,\"status\":\"Active\"},\"start\":\"2024-10-24T01:08:23+00:00\",\"end\":\"2024-12-15T19:59:36+00:00\",\"title\":\"Host and Hostess\",\"description\":\"Aut quis consequatur esse omnis maiores impedit.\",\"min_salary\":62052,\"max_salary\":109093,\"currency\":\"NGN\",\"benefits\":\"consequuntur omnis beatae laudantium quas\",\"requirements\":\"unde enim nisi repellat iste porro voluptatum vel non molestias\",\"type\":\"Full-Time\"},{\"company\":{\"name\":\"Sanford Inc\",\"city\":\"Tiaraborough\",\"state\":\"town\",\"country\":\"Kazakhstan\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak46E3.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Alden Harber\",\"family_name\":\"Bruen\",\"username\":\"trantow.shanel\",\"email\":\"ikoch@example.net\",\"type\":\"Client\",\"company_id\":5,\"status\":\"Active\"},\"start\":\"2024-10-24T01:08:23+00:00\",\"end\":\"2024-12-11T04:39:14+00:00\",\"title\":\"Archivist\",\"description\":\"Est exercitationem omnis debitis qui qui sint dolorem.\",\"min_salary\":79520,\"max_salary\":127993,\"currency\":\"EGP\",\"benefits\":\"repellat aut quaerat fuga qui\",\"requirements\":\"autem nobis et ea optio quasi illo et harum impedit\",\"type\":\"Part-Time\"},{\"company\":{\"name\":\"Goodwin-Bayer\",\"city\":\"Wisokyland\",\"state\":\"land\",\"country\":\"Niue\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak46DF.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Prof. Bertram Borer\",\"family_name\":\"Bailey\",\"username\":\"berge.conor\",\"email\":\"emilie96@example.net\",\"type\":\"Client\",\"company_id\":1,\"status\":\"Active\"},\"start\":\"2024-10-24T01:08:23+00:00\",\"end\":\"2024-12-17T20:49:13+00:00\",\"title\":\"Forming Machine Operator\",\"description\":\"Quos rem accusantium autem voluptas a.\",\"min_salary\":76074,\"max_salary\":125334,\"currency\":\"BBD\",\"benefits\":\"esse non est ratione aut\",\"requirements\":\"fugit omnis inventore excepturi voluptatem ut reiciendis voluptas maiores rerum\",\"type\":\"Part-Time\"},{\"company\":{\"name\":\"Goodwin-Bayer\",\"city\":\"Wisokyland\",\"state\":\"land\",\"country\":\"Niue\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak46DF.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Prof. Bertram Borer\",\"family_name\":\"Bailey\",\"username\":\"berge.conor\",\"email\":\"emilie96@example.net\",\"type\":\"Client\",\"company_id\":1,\"status\":\"Active\"},\"start\":\"2024-10-24T01:08:23+00:00\",\"end\":\"2025-01-13T18:37:54+00:00\",\"title\":\"Food Scientists and Technologist\",\"description\":\"Eum et fugiat eum quam.\",\"min_salary\":72211,\"max_salary\":117941,\"currency\":\"MKD\",\"benefits\":\"maiores consectetur aliquid omnis ipsam\",\"requirements\":\"saepe et aut voluptas deleniti libero quis et dicta laborum\",\"type\":\"Part-Time\"},{\"company\":{\"name\":\"VonRueden-Braun\",\"city\":\"East Diana\",\"state\":\"mouth\",\"country\":\"Australia\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak46E0.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Aurelia Bergnaum\",\"family_name\":\"Pollich\",\"username\":\"zieme.jaiden\",\"email\":\"dwalter@example.org\",\"type\":\"Client\",\"company_id\":2,\"status\":\"Active\"},\"start\":\"2024-10-24T01:08:23+00:00\",\"end\":\"2024-12-12T07:29:22+00:00\",\"title\":\"Network Admin OR Computer Systems Administrator\",\"description\":\"Culpa modi veritatis illo laboriosam magnam repellendus quis.\",\"min_salary\":66958,\"max_salary\":148586,\"currency\":\"BMD\",\"benefits\":\"placeat voluptatem aut fugit itaque\",\"requirements\":\"nihil in corporis fugit illo doloremque magni ipsa laboriosam nihil\",\"type\":\"Casual\"},{\"company\":{\"name\":\"Morar-Greenfelder\",\"city\":\"Hamillmouth\",\"state\":\"ville\",\"country\":\"Trinidad and Tobago\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak46E2.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Ted Barrows Sr.\",\"family_name\":\"Crooks\",\"username\":\"tremayne.bogan\",\"email\":\"samara.prosacco@example.org\",\"type\":\"Client\",\"company_id\":4,\"status\":\"Active\"},\"start\":\"2024-10-24T01:08:23+00:00\",\"end\":\"2025-01-08T15:56:16+00:00\",\"title\":\"Fiber Product Cutting Machine Operator\",\"description\":\"Aut in sunt consequatur quia.\",\"min_salary\":47406,\"max_salary\":92531,\"currency\":\"MMK\",\"benefits\":\"magni repellendus aut totam neque\",\"requirements\":\"molestiae nihil cupiditate exercitationem molestiae nobis cum blanditiis qui similique\",\"type\":\"Part-Time\"}]}",
+                            "body": "{\"success\":true,\"message\":\"Retrieved positions\",\"data\":[{\"company\":{\"name\":\"Predovic Group\",\"city\":\"Ernserchester\",\"state\":\"mouth\",\"country\":\"Austria\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak4332.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Bernadette Powlowski PhD\",\"family_name\":\"O'Kon\",\"username\":\"paucek.melody\",\"email\":\"svandervort@example.net\",\"type\":\"Client\",\"company_id\":2,\"status\":\"Active\"},\"start\":\"2024-11-15T08:18:45+00:00\",\"end\":\"2025-02-04T20:04:56+00:00\",\"title\":\"Diagnostic Medical Sonographer\",\"description\":\"Sit veritatis vitae voluptatem tempore eligendi minima atque.\",\"min_salary\":53555,\"max_salary\":99268,\"currency\":\"BIF\",\"benefits\":\"sint perferendis temporibus dolor molestiae\",\"requirements\":\"sit non et corrupti sunt dolorum excepturi dolor ducimus porro\",\"type\":\"Part-Time\"},{\"company\":{\"name\":\"Predovic Group\",\"city\":\"Ernserchester\",\"state\":\"mouth\",\"country\":\"Austria\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak4332.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Bernadette Powlowski PhD\",\"family_name\":\"O'Kon\",\"username\":\"paucek.melody\",\"email\":\"svandervort@example.net\",\"type\":\"Client\",\"company_id\":2,\"status\":\"Active\"},\"start\":\"2024-11-15T08:18:45+00:00\",\"end\":\"2025-01-24T00:57:49+00:00\",\"title\":\"Electrical and Electronics Drafter\",\"description\":\"Qui voluptatum dolores ut consectetur sed vel dolorem aperiam.\",\"min_salary\":61547,\"max_salary\":104382,\"currency\":\"VND\",\"benefits\":\"a est ut est similique\",\"requirements\":\"harum eveniet aspernatur vel laudantium et culpa est eos atque\",\"type\":\"Part-Time\"},{\"company\":{\"name\":\"Heaney, Bashirian and Turcotte\",\"city\":\"Hyatttown\",\"state\":\"shire\",\"country\":\"South Georgia and the South Sandwich Islands\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak4335.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Miss Abigail Hackett II\",\"family_name\":\"Streich\",\"username\":\"ekrajcik\",\"email\":\"uwisoky@example.org\",\"type\":\"Client\",\"company_id\":5,\"status\":\"Active\"},\"start\":\"2024-11-15T08:18:45+00:00\",\"end\":\"2025-01-16T08:44:10+00:00\",\"title\":\"Marine Cargo Inspector\",\"description\":\"Officia qui dolorem velit facilis porro voluptatem.\",\"min_salary\":58399,\"max_salary\":100898,\"currency\":\"INR\",\"benefits\":\"debitis aspernatur similique amet laboriosam\",\"requirements\":\"at nemo molestias minima quia sapiente quam aut sit quam\",\"type\":\"Casual\"},{\"company\":{\"name\":\"Hayes-O'Reilly\",\"city\":\"Johnsview\",\"state\":\"burgh\",\"country\":\"Iceland\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak4331.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Wendell Hansen\",\"family_name\":\"Altenwerth\",\"username\":\"cydney.metz\",\"email\":\"ursula.rath@example.com\",\"type\":\"Client\",\"company_id\":1,\"status\":\"Active\"},\"start\":\"2024-11-15T08:18:45+00:00\",\"end\":\"2025-01-10T23:04:59+00:00\",\"title\":\"Boiler Operator\",\"description\":\"Ex quia molestiae et molestiae omnis sit ipsam.\",\"min_salary\":76111,\"max_salary\":108151,\"currency\":\"NGN\",\"benefits\":\"facilis qui optio ut consequuntur\",\"requirements\":\"ducimus magni et ipsum illum nostrum cum iure ex placeat\",\"type\":\"Contract\"},{\"company\":{\"name\":\"Hayes-O'Reilly\",\"city\":\"Johnsview\",\"state\":\"burgh\",\"country\":\"Iceland\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak4331.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Dr. Sandy Lind\",\"family_name\":\"Kshlerin\",\"username\":\"ezra.fahey\",\"email\":\"ondricka.stephany@example.net\",\"type\":\"Client\",\"company_id\":1,\"status\":\"Active\"},\"start\":\"2024-11-15T08:18:45+00:00\",\"end\":\"2024-12-20T02:03:40+00:00\",\"title\":\"Recreational Vehicle Service Technician\",\"description\":\"Rerum at ut neque nulla.\",\"min_salary\":54715,\"max_salary\":130101,\"currency\":\"ETB\",\"benefits\":\"animi est aspernatur modi voluptas\",\"requirements\":\"similique aliquid repudiandae ut ratione cupiditate doloribus adipisci temporibus laudantium\",\"type\":\"Casual\"},{\"company\":{\"name\":\"Heaney, Bashirian and Turcotte\",\"city\":\"Hyatttown\",\"state\":\"shire\",\"country\":\"South Georgia and the South Sandwich Islands\",\"logo_path\":\"C:\\\\Users\\\\Lori\\\\AppData\\\\Local\\\\Temp\\\\fak4335.tmp\",\"extension\":\"tmp\"},\"user\":{\"name\":\"Mr. Clifford Muller\",\"family_name\":\"Kilback\",\"username\":\"destiny.schultz\",\"email\":\"parisian.lauren@example.net\",\"type\":\"Client\",\"company_id\":5,\"status\":\"Active\"},\"start\":\"2024-11-15T08:18:45+00:00\",\"end\":\"2024-12-29T11:10:41+00:00\",\"title\":\"Embalmer\",\"description\":\"Voluptas molestiae et quia velit et qui rerum.\",\"min_salary\":78926,\"max_salary\":140340,\"currency\":\"BBD\",\"benefits\":\"officiis et quae maiores sint\",\"requirements\":\"aspernatur quia id excepturi sed enim esse rerum nostrum repudiandae\",\"type\":\"Full-Time\"}]}",
                             "name": ""
                         }
                     ]
@@ -482,7 +482,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"company_id\":1,\"user_id\":9,\"start\":\"2024-10-24T06:10:32\",\"end\":\"2075-01-06\",\"title\":\"byg\",\"description\":\"Consequatur accusantium explicabo aliquid delectus perspiciatis labore ipsum.\",\"min_salary\":4,\"max_salary\":7,\"currency\":\"omnis\",\"benefits\":\"hdovvigsuyorv\",\"requirements\":\"zxnoeqjqcywiqftpeudhjupacdxrcbjzqqjczhzobpkju\",\"type\":\"voluptatibus\"}"
+                            "raw": "{\"company_id\":13,\"user_id\":8,\"start\":\"2024-12-01T07:41:39\",\"end\":\"2102-11-13\",\"title\":\"pp\",\"description\":\"Rem dolor quae et aut.\",\"min_salary\":18,\"max_salary\":6,\"currency\":\"rem\",\"benefits\":\"iyjlmsggujujvksqopalrnfkknyghplcikyjfpthopnyqvrpwecrwggeazq\",\"requirements\":\"vhsckwjfqqectmwdmuurqsagpoznqbqrjyxtoedinmmazfgnmvrfsktzyncidywh\",\"type\":\"aut\"}"
                         },
                         "description": "",
                         "auth": {
@@ -577,7 +577,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"end\":\"2081-08-20\",\"title\":\"um\",\"description\":\"Magnam molestiae tempore beatae error adipisci.\",\"min_salary\":5,\"max_salary\":8,\"currency\":\"voluptatem\",\"benefits\":\"kvfbvaujplpaoawqovgywnuvvgsmusunugruwqynfpsfzgnplzginehllwmhrhjwedsjnmoffzohycj\",\"requirements\":\"bsaexbmlssgvbcbsyknuochvqxubgowkt\",\"type\":\"temporibus\"}"
+                            "raw": "{\"end\":\"2109-07-01\",\"title\":\"sq\",\"description\":\"Ipsa laborum laboriosam nobis et.\",\"min_salary\":17,\"max_salary\":3,\"currency\":\"minima\",\"benefits\":\"ltenffavmqtuzqpzohdmgggwhtoxoniusdjmsnqsggbrnsavdvzawvyvlor\",\"requirements\":\"lxwybddmubuvbcynvuqgejxvdofytkealsauyauoslnovuiooovtilevmyygywlvpzsilltjosigk\",\"type\":\"et\"}"
                         },
                         "description": "",
                         "auth": {
@@ -598,7 +598,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "5",
+                                    "value": "13",
                                     "description": "The ID of the position."
                                 }
                             ]
@@ -650,7 +650,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"tpa\",\"family_name\":\"bxv\",\"username\":\"ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket\",\"email\":\"kamren40@example.org\",\"password\":\"sunt\",\"password_confirmation\":\"voluptatem\",\"type\":\"in\",\"company_id\":5}"
+                            "raw": "{\"name\":\"pn\",\"family_name\":\"wqd\",\"username\":\"wyzkgxnouduwgkvmajwblpudkujr\",\"email\":\"conner.eichmann@example.net\",\"password\":\"libero\",\"password_confirmation\":\"quae\",\"type\":\"rerum\",\"company_id\":11}"
                         },
                         "description": "",
                         "auth": {
@@ -681,7 +681,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"ray.runolfsdottir@example.com\",\"password\":\"iste\",\"device_name\":\"omnis\"}"
+                            "raw": "{\"email\":\"angelina55@example.com\",\"password\":\"est\",\"device_name\":\"ut\"}"
                         },
                         "description": "",
                         "auth": {
@@ -736,7 +736,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "11",
+                                    "value": "20",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -850,7 +850,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"th\",\"family_name\":\"pv\",\"username\":\"gefihoemnua\",\"email\":\"wyatt26@example.net\",\"password\":\"rerum\",\"password_confirmation\":\"velit\",\"type\":\"fugiat\",\"company_id\":14}"
+                            "raw": "{\"name\":\"kf\",\"family_name\":\"cn\",\"username\":\"zjtahjkttrkljzdlgunikcjdclbgujjackxvgnpkjl\",\"email\":\"abagail43@example.com\",\"password\":\"eum\",\"password_confirmation\":\"aut\",\"type\":\"perspiciatis\",\"company_id\":16}"
                         },
                         "description": "",
                         "auth": {
@@ -945,7 +945,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"jb\",\"family_name\":\"al\",\"email\":\"gusikowski.kurt@example.org\",\"password\":\"soluta\",\"type\":\"deserunt\",\"company_id\":2,\"status\":\"assumenda\"}"
+                            "raw": "{\"name\":\"xmo\",\"family_name\":\"aqg\",\"email\":\"hcrona@example.net\",\"password\":\"veritatis\",\"type\":\"culpa\",\"company_id\":17,\"status\":\"repudiandae\"}"
                         },
                         "description": "",
                         "auth": {
@@ -966,7 +966,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "1",
                                     "description": "The ID of the user."
                                 }
                             ]

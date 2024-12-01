@@ -75,10 +75,10 @@
                                 <a href="#company-GETapi-v1-companies-trash--id-">Restore the specified soft deleted company from trash.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="company-GETapi-v1-companies">
-                                <a href="#company-GETapi-v1-companies">List all companies.</a>
+                                <a href="#company-GETapi-v1-companies">Retrieve a list of companies</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="company-POSTapi-v1-companies">
-                                <a href="#company-POSTapi-v1-companies">Add a company to the database.</a>
+                                <a href="#company-POSTapi-v1-companies">Handles the creation of a new company in the database.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="company-GETapi-v1-companies--id-">
                                 <a href="#company-GETapi-v1-companies--id-">Retrieve a single company.</a>
@@ -166,7 +166,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 24, 2024</li>
+        <li>Last updated: December 1, 2024</li>
     </ul>
 </div>
 
@@ -201,14 +201,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/companies/trash/17" \
+    --get "http://localhost/api/v1/companies/trash/12" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/companies/trash/17"
+    "http://localhost/api/v1/companies/trash/12"
 );
 
 const headers = {
@@ -317,14 +317,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-v1-companies-trash--id-"
-               value="17"
+               value="12"
                data-component="url">
     <br>
-<p>The ID of the company. Example: <code>17</code></p>
+<p>The ID of the company. Example: <code>12</code></p>
             </div>
                     </form>
 
-                    <h2 id="company-GETapi-v1-companies">List all companies.</h2>
+                    <h2 id="company-GETapi-v1-companies">Retrieve a list of companies</h2>
 
 <p>
 </p>
@@ -448,12 +448,36 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="company-POSTapi-v1-companies">Add a company to the database.</h2>
+                    <h2 id="company-POSTapi-v1-companies">Handles the creation of a new company in the database.</h2>
 
 <p>
 </p>
 
-
+<p>Requires the user to have appropriate permissions as an administrator or a client.</p>
+<p>This endpoint validates the input data for the company being added, checks for uniqueness
+of the company name within the specified city, state, and country, and optionally stores
+a logo file. Upon successful validation, it creates the company record and returns a JSON response
+with the created company's details.</p>
+<ul>
+<li>
+<p>Ensure you are authenticated and have the required scopes (<code>companies:administer</code> or <code>companies:add</code>).</p>
+</li>
+<li>
+<p>Make a POST request to this endpoint with the necessary fields in the request body.</p>
+</li>
+<li>
+<p>If a logo file is included, ensure it is in <code>jpg</code>, <code>jpeg</code>, or <code>png</code> format.</p>
+</li>
+<li>
+<p><strong>Success (201)</strong>: Returns the newly created company details in JSON format.</p>
+</li>
+<li>
+<p><strong>Failure (401)</strong>: Unauthorized access if the user lacks the required permissions.</p>
+</li>
+<li>
+<p><strong>Failure (422)</strong>: Validation errors if the input data is invalid.</p>
+</li>
+</ul>
 
 <span id="example-requests-POSTapi-v1-companies">
 <blockquote>Example request:</blockquote>
@@ -464,11 +488,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://localhost/api/v1/companies" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "city=nzi"\
-    --form "state=xs"\
-    --form "country=pa"\
-    --form "name=yv"\
-    --form "logo=@C:\Users\Lori\AppData\Local\Temp\phpE533.tmp" </code></pre></div>
+    --form "city=ws"\
+    --form "state=mmw"\
+    --form "country=xwd"\
+    --form "name=qpe"\
+    --form "logo=@C:\Users\Lori\AppData\Local\Temp\php7E33.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -482,10 +506,10 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('city', 'nzi');
-body.append('state', 'xs');
-body.append('country', 'pa');
-body.append('name', 'yv');
+body.append('city', 'ws');
+body.append('state', 'mmw');
+body.append('country', 'xwd');
+body.append('name', 'qpe');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 
 fetch(url, {
@@ -574,10 +598,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v1-companies"
-               value="nzi"
+               value="ws"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>nzi</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>ws</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -585,10 +609,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v1-companies"
-               value="xs"
+               value="mmw"
                data-component="body">
     <br>
-<p>Must be between 2 and 16 characters. Example: <code>xs</code></p>
+<p>Must be between 2 and 16 characters. Example: <code>mmw</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
@@ -596,10 +620,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="POSTapi-v1-companies"
-               value="pa"
+               value="xwd"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>pa</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>xwd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -607,10 +631,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-companies"
-               value="yv"
+               value="qpe"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>yv</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>qpe</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -621,7 +645,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\Lori\AppData\Local\Temp\phpE533.tmp</code></p>
+<p>Must be an image. Example: <code>C:\Users\Lori\AppData\Local\Temp\php7E33.tmp</code></p>
         </div>
         </form>
 
@@ -638,14 +662,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/companies/fugit" \
+    --get "http://localhost/api/v1/companies/rem" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/companies/fugit"
+    "http://localhost/api/v1/companies/rem"
 );
 
 const headers = {
@@ -754,10 +778,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-companies--id-"
-               value="fugit"
+               value="rem"
                data-component="url">
     <br>
-<p>The ID of the company. Example: <code>fugit</code></p>
+<p>The ID of the company. Example: <code>rem</code></p>
             </div>
                     </form>
 
@@ -774,19 +798,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/companies/beatae" \
+    "http://localhost/api/v1/companies/molestias" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=mqy"\
-    --form "city=tmm"\
-    --form "state=vt"\
-    --form "country=cdg"\
-    --form "logo=@C:\Users\Lori\AppData\Local\Temp\phpE554.tmp" </code></pre></div>
+    --form "name=vni"\
+    --form "city=qwq"\
+    --form "state=iq"\
+    --form "country=nlb"\
+    --form "logo=@C:\Users\Lori\AppData\Local\Temp\php7E72.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/companies/beatae"
+    "http://localhost/api/v1/companies/molestias"
 );
 
 const headers = {
@@ -795,10 +819,10 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'mqy');
-body.append('city', 'tmm');
-body.append('state', 'vt');
-body.append('country', 'cdg');
+body.append('name', 'vni');
+body.append('city', 'qwq');
+body.append('state', 'iq');
+body.append('country', 'nlb');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 
 fetch(url, {
@@ -891,10 +915,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-companies--id-"
-               value="beatae"
+               value="molestias"
                data-component="url">
     <br>
-<p>The ID of the company. Example: <code>beatae</code></p>
+<p>The ID of the company. Example: <code>molestias</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -903,10 +927,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-v1-companies--id-"
-               value="mqy"
+               value="vni"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>mqy</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>vni</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -914,10 +938,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="PUTapi-v1-companies--id-"
-               value="tmm"
+               value="qwq"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>tmm</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>qwq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -925,10 +949,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="PUTapi-v1-companies--id-"
-               value="vt"
+               value="iq"
                data-component="body">
     <br>
-<p>Must be between 2 and 16 characters. Example: <code>vt</code></p>
+<p>Must be between 2 and 16 characters. Example: <code>iq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
@@ -936,10 +960,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="PUTapi-v1-companies--id-"
-               value="cdg"
+               value="nlb"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>cdg</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>nlb</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -950,7 +974,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\Lori\AppData\Local\Temp\phpE554.tmp</code></p>
+<p>Must be an image. Example: <code>C:\Users\Lori\AppData\Local\Temp\php7E72.tmp</code></p>
         </div>
         </form>
 
@@ -967,14 +991,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/companies/17" \
+    "http://localhost/api/v1/companies/3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/companies/17"
+    "http://localhost/api/v1/companies/3"
 );
 
 const headers = {
@@ -1067,10 +1091,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-companies--id-"
-               value="17"
+               value="3"
                data-component="url">
     <br>
-<p>The ID of the company. Example: <code>17</code></p>
+<p>The ID of the company. Example: <code>3</code></p>
             </div>
                     </form>
 
@@ -1091,14 +1115,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/positions/trash/7" \
+    --get "http://localhost/api/v1/positions/trash/18" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/positions/trash/7"
+    "http://localhost/api/v1/positions/trash/18"
 );
 
 const headers = {
@@ -1207,10 +1231,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-v1-positions-trash--id-"
-               value="7"
+               value="18"
                data-component="url">
     <br>
-<p>The ID of the position. Example: <code>7</code></p>
+<p>The ID of the position. Example: <code>18</code></p>
             </div>
                     </form>
 
@@ -1268,177 +1292,177 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;company&quot;: {
-                &quot;name&quot;: &quot;Casper, Monahan and Pfannerstill&quot;,
-                &quot;city&quot;: &quot;Millerberg&quot;,
-                &quot;state&quot;: &quot;side&quot;,
-                &quot;country&quot;: &quot;Saint Barthelemy&quot;,
-                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak46E1.tmp&quot;,
-                &quot;extension&quot;: &quot;tmp&quot;
-            },
-            &quot;user&quot;: {
-                &quot;name&quot;: &quot;Rosella Kerluke&quot;,
-                &quot;family_name&quot;: &quot;Gutkowski&quot;,
-                &quot;username&quot;: &quot;mraz.kendall&quot;,
-                &quot;email&quot;: &quot;orempel@example.org&quot;,
-                &quot;type&quot;: &quot;Client&quot;,
-                &quot;company_id&quot;: 3,
-                &quot;status&quot;: &quot;Active&quot;
-            },
-            &quot;start&quot;: &quot;2024-10-24T01:08:23+00:00&quot;,
-            &quot;end&quot;: &quot;2024-12-15T19:59:36+00:00&quot;,
-            &quot;title&quot;: &quot;Host and Hostess&quot;,
-            &quot;description&quot;: &quot;Aut quis consequatur esse omnis maiores impedit.&quot;,
-            &quot;min_salary&quot;: 62052,
-            &quot;max_salary&quot;: 109093,
-            &quot;currency&quot;: &quot;NGN&quot;,
-            &quot;benefits&quot;: &quot;consequuntur omnis beatae laudantium quas&quot;,
-            &quot;requirements&quot;: &quot;unde enim nisi repellat iste porro voluptatum vel non molestias&quot;,
-            &quot;type&quot;: &quot;Full-Time&quot;
-        },
-        {
-            &quot;company&quot;: {
-                &quot;name&quot;: &quot;Sanford Inc&quot;,
-                &quot;city&quot;: &quot;Tiaraborough&quot;,
-                &quot;state&quot;: &quot;town&quot;,
-                &quot;country&quot;: &quot;Kazakhstan&quot;,
-                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak46E3.tmp&quot;,
-                &quot;extension&quot;: &quot;tmp&quot;
-            },
-            &quot;user&quot;: {
-                &quot;name&quot;: &quot;Alden Harber&quot;,
-                &quot;family_name&quot;: &quot;Bruen&quot;,
-                &quot;username&quot;: &quot;trantow.shanel&quot;,
-                &quot;email&quot;: &quot;ikoch@example.net&quot;,
-                &quot;type&quot;: &quot;Client&quot;,
-                &quot;company_id&quot;: 5,
-                &quot;status&quot;: &quot;Active&quot;
-            },
-            &quot;start&quot;: &quot;2024-10-24T01:08:23+00:00&quot;,
-            &quot;end&quot;: &quot;2024-12-11T04:39:14+00:00&quot;,
-            &quot;title&quot;: &quot;Archivist&quot;,
-            &quot;description&quot;: &quot;Est exercitationem omnis debitis qui qui sint dolorem.&quot;,
-            &quot;min_salary&quot;: 79520,
-            &quot;max_salary&quot;: 127993,
-            &quot;currency&quot;: &quot;EGP&quot;,
-            &quot;benefits&quot;: &quot;repellat aut quaerat fuga qui&quot;,
-            &quot;requirements&quot;: &quot;autem nobis et ea optio quasi illo et harum impedit&quot;,
-            &quot;type&quot;: &quot;Part-Time&quot;
-        },
-        {
-            &quot;company&quot;: {
-                &quot;name&quot;: &quot;Goodwin-Bayer&quot;,
-                &quot;city&quot;: &quot;Wisokyland&quot;,
-                &quot;state&quot;: &quot;land&quot;,
-                &quot;country&quot;: &quot;Niue&quot;,
-                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak46DF.tmp&quot;,
-                &quot;extension&quot;: &quot;tmp&quot;
-            },
-            &quot;user&quot;: {
-                &quot;name&quot;: &quot;Prof. Bertram Borer&quot;,
-                &quot;family_name&quot;: &quot;Bailey&quot;,
-                &quot;username&quot;: &quot;berge.conor&quot;,
-                &quot;email&quot;: &quot;emilie96@example.net&quot;,
-                &quot;type&quot;: &quot;Client&quot;,
-                &quot;company_id&quot;: 1,
-                &quot;status&quot;: &quot;Active&quot;
-            },
-            &quot;start&quot;: &quot;2024-10-24T01:08:23+00:00&quot;,
-            &quot;end&quot;: &quot;2024-12-17T20:49:13+00:00&quot;,
-            &quot;title&quot;: &quot;Forming Machine Operator&quot;,
-            &quot;description&quot;: &quot;Quos rem accusantium autem voluptas a.&quot;,
-            &quot;min_salary&quot;: 76074,
-            &quot;max_salary&quot;: 125334,
-            &quot;currency&quot;: &quot;BBD&quot;,
-            &quot;benefits&quot;: &quot;esse non est ratione aut&quot;,
-            &quot;requirements&quot;: &quot;fugit omnis inventore excepturi voluptatem ut reiciendis voluptas maiores rerum&quot;,
-            &quot;type&quot;: &quot;Part-Time&quot;
-        },
-        {
-            &quot;company&quot;: {
-                &quot;name&quot;: &quot;Goodwin-Bayer&quot;,
-                &quot;city&quot;: &quot;Wisokyland&quot;,
-                &quot;state&quot;: &quot;land&quot;,
-                &quot;country&quot;: &quot;Niue&quot;,
-                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak46DF.tmp&quot;,
-                &quot;extension&quot;: &quot;tmp&quot;
-            },
-            &quot;user&quot;: {
-                &quot;name&quot;: &quot;Prof. Bertram Borer&quot;,
-                &quot;family_name&quot;: &quot;Bailey&quot;,
-                &quot;username&quot;: &quot;berge.conor&quot;,
-                &quot;email&quot;: &quot;emilie96@example.net&quot;,
-                &quot;type&quot;: &quot;Client&quot;,
-                &quot;company_id&quot;: 1,
-                &quot;status&quot;: &quot;Active&quot;
-            },
-            &quot;start&quot;: &quot;2024-10-24T01:08:23+00:00&quot;,
-            &quot;end&quot;: &quot;2025-01-13T18:37:54+00:00&quot;,
-            &quot;title&quot;: &quot;Food Scientists and Technologist&quot;,
-            &quot;description&quot;: &quot;Eum et fugiat eum quam.&quot;,
-            &quot;min_salary&quot;: 72211,
-            &quot;max_salary&quot;: 117941,
-            &quot;currency&quot;: &quot;MKD&quot;,
-            &quot;benefits&quot;: &quot;maiores consectetur aliquid omnis ipsam&quot;,
-            &quot;requirements&quot;: &quot;saepe et aut voluptas deleniti libero quis et dicta laborum&quot;,
-            &quot;type&quot;: &quot;Part-Time&quot;
-        },
-        {
-            &quot;company&quot;: {
-                &quot;name&quot;: &quot;VonRueden-Braun&quot;,
-                &quot;city&quot;: &quot;East Diana&quot;,
+                &quot;name&quot;: &quot;Predovic Group&quot;,
+                &quot;city&quot;: &quot;Ernserchester&quot;,
                 &quot;state&quot;: &quot;mouth&quot;,
-                &quot;country&quot;: &quot;Australia&quot;,
-                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak46E0.tmp&quot;,
+                &quot;country&quot;: &quot;Austria&quot;,
+                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak4332.tmp&quot;,
                 &quot;extension&quot;: &quot;tmp&quot;
             },
             &quot;user&quot;: {
-                &quot;name&quot;: &quot;Aurelia Bergnaum&quot;,
-                &quot;family_name&quot;: &quot;Pollich&quot;,
-                &quot;username&quot;: &quot;zieme.jaiden&quot;,
-                &quot;email&quot;: &quot;dwalter@example.org&quot;,
+                &quot;name&quot;: &quot;Bernadette Powlowski PhD&quot;,
+                &quot;family_name&quot;: &quot;O&#039;Kon&quot;,
+                &quot;username&quot;: &quot;paucek.melody&quot;,
+                &quot;email&quot;: &quot;svandervort@example.net&quot;,
                 &quot;type&quot;: &quot;Client&quot;,
                 &quot;company_id&quot;: 2,
                 &quot;status&quot;: &quot;Active&quot;
             },
-            &quot;start&quot;: &quot;2024-10-24T01:08:23+00:00&quot;,
-            &quot;end&quot;: &quot;2024-12-12T07:29:22+00:00&quot;,
-            &quot;title&quot;: &quot;Network Admin OR Computer Systems Administrator&quot;,
-            &quot;description&quot;: &quot;Culpa modi veritatis illo laboriosam magnam repellendus quis.&quot;,
-            &quot;min_salary&quot;: 66958,
-            &quot;max_salary&quot;: 148586,
-            &quot;currency&quot;: &quot;BMD&quot;,
-            &quot;benefits&quot;: &quot;placeat voluptatem aut fugit itaque&quot;,
-            &quot;requirements&quot;: &quot;nihil in corporis fugit illo doloremque magni ipsa laboriosam nihil&quot;,
+            &quot;start&quot;: &quot;2024-11-15T08:18:45+00:00&quot;,
+            &quot;end&quot;: &quot;2025-02-04T20:04:56+00:00&quot;,
+            &quot;title&quot;: &quot;Diagnostic Medical Sonographer&quot;,
+            &quot;description&quot;: &quot;Sit veritatis vitae voluptatem tempore eligendi minima atque.&quot;,
+            &quot;min_salary&quot;: 53555,
+            &quot;max_salary&quot;: 99268,
+            &quot;currency&quot;: &quot;BIF&quot;,
+            &quot;benefits&quot;: &quot;sint perferendis temporibus dolor molestiae&quot;,
+            &quot;requirements&quot;: &quot;sit non et corrupti sunt dolorum excepturi dolor ducimus porro&quot;,
+            &quot;type&quot;: &quot;Part-Time&quot;
+        },
+        {
+            &quot;company&quot;: {
+                &quot;name&quot;: &quot;Predovic Group&quot;,
+                &quot;city&quot;: &quot;Ernserchester&quot;,
+                &quot;state&quot;: &quot;mouth&quot;,
+                &quot;country&quot;: &quot;Austria&quot;,
+                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak4332.tmp&quot;,
+                &quot;extension&quot;: &quot;tmp&quot;
+            },
+            &quot;user&quot;: {
+                &quot;name&quot;: &quot;Bernadette Powlowski PhD&quot;,
+                &quot;family_name&quot;: &quot;O&#039;Kon&quot;,
+                &quot;username&quot;: &quot;paucek.melody&quot;,
+                &quot;email&quot;: &quot;svandervort@example.net&quot;,
+                &quot;type&quot;: &quot;Client&quot;,
+                &quot;company_id&quot;: 2,
+                &quot;status&quot;: &quot;Active&quot;
+            },
+            &quot;start&quot;: &quot;2024-11-15T08:18:45+00:00&quot;,
+            &quot;end&quot;: &quot;2025-01-24T00:57:49+00:00&quot;,
+            &quot;title&quot;: &quot;Electrical and Electronics Drafter&quot;,
+            &quot;description&quot;: &quot;Qui voluptatum dolores ut consectetur sed vel dolorem aperiam.&quot;,
+            &quot;min_salary&quot;: 61547,
+            &quot;max_salary&quot;: 104382,
+            &quot;currency&quot;: &quot;VND&quot;,
+            &quot;benefits&quot;: &quot;a est ut est similique&quot;,
+            &quot;requirements&quot;: &quot;harum eveniet aspernatur vel laudantium et culpa est eos atque&quot;,
+            &quot;type&quot;: &quot;Part-Time&quot;
+        },
+        {
+            &quot;company&quot;: {
+                &quot;name&quot;: &quot;Heaney, Bashirian and Turcotte&quot;,
+                &quot;city&quot;: &quot;Hyatttown&quot;,
+                &quot;state&quot;: &quot;shire&quot;,
+                &quot;country&quot;: &quot;South Georgia and the South Sandwich Islands&quot;,
+                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak4335.tmp&quot;,
+                &quot;extension&quot;: &quot;tmp&quot;
+            },
+            &quot;user&quot;: {
+                &quot;name&quot;: &quot;Miss Abigail Hackett II&quot;,
+                &quot;family_name&quot;: &quot;Streich&quot;,
+                &quot;username&quot;: &quot;ekrajcik&quot;,
+                &quot;email&quot;: &quot;uwisoky@example.org&quot;,
+                &quot;type&quot;: &quot;Client&quot;,
+                &quot;company_id&quot;: 5,
+                &quot;status&quot;: &quot;Active&quot;
+            },
+            &quot;start&quot;: &quot;2024-11-15T08:18:45+00:00&quot;,
+            &quot;end&quot;: &quot;2025-01-16T08:44:10+00:00&quot;,
+            &quot;title&quot;: &quot;Marine Cargo Inspector&quot;,
+            &quot;description&quot;: &quot;Officia qui dolorem velit facilis porro voluptatem.&quot;,
+            &quot;min_salary&quot;: 58399,
+            &quot;max_salary&quot;: 100898,
+            &quot;currency&quot;: &quot;INR&quot;,
+            &quot;benefits&quot;: &quot;debitis aspernatur similique amet laboriosam&quot;,
+            &quot;requirements&quot;: &quot;at nemo molestias minima quia sapiente quam aut sit quam&quot;,
             &quot;type&quot;: &quot;Casual&quot;
         },
         {
             &quot;company&quot;: {
-                &quot;name&quot;: &quot;Morar-Greenfelder&quot;,
-                &quot;city&quot;: &quot;Hamillmouth&quot;,
-                &quot;state&quot;: &quot;ville&quot;,
-                &quot;country&quot;: &quot;Trinidad and Tobago&quot;,
-                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak46E2.tmp&quot;,
+                &quot;name&quot;: &quot;Hayes-O&#039;Reilly&quot;,
+                &quot;city&quot;: &quot;Johnsview&quot;,
+                &quot;state&quot;: &quot;burgh&quot;,
+                &quot;country&quot;: &quot;Iceland&quot;,
+                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak4331.tmp&quot;,
                 &quot;extension&quot;: &quot;tmp&quot;
             },
             &quot;user&quot;: {
-                &quot;name&quot;: &quot;Ted Barrows Sr.&quot;,
-                &quot;family_name&quot;: &quot;Crooks&quot;,
-                &quot;username&quot;: &quot;tremayne.bogan&quot;,
-                &quot;email&quot;: &quot;samara.prosacco@example.org&quot;,
+                &quot;name&quot;: &quot;Wendell Hansen&quot;,
+                &quot;family_name&quot;: &quot;Altenwerth&quot;,
+                &quot;username&quot;: &quot;cydney.metz&quot;,
+                &quot;email&quot;: &quot;ursula.rath@example.com&quot;,
                 &quot;type&quot;: &quot;Client&quot;,
-                &quot;company_id&quot;: 4,
+                &quot;company_id&quot;: 1,
                 &quot;status&quot;: &quot;Active&quot;
             },
-            &quot;start&quot;: &quot;2024-10-24T01:08:23+00:00&quot;,
-            &quot;end&quot;: &quot;2025-01-08T15:56:16+00:00&quot;,
-            &quot;title&quot;: &quot;Fiber Product Cutting Machine Operator&quot;,
-            &quot;description&quot;: &quot;Aut in sunt consequatur quia.&quot;,
-            &quot;min_salary&quot;: 47406,
-            &quot;max_salary&quot;: 92531,
-            &quot;currency&quot;: &quot;MMK&quot;,
-            &quot;benefits&quot;: &quot;magni repellendus aut totam neque&quot;,
-            &quot;requirements&quot;: &quot;molestiae nihil cupiditate exercitationem molestiae nobis cum blanditiis qui similique&quot;,
-            &quot;type&quot;: &quot;Part-Time&quot;
+            &quot;start&quot;: &quot;2024-11-15T08:18:45+00:00&quot;,
+            &quot;end&quot;: &quot;2025-01-10T23:04:59+00:00&quot;,
+            &quot;title&quot;: &quot;Boiler Operator&quot;,
+            &quot;description&quot;: &quot;Ex quia molestiae et molestiae omnis sit ipsam.&quot;,
+            &quot;min_salary&quot;: 76111,
+            &quot;max_salary&quot;: 108151,
+            &quot;currency&quot;: &quot;NGN&quot;,
+            &quot;benefits&quot;: &quot;facilis qui optio ut consequuntur&quot;,
+            &quot;requirements&quot;: &quot;ducimus magni et ipsum illum nostrum cum iure ex placeat&quot;,
+            &quot;type&quot;: &quot;Contract&quot;
+        },
+        {
+            &quot;company&quot;: {
+                &quot;name&quot;: &quot;Hayes-O&#039;Reilly&quot;,
+                &quot;city&quot;: &quot;Johnsview&quot;,
+                &quot;state&quot;: &quot;burgh&quot;,
+                &quot;country&quot;: &quot;Iceland&quot;,
+                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak4331.tmp&quot;,
+                &quot;extension&quot;: &quot;tmp&quot;
+            },
+            &quot;user&quot;: {
+                &quot;name&quot;: &quot;Dr. Sandy Lind&quot;,
+                &quot;family_name&quot;: &quot;Kshlerin&quot;,
+                &quot;username&quot;: &quot;ezra.fahey&quot;,
+                &quot;email&quot;: &quot;ondricka.stephany@example.net&quot;,
+                &quot;type&quot;: &quot;Client&quot;,
+                &quot;company_id&quot;: 1,
+                &quot;status&quot;: &quot;Active&quot;
+            },
+            &quot;start&quot;: &quot;2024-11-15T08:18:45+00:00&quot;,
+            &quot;end&quot;: &quot;2024-12-20T02:03:40+00:00&quot;,
+            &quot;title&quot;: &quot;Recreational Vehicle Service Technician&quot;,
+            &quot;description&quot;: &quot;Rerum at ut neque nulla.&quot;,
+            &quot;min_salary&quot;: 54715,
+            &quot;max_salary&quot;: 130101,
+            &quot;currency&quot;: &quot;ETB&quot;,
+            &quot;benefits&quot;: &quot;animi est aspernatur modi voluptas&quot;,
+            &quot;requirements&quot;: &quot;similique aliquid repudiandae ut ratione cupiditate doloribus adipisci temporibus laudantium&quot;,
+            &quot;type&quot;: &quot;Casual&quot;
+        },
+        {
+            &quot;company&quot;: {
+                &quot;name&quot;: &quot;Heaney, Bashirian and Turcotte&quot;,
+                &quot;city&quot;: &quot;Hyatttown&quot;,
+                &quot;state&quot;: &quot;shire&quot;,
+                &quot;country&quot;: &quot;South Georgia and the South Sandwich Islands&quot;,
+                &quot;logo_path&quot;: &quot;C:\\Users\\Lori\\AppData\\Local\\Temp\\fak4335.tmp&quot;,
+                &quot;extension&quot;: &quot;tmp&quot;
+            },
+            &quot;user&quot;: {
+                &quot;name&quot;: &quot;Mr. Clifford Muller&quot;,
+                &quot;family_name&quot;: &quot;Kilback&quot;,
+                &quot;username&quot;: &quot;destiny.schultz&quot;,
+                &quot;email&quot;: &quot;parisian.lauren@example.net&quot;,
+                &quot;type&quot;: &quot;Client&quot;,
+                &quot;company_id&quot;: 5,
+                &quot;status&quot;: &quot;Active&quot;
+            },
+            &quot;start&quot;: &quot;2024-11-15T08:18:45+00:00&quot;,
+            &quot;end&quot;: &quot;2024-12-29T11:10:41+00:00&quot;,
+            &quot;title&quot;: &quot;Embalmer&quot;,
+            &quot;description&quot;: &quot;Voluptas molestiae et quia velit et qui rerum.&quot;,
+            &quot;min_salary&quot;: 78926,
+            &quot;max_salary&quot;: 140340,
+            &quot;currency&quot;: &quot;BBD&quot;,
+            &quot;benefits&quot;: &quot;officiis et quae maiores sint&quot;,
+            &quot;requirements&quot;: &quot;aspernatur quia id excepturi sed enim esse rerum nostrum repudiandae&quot;,
+            &quot;type&quot;: &quot;Full-Time&quot;
         }
     ]
 }</code>
@@ -1532,18 +1556,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"company_id\": 1,
-    \"user_id\": 9,
-    \"start\": \"2024-10-24T06:10:32\",
-    \"end\": \"2075-01-06\",
-    \"title\": \"byg\",
-    \"description\": \"Consequatur accusantium explicabo aliquid delectus perspiciatis labore ipsum.\",
-    \"min_salary\": 4,
-    \"max_salary\": 7,
-    \"currency\": \"omnis\",
-    \"benefits\": \"hdovvigsuyorv\",
-    \"requirements\": \"zxnoeqjqcywiqftpeudhjupacdxrcbjzqqjczhzobpkju\",
-    \"type\": \"voluptatibus\"
+    \"company_id\": 13,
+    \"user_id\": 8,
+    \"start\": \"2024-12-01T07:41:39\",
+    \"end\": \"2102-11-13\",
+    \"title\": \"pp\",
+    \"description\": \"Rem dolor quae et aut.\",
+    \"min_salary\": 18,
+    \"max_salary\": 6,
+    \"currency\": \"rem\",
+    \"benefits\": \"iyjlmsggujujvksqopalrnfkknyghplcikyjfpthopnyqvrpwecrwggeazq\",
+    \"requirements\": \"vhsckwjfqqectmwdmuurqsagpoznqbqrjyxtoedinmmazfgnmvrfsktzyncidywh\",
+    \"type\": \"aut\"
 }"
 </code></pre></div>
 
@@ -1559,18 +1583,18 @@ const headers = {
 };
 
 let body = {
-    "company_id": 1,
-    "user_id": 9,
-    "start": "2024-10-24T06:10:32",
-    "end": "2075-01-06",
-    "title": "byg",
-    "description": "Consequatur accusantium explicabo aliquid delectus perspiciatis labore ipsum.",
-    "min_salary": 4,
-    "max_salary": 7,
-    "currency": "omnis",
-    "benefits": "hdovvigsuyorv",
-    "requirements": "zxnoeqjqcywiqftpeudhjupacdxrcbjzqqjczhzobpkju",
-    "type": "voluptatibus"
+    "company_id": 13,
+    "user_id": 8,
+    "start": "2024-12-01T07:41:39",
+    "end": "2102-11-13",
+    "title": "pp",
+    "description": "Rem dolor quae et aut.",
+    "min_salary": 18,
+    "max_salary": 6,
+    "currency": "rem",
+    "benefits": "iyjlmsggujujvksqopalrnfkknyghplcikyjfpthopnyqvrpwecrwggeazq",
+    "requirements": "vhsckwjfqqectmwdmuurqsagpoznqbqrjyxtoedinmmazfgnmvrfsktzyncidywh",
+    "type": "aut"
 };
 
 fetch(url, {
@@ -1659,10 +1683,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="company_id"                data-endpoint="POSTapi-v1-positions"
-               value="1"
+               value="13"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the companies table. Example: <code>1</code></p>
+<p>The <code>id</code> of an existing record in the companies table. Example: <code>13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
@@ -1670,10 +1694,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="user_id"                data-endpoint="POSTapi-v1-positions"
-               value="9"
+               value="8"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the users table. Example: <code>9</code></p>
+<p>The <code>id</code> of an existing record in the users table. Example: <code>8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start</code></b>&nbsp;&nbsp;
@@ -1681,10 +1705,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start"                data-endpoint="POSTapi-v1-positions"
-               value="2024-10-24T06:10:32"
+               value="2024-12-01T07:41:39"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2024-10-24T06:10:32</code></p>
+<p>Must be a valid date. Example: <code>2024-12-01T07:41:39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end</code></b>&nbsp;&nbsp;
@@ -1692,10 +1716,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="end"                data-endpoint="POSTapi-v1-positions"
-               value="2075-01-06"
+               value="2102-11-13"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after <code>start</code>. Example: <code>2075-01-06</code></p>
+<p>Must be a valid date. Must be a date after <code>start</code>. Example: <code>2102-11-13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
@@ -1703,10 +1727,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-positions"
-               value="byg"
+               value="pp"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>byg</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>pp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1714,10 +1738,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-positions"
-               value="Consequatur accusantium explicabo aliquid delectus perspiciatis labore ipsum."
+               value="Rem dolor quae et aut."
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>Consequatur accusantium explicabo aliquid delectus perspiciatis labore ipsum.</code></p>
+<p>Must be at least 2 characters. Example: <code>Rem dolor quae et aut.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>min_salary</code></b>&nbsp;&nbsp;
@@ -1725,10 +1749,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="min_salary"                data-endpoint="POSTapi-v1-positions"
-               value="4"
+               value="18"
                data-component="body">
     <br>
-<p>Example: <code>4</code></p>
+<p>Example: <code>18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>max_salary</code></b>&nbsp;&nbsp;
@@ -1736,10 +1760,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="max_salary"                data-endpoint="POSTapi-v1-positions"
-               value="7"
+               value="6"
                data-component="body">
     <br>
-<p>Example: <code>7</code></p>
+<p>Example: <code>6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -1747,10 +1771,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="currency"                data-endpoint="POSTapi-v1-positions"
-               value="omnis"
+               value="rem"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>rem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>benefits</code></b>&nbsp;&nbsp;
@@ -1758,10 +1782,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="benefits"                data-endpoint="POSTapi-v1-positions"
-               value="hdovvigsuyorv"
+               value="iyjlmsggujujvksqopalrnfkknyghplcikyjfpthopnyqvrpwecrwggeazq"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>hdovvigsuyorv</code></p>
+<p>Must be at least 2 characters. Example: <code>iyjlmsggujujvksqopalrnfkknyghplcikyjfpthopnyqvrpwecrwggeazq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>requirements</code></b>&nbsp;&nbsp;
@@ -1769,10 +1793,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="requirements"                data-endpoint="POSTapi-v1-positions"
-               value="zxnoeqjqcywiqftpeudhjupacdxrcbjzqqjczhzobpkju"
+               value="vhsckwjfqqectmwdmuurqsagpoznqbqrjyxtoedinmmazfgnmvrfsktzyncidywh"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>zxnoeqjqcywiqftpeudhjupacdxrcbjzqqjczhzobpkju</code></p>
+<p>Must be at least 2 characters. Example: <code>vhsckwjfqqectmwdmuurqsagpoznqbqrjyxtoedinmmazfgnmvrfsktzyncidywh</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -1780,10 +1804,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-v1-positions"
-               value="voluptatibus"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>voluptatibus</code></p>
+<p>Example: <code>aut</code></p>
         </div>
         </form>
 
@@ -1940,15 +1964,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"end\": \"2081-08-20\",
-    \"title\": \"um\",
-    \"description\": \"Magnam molestiae tempore beatae error adipisci.\",
-    \"min_salary\": 5,
-    \"max_salary\": 8,
-    \"currency\": \"voluptatem\",
-    \"benefits\": \"kvfbvaujplpaoawqovgywnuvvgsmusunugruwqynfpsfzgnplzginehllwmhrhjwedsjnmoffzohycj\",
-    \"requirements\": \"bsaexbmlssgvbcbsyknuochvqxubgowkt\",
-    \"type\": \"temporibus\"
+    \"end\": \"2109-07-01\",
+    \"title\": \"sq\",
+    \"description\": \"Ipsa laborum laboriosam nobis et.\",
+    \"min_salary\": 17,
+    \"max_salary\": 3,
+    \"currency\": \"minima\",
+    \"benefits\": \"ltenffavmqtuzqpzohdmgggwhtoxoniusdjmsnqsggbrnsavdvzawvyvlor\",
+    \"requirements\": \"lxwybddmubuvbcynvuqgejxvdofytkealsauyauoslnovuiooovtilevmyygywlvpzsilltjosigk\",
+    \"type\": \"et\"
 }"
 </code></pre></div>
 
@@ -1964,15 +1988,15 @@ const headers = {
 };
 
 let body = {
-    "end": "2081-08-20",
-    "title": "um",
-    "description": "Magnam molestiae tempore beatae error adipisci.",
-    "min_salary": 5,
-    "max_salary": 8,
-    "currency": "voluptatem",
-    "benefits": "kvfbvaujplpaoawqovgywnuvvgsmusunugruwqynfpsfzgnplzginehllwmhrhjwedsjnmoffzohycj",
-    "requirements": "bsaexbmlssgvbcbsyknuochvqxubgowkt",
-    "type": "temporibus"
+    "end": "2109-07-01",
+    "title": "sq",
+    "description": "Ipsa laborum laboriosam nobis et.",
+    "min_salary": 17,
+    "max_salary": 3,
+    "currency": "minima",
+    "benefits": "ltenffavmqtuzqpzohdmgggwhtoxoniusdjmsnqsggbrnsavdvzawvyvlor",
+    "requirements": "lxwybddmubuvbcynvuqgejxvdofytkealsauyauoslnovuiooovtilevmyygywlvpzsilltjosigk",
+    "type": "et"
 };
 
 fetch(url, {
@@ -2110,10 +2134,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="end"                data-endpoint="PUTapi-v1-positions--id-"
-               value="2081-08-20"
+               value="2109-07-01"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after <code>now</code>. Example: <code>2081-08-20</code></p>
+<p>Must be a valid date. Must be a date after <code>now</code>. Example: <code>2109-07-01</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
@@ -2121,10 +2145,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-positions--id-"
-               value="um"
+               value="sq"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>um</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>sq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2132,10 +2156,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-v1-positions--id-"
-               value="Magnam molestiae tempore beatae error adipisci."
+               value="Ipsa laborum laboriosam nobis et."
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>Magnam molestiae tempore beatae error adipisci.</code></p>
+<p>Must be at least 2 characters. Example: <code>Ipsa laborum laboriosam nobis et.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>min_salary</code></b>&nbsp;&nbsp;
@@ -2143,10 +2167,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="min_salary"                data-endpoint="PUTapi-v1-positions--id-"
-               value="5"
+               value="17"
                data-component="body">
     <br>
-<p>Example: <code>5</code></p>
+<p>Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>max_salary</code></b>&nbsp;&nbsp;
@@ -2154,10 +2178,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="max_salary"                data-endpoint="PUTapi-v1-positions--id-"
-               value="8"
+               value="3"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -2165,10 +2189,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="currency"                data-endpoint="PUTapi-v1-positions--id-"
-               value="voluptatem"
+               value="minima"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>minima</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>benefits</code></b>&nbsp;&nbsp;
@@ -2176,10 +2200,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="benefits"                data-endpoint="PUTapi-v1-positions--id-"
-               value="kvfbvaujplpaoawqovgywnuvvgsmusunugruwqynfpsfzgnplzginehllwmhrhjwedsjnmoffzohycj"
+               value="ltenffavmqtuzqpzohdmgggwhtoxoniusdjmsnqsggbrnsavdvzawvyvlor"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>kvfbvaujplpaoawqovgywnuvvgsmusunugruwqynfpsfzgnplzginehllwmhrhjwedsjnmoffzohycj</code></p>
+<p>Must be at least 2 characters. Example: <code>ltenffavmqtuzqpzohdmgggwhtoxoniusdjmsnqsggbrnsavdvzawvyvlor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>requirements</code></b>&nbsp;&nbsp;
@@ -2187,10 +2211,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="requirements"                data-endpoint="PUTapi-v1-positions--id-"
-               value="bsaexbmlssgvbcbsyknuochvqxubgowkt"
+               value="lxwybddmubuvbcynvuqgejxvdofytkealsauyauoslnovuiooovtilevmyygywlvpzsilltjosigk"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>bsaexbmlssgvbcbsyknuochvqxubgowkt</code></p>
+<p>Must be at least 2 characters. Example: <code>lxwybddmubuvbcynvuqgejxvdofytkealsauyauoslnovuiooovtilevmyygywlvpzsilltjosigk</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -2198,10 +2222,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PUTapi-v1-positions--id-"
-               value="temporibus"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>temporibus</code></p>
+<p>Example: <code>et</code></p>
         </div>
         </form>
 
@@ -2218,14 +2242,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/positions/5" \
+    "http://localhost/api/v1/positions/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/positions/5"
+    "http://localhost/api/v1/positions/13"
 );
 
 const headers = {
@@ -2318,10 +2342,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-positions--id-"
-               value="5"
+               value="13"
                data-component="url">
     <br>
-<p>The ID of the position. Example: <code>5</code></p>
+<p>The ID of the position. Example: <code>13</code></p>
             </div>
                     </form>
 
@@ -2346,14 +2370,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"tpa\",
-    \"family_name\": \"bxv\",
-    \"username\": \"ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket\",
-    \"email\": \"kamren40@example.org\",
-    \"password\": \"sunt\",
-    \"password_confirmation\": \"voluptatem\",
-    \"type\": \"in\",
-    \"company_id\": 5
+    \"name\": \"pn\",
+    \"family_name\": \"wqd\",
+    \"username\": \"wyzkgxnouduwgkvmajwblpudkujr\",
+    \"email\": \"conner.eichmann@example.net\",
+    \"password\": \"libero\",
+    \"password_confirmation\": \"quae\",
+    \"type\": \"rerum\",
+    \"company_id\": 11
 }"
 </code></pre></div>
 
@@ -2369,14 +2393,14 @@ const headers = {
 };
 
 let body = {
-    "name": "tpa",
-    "family_name": "bxv",
-    "username": "ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket",
-    "email": "kamren40@example.org",
-    "password": "sunt",
-    "password_confirmation": "voluptatem",
-    "type": "in",
-    "company_id": 5
+    "name": "pn",
+    "family_name": "wqd",
+    "username": "wyzkgxnouduwgkvmajwblpudkujr",
+    "email": "conner.eichmann@example.net",
+    "password": "libero",
+    "password_confirmation": "quae",
+    "type": "rerum",
+    "company_id": 11
 };
 
 fetch(url, {
@@ -2465,10 +2489,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-register"
-               value="tpa"
+               value="pn"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>tpa</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>pn</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>family_name</code></b>&nbsp;&nbsp;
@@ -2476,10 +2500,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="family_name"                data-endpoint="POSTapi-register"
-               value="bxv"
+               value="wqd"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>bxv</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>wqd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -2487,10 +2511,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="username"                data-endpoint="POSTapi-register"
-               value="ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket"
+               value="wyzkgxnouduwgkvmajwblpudkujr"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket</code></p>
+<p>Must be at least 2 characters. Example: <code>wyzkgxnouduwgkvmajwblpudkujr</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2498,10 +2522,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="kamren40@example.org"
+               value="conner.eichmann@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>kamren40@example.org</code></p>
+<p>Must be a valid email address. Example: <code>conner.eichmann@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2509,10 +2533,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-register"
-               value="sunt"
+               value="libero"
                data-component="body">
     <br>
-<p>Example: <code>sunt</code></p>
+<p>Example: <code>libero</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -2520,10 +2544,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-register"
-               value="voluptatem"
+               value="quae"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>quae</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -2531,10 +2555,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-register"
-               value="in"
+               value="rerum"
                data-component="body">
     <br>
-<p>Example: <code>in</code></p>
+<p>Example: <code>rerum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>company_id</code></b>&nbsp;&nbsp;
@@ -2542,10 +2566,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="company_id"                data-endpoint="POSTapi-register"
-               value="5"
+               value="11"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the companies table. Example: <code>5</code></p>
+<p>The <code>id</code> of an existing record in the companies table. Example: <code>11</code></p>
         </div>
         </form>
 
@@ -2566,9 +2590,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"ray.runolfsdottir@example.com\",
-    \"password\": \"iste\",
-    \"device_name\": \"omnis\"
+    \"email\": \"angelina55@example.com\",
+    \"password\": \"est\",
+    \"device_name\": \"ut\"
 }"
 </code></pre></div>
 
@@ -2584,9 +2608,9 @@ const headers = {
 };
 
 let body = {
-    "email": "ray.runolfsdottir@example.com",
-    "password": "iste",
-    "device_name": "omnis"
+    "email": "angelina55@example.com",
+    "password": "est",
+    "device_name": "ut"
 };
 
 fetch(url, {
@@ -2675,10 +2699,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="ray.runolfsdottir@example.com"
+               value="angelina55@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>ray.runolfsdottir@example.com</code></p>
+<p>Must be a valid email address. Example: <code>angelina55@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2686,10 +2710,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="iste"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>iste</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>device_name</code></b>&nbsp;&nbsp;
@@ -2697,10 +2721,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="device_name"                data-endpoint="POSTapi-login"
-               value="omnis"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>ut</code></p>
         </div>
         </form>
 
@@ -2829,14 +2853,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users/trash/11" \
+    --get "http://localhost/api/v1/users/trash/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/trash/11"
+    "http://localhost/api/v1/users/trash/20"
 );
 
 const headers = {
@@ -2945,10 +2969,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-v1-users-trash--id-"
-               value="11"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the company. Example: <code>11</code></p>
+<p>The ID of the company. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -3093,14 +3117,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"th\",
-    \"family_name\": \"pv\",
-    \"username\": \"gefihoemnua\",
-    \"email\": \"wyatt26@example.net\",
-    \"password\": \"rerum\",
-    \"password_confirmation\": \"velit\",
-    \"type\": \"fugiat\",
-    \"company_id\": 14
+    \"name\": \"kf\",
+    \"family_name\": \"cn\",
+    \"username\": \"zjtahjkttrkljzdlgunikcjdclbgujjackxvgnpkjl\",
+    \"email\": \"abagail43@example.com\",
+    \"password\": \"eum\",
+    \"password_confirmation\": \"aut\",
+    \"type\": \"perspiciatis\",
+    \"company_id\": 16
 }"
 </code></pre></div>
 
@@ -3116,14 +3140,14 @@ const headers = {
 };
 
 let body = {
-    "name": "th",
-    "family_name": "pv",
-    "username": "gefihoemnua",
-    "email": "wyatt26@example.net",
-    "password": "rerum",
-    "password_confirmation": "velit",
-    "type": "fugiat",
-    "company_id": 14
+    "name": "kf",
+    "family_name": "cn",
+    "username": "zjtahjkttrkljzdlgunikcjdclbgujjackxvgnpkjl",
+    "email": "abagail43@example.com",
+    "password": "eum",
+    "password_confirmation": "aut",
+    "type": "perspiciatis",
+    "company_id": 16
 };
 
 fetch(url, {
@@ -3212,10 +3236,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-users"
-               value="th"
+               value="kf"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>th</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>kf</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>family_name</code></b>&nbsp;&nbsp;
@@ -3223,10 +3247,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="family_name"                data-endpoint="POSTapi-v1-users"
-               value="pv"
+               value="cn"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>pv</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>cn</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -3234,10 +3258,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="username"                data-endpoint="POSTapi-v1-users"
-               value="gefihoemnua"
+               value="zjtahjkttrkljzdlgunikcjdclbgujjackxvgnpkjl"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>gefihoemnua</code></p>
+<p>Must be at least 2 characters. Example: <code>zjtahjkttrkljzdlgunikcjdclbgujjackxvgnpkjl</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -3245,10 +3269,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-users"
-               value="wyatt26@example.net"
+               value="abagail43@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>wyatt26@example.net</code></p>
+<p>Must be a valid email address. Example: <code>abagail43@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -3256,10 +3280,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-users"
-               value="rerum"
+               value="eum"
                data-component="body">
     <br>
-<p>Example: <code>rerum</code></p>
+<p>Example: <code>eum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -3267,10 +3291,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-v1-users"
-               value="velit"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>velit</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -3278,10 +3302,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-v1-users"
-               value="fugiat"
+               value="perspiciatis"
                data-component="body">
     <br>
-<p>Example: <code>fugiat</code></p>
+<p>Example: <code>perspiciatis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>company_id</code></b>&nbsp;&nbsp;
@@ -3289,10 +3313,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="company_id"                data-endpoint="POSTapi-v1-users"
-               value="14"
+               value="16"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the companies table. Example: <code>14</code></p>
+<p>The <code>id</code> of an existing record in the companies table. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -3449,13 +3473,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"jb\",
-    \"family_name\": \"al\",
-    \"email\": \"gusikowski.kurt@example.org\",
-    \"password\": \"soluta\",
-    \"type\": \"deserunt\",
-    \"company_id\": 2,
-    \"status\": \"assumenda\"
+    \"name\": \"xmo\",
+    \"family_name\": \"aqg\",
+    \"email\": \"hcrona@example.net\",
+    \"password\": \"veritatis\",
+    \"type\": \"culpa\",
+    \"company_id\": 17,
+    \"status\": \"repudiandae\"
 }"
 </code></pre></div>
 
@@ -3471,13 +3495,13 @@ const headers = {
 };
 
 let body = {
-    "name": "jb",
-    "family_name": "al",
-    "email": "gusikowski.kurt@example.org",
-    "password": "soluta",
-    "type": "deserunt",
-    "company_id": 2,
-    "status": "assumenda"
+    "name": "xmo",
+    "family_name": "aqg",
+    "email": "hcrona@example.net",
+    "password": "veritatis",
+    "type": "culpa",
+    "company_id": 17,
+    "status": "repudiandae"
 };
 
 fetch(url, {
@@ -3582,10 +3606,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-v1-users--id-"
-               value="jb"
+               value="xmo"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>jb</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>xmo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>family_name</code></b>&nbsp;&nbsp;
@@ -3593,10 +3617,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="family_name"                data-endpoint="PUTapi-v1-users--id-"
-               value="al"
+               value="aqg"
                data-component="body">
     <br>
-<p>Must be between 2 and 255 characters. Example: <code>al</code></p>
+<p>Must be between 2 and 255 characters. Example: <code>aqg</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -3615,10 +3639,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-v1-users--id-"
-               value="gusikowski.kurt@example.org"
+               value="hcrona@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>gusikowski.kurt@example.org</code></p>
+<p>Must be a valid email address. Example: <code>hcrona@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -3626,10 +3650,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-v1-users--id-"
-               value="soluta"
+               value="veritatis"
                data-component="body">
     <br>
-<p>Example: <code>soluta</code></p>
+<p>Example: <code>veritatis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -3648,10 +3672,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PUTapi-v1-users--id-"
-               value="deserunt"
+               value="culpa"
                data-component="body">
     <br>
-<p>Example: <code>deserunt</code></p>
+<p>Example: <code>culpa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>company_id</code></b>&nbsp;&nbsp;
@@ -3659,10 +3683,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="company_id"                data-endpoint="PUTapi-v1-users--id-"
-               value="2"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the companies table. Example: <code>2</code></p>
+<p>The <code>id</code> of an existing record in the companies table. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -3670,10 +3694,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-v1-users--id-"
-               value="assumenda"
+               value="repudiandae"
                data-component="body">
     <br>
-<p>Example: <code>assumenda</code></p>
+<p>Example: <code>repudiandae</code></p>
         </div>
         </form>
 
@@ -3690,14 +3714,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/users/14" \
+    "http://localhost/api/v1/users/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/14"
+    "http://localhost/api/v1/users/1"
 );
 
 const headers = {
@@ -3790,10 +3814,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-users--id-"
-               value="14"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>14</code></p>
+<p>The ID of the user. Example: <code>1</code></p>
             </div>
                     </form>
 

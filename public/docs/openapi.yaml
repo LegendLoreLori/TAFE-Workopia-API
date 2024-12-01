@@ -34,14 +34,14 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: 17
+        example: 12
         required: true
         schema:
           type: integer
   /api/v1/companies:
     get:
-      summary: 'List all companies.'
-      operationId: listAllCompanies
+      summary: 'Retrieve a list of companies'
+      operationId: retrieveAListOfCompanies
       description: ''
       parameters: []
       responses:
@@ -61,9 +61,9 @@ paths:
         - Company
       security: []
     post:
-      summary: 'Add a company to the database.'
-      operationId: addACompanyToTheDatabase
-      description: ''
+      summary: 'Handles the creation of a new company in the database.'
+      operationId: handlesTheCreationOfANewCompanyInTheDatabase
+      description: "Requires the user to have appropriate permissions as an administrator or a client.\n\nThis endpoint validates the input data for the company being added, checks for uniqueness\nof the company name within the specified city, state, and country, and optionally stores\na logo file. Upon successful validation, it creates the company record and returns a JSON response\nwith the created company's details.\n\n- Ensure you are authenticated and have the required scopes (`companies:administer` or `companies:add`).\n- Make a POST request to this endpoint with the necessary fields in the request body.\n- If a logo file is included, ensure it is in `jpg`, `jpeg`, or `png` format.\n\n- **Success (201)**: Returns the newly created company details in JSON format.\n- **Failure (401)**: Unauthorized access if the user lacks the required permissions.\n- **Failure (422)**: Validation errors if the input data is invalid."
       parameters: []
       responses: {  }
       tags:
@@ -78,22 +78,22 @@ paths:
                 city:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: nzi
+                  example: ws
                   nullable: false
                 state:
                   type: string
                   description: 'Must be between 2 and 16 characters.'
-                  example: xs
+                  example: mmw
                   nullable: false
                 country:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: pa
+                  example: xwd
                   nullable: false
                 name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: yv
+                  example: qpe
                   nullable: false
                 logo:
                   type: string
@@ -146,22 +146,22 @@ paths:
                 name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: mqy
+                  example: vni
                   nullable: false
                 city:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: tmm
+                  example: qwq
                   nullable: false
                 state:
                   type: string
                   description: 'Must be between 2 and 16 characters.'
-                  example: vt
+                  example: iq
                   nullable: false
                 country:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: cdg
+                  example: nlb
                   nullable: false
                 logo:
                   type: string
@@ -185,7 +185,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: fugit
+        example: rem
         required: true
         schema:
           type: string
@@ -216,7 +216,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the position.'
-        example: 7
+        example: 18
         required: true
         schema:
           type: integer
@@ -239,160 +239,160 @@ paths:
                   data:
                     -
                       company:
-                        name: 'Casper, Monahan and Pfannerstill'
-                        city: Millerberg
-                        state: side
-                        country: 'Saint Barthelemy'
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E1.tmp'
-                        extension: tmp
-                      user:
-                        name: 'Rosella Kerluke'
-                        family_name: Gutkowski
-                        username: mraz.kendall
-                        email: orempel@example.org
-                        type: Client
-                        company_id: 3
-                        status: Active
-                      start: '2024-10-24T01:08:23+00:00'
-                      end: '2024-12-15T19:59:36+00:00'
-                      title: 'Host and Hostess'
-                      description: 'Aut quis consequatur esse omnis maiores impedit.'
-                      min_salary: 62052
-                      max_salary: 109093
-                      currency: NGN
-                      benefits: 'consequuntur omnis beatae laudantium quas'
-                      requirements: 'unde enim nisi repellat iste porro voluptatum vel non molestias'
-                      type: Full-Time
-                    -
-                      company:
-                        name: 'Sanford Inc'
-                        city: Tiaraborough
-                        state: town
-                        country: Kazakhstan
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E3.tmp'
-                        extension: tmp
-                      user:
-                        name: 'Alden Harber'
-                        family_name: Bruen
-                        username: trantow.shanel
-                        email: ikoch@example.net
-                        type: Client
-                        company_id: 5
-                        status: Active
-                      start: '2024-10-24T01:08:23+00:00'
-                      end: '2024-12-11T04:39:14+00:00'
-                      title: Archivist
-                      description: 'Est exercitationem omnis debitis qui qui sint dolorem.'
-                      min_salary: 79520
-                      max_salary: 127993
-                      currency: EGP
-                      benefits: 'repellat aut quaerat fuga qui'
-                      requirements: 'autem nobis et ea optio quasi illo et harum impedit'
-                      type: Part-Time
-                    -
-                      company:
-                        name: Goodwin-Bayer
-                        city: Wisokyland
-                        state: land
-                        country: Niue
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46DF.tmp'
-                        extension: tmp
-                      user:
-                        name: 'Prof. Bertram Borer'
-                        family_name: Bailey
-                        username: berge.conor
-                        email: emilie96@example.net
-                        type: Client
-                        company_id: 1
-                        status: Active
-                      start: '2024-10-24T01:08:23+00:00'
-                      end: '2024-12-17T20:49:13+00:00'
-                      title: 'Forming Machine Operator'
-                      description: 'Quos rem accusantium autem voluptas a.'
-                      min_salary: 76074
-                      max_salary: 125334
-                      currency: BBD
-                      benefits: 'esse non est ratione aut'
-                      requirements: 'fugit omnis inventore excepturi voluptatem ut reiciendis voluptas maiores rerum'
-                      type: Part-Time
-                    -
-                      company:
-                        name: Goodwin-Bayer
-                        city: Wisokyland
-                        state: land
-                        country: Niue
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46DF.tmp'
-                        extension: tmp
-                      user:
-                        name: 'Prof. Bertram Borer'
-                        family_name: Bailey
-                        username: berge.conor
-                        email: emilie96@example.net
-                        type: Client
-                        company_id: 1
-                        status: Active
-                      start: '2024-10-24T01:08:23+00:00'
-                      end: '2025-01-13T18:37:54+00:00'
-                      title: 'Food Scientists and Technologist'
-                      description: 'Eum et fugiat eum quam.'
-                      min_salary: 72211
-                      max_salary: 117941
-                      currency: MKD
-                      benefits: 'maiores consectetur aliquid omnis ipsam'
-                      requirements: 'saepe et aut voluptas deleniti libero quis et dicta laborum'
-                      type: Part-Time
-                    -
-                      company:
-                        name: VonRueden-Braun
-                        city: 'East Diana'
+                        name: 'Predovic Group'
+                        city: Ernserchester
                         state: mouth
-                        country: Australia
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E0.tmp'
+                        country: Austria
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4332.tmp'
                         extension: tmp
                       user:
-                        name: 'Aurelia Bergnaum'
-                        family_name: Pollich
-                        username: zieme.jaiden
-                        email: dwalter@example.org
+                        name: 'Bernadette Powlowski PhD'
+                        family_name: "O'Kon"
+                        username: paucek.melody
+                        email: svandervort@example.net
                         type: Client
                         company_id: 2
                         status: Active
-                      start: '2024-10-24T01:08:23+00:00'
-                      end: '2024-12-12T07:29:22+00:00'
-                      title: 'Network Admin OR Computer Systems Administrator'
-                      description: 'Culpa modi veritatis illo laboriosam magnam repellendus quis.'
-                      min_salary: 66958
-                      max_salary: 148586
-                      currency: BMD
-                      benefits: 'placeat voluptatem aut fugit itaque'
-                      requirements: 'nihil in corporis fugit illo doloremque magni ipsa laboriosam nihil'
+                      start: '2024-11-15T08:18:45+00:00'
+                      end: '2025-02-04T20:04:56+00:00'
+                      title: 'Diagnostic Medical Sonographer'
+                      description: 'Sit veritatis vitae voluptatem tempore eligendi minima atque.'
+                      min_salary: 53555
+                      max_salary: 99268
+                      currency: BIF
+                      benefits: 'sint perferendis temporibus dolor molestiae'
+                      requirements: 'sit non et corrupti sunt dolorum excepturi dolor ducimus porro'
+                      type: Part-Time
+                    -
+                      company:
+                        name: 'Predovic Group'
+                        city: Ernserchester
+                        state: mouth
+                        country: Austria
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4332.tmp'
+                        extension: tmp
+                      user:
+                        name: 'Bernadette Powlowski PhD'
+                        family_name: "O'Kon"
+                        username: paucek.melody
+                        email: svandervort@example.net
+                        type: Client
+                        company_id: 2
+                        status: Active
+                      start: '2024-11-15T08:18:45+00:00'
+                      end: '2025-01-24T00:57:49+00:00'
+                      title: 'Electrical and Electronics Drafter'
+                      description: 'Qui voluptatum dolores ut consectetur sed vel dolorem aperiam.'
+                      min_salary: 61547
+                      max_salary: 104382
+                      currency: VND
+                      benefits: 'a est ut est similique'
+                      requirements: 'harum eveniet aspernatur vel laudantium et culpa est eos atque'
+                      type: Part-Time
+                    -
+                      company:
+                        name: 'Heaney, Bashirian and Turcotte'
+                        city: Hyatttown
+                        state: shire
+                        country: 'South Georgia and the South Sandwich Islands'
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4335.tmp'
+                        extension: tmp
+                      user:
+                        name: 'Miss Abigail Hackett II'
+                        family_name: Streich
+                        username: ekrajcik
+                        email: uwisoky@example.org
+                        type: Client
+                        company_id: 5
+                        status: Active
+                      start: '2024-11-15T08:18:45+00:00'
+                      end: '2025-01-16T08:44:10+00:00'
+                      title: 'Marine Cargo Inspector'
+                      description: 'Officia qui dolorem velit facilis porro voluptatem.'
+                      min_salary: 58399
+                      max_salary: 100898
+                      currency: INR
+                      benefits: 'debitis aspernatur similique amet laboriosam'
+                      requirements: 'at nemo molestias minima quia sapiente quam aut sit quam'
                       type: Casual
                     -
                       company:
-                        name: Morar-Greenfelder
-                        city: Hamillmouth
-                        state: ville
-                        country: 'Trinidad and Tobago'
-                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E2.tmp'
+                        name: "Hayes-O'Reilly"
+                        city: Johnsview
+                        state: burgh
+                        country: Iceland
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4331.tmp'
                         extension: tmp
                       user:
-                        name: 'Ted Barrows Sr.'
-                        family_name: Crooks
-                        username: tremayne.bogan
-                        email: samara.prosacco@example.org
+                        name: 'Wendell Hansen'
+                        family_name: Altenwerth
+                        username: cydney.metz
+                        email: ursula.rath@example.com
                         type: Client
-                        company_id: 4
+                        company_id: 1
                         status: Active
-                      start: '2024-10-24T01:08:23+00:00'
-                      end: '2025-01-08T15:56:16+00:00'
-                      title: 'Fiber Product Cutting Machine Operator'
-                      description: 'Aut in sunt consequatur quia.'
-                      min_salary: 47406
-                      max_salary: 92531
-                      currency: MMK
-                      benefits: 'magni repellendus aut totam neque'
-                      requirements: 'molestiae nihil cupiditate exercitationem molestiae nobis cum blanditiis qui similique'
-                      type: Part-Time
+                      start: '2024-11-15T08:18:45+00:00'
+                      end: '2025-01-10T23:04:59+00:00'
+                      title: 'Boiler Operator'
+                      description: 'Ex quia molestiae et molestiae omnis sit ipsam.'
+                      min_salary: 76111
+                      max_salary: 108151
+                      currency: NGN
+                      benefits: 'facilis qui optio ut consequuntur'
+                      requirements: 'ducimus magni et ipsum illum nostrum cum iure ex placeat'
+                      type: Contract
+                    -
+                      company:
+                        name: "Hayes-O'Reilly"
+                        city: Johnsview
+                        state: burgh
+                        country: Iceland
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4331.tmp'
+                        extension: tmp
+                      user:
+                        name: 'Dr. Sandy Lind'
+                        family_name: Kshlerin
+                        username: ezra.fahey
+                        email: ondricka.stephany@example.net
+                        type: Client
+                        company_id: 1
+                        status: Active
+                      start: '2024-11-15T08:18:45+00:00'
+                      end: '2024-12-20T02:03:40+00:00'
+                      title: 'Recreational Vehicle Service Technician'
+                      description: 'Rerum at ut neque nulla.'
+                      min_salary: 54715
+                      max_salary: 130101
+                      currency: ETB
+                      benefits: 'animi est aspernatur modi voluptas'
+                      requirements: 'similique aliquid repudiandae ut ratione cupiditate doloribus adipisci temporibus laudantium'
+                      type: Casual
+                    -
+                      company:
+                        name: 'Heaney, Bashirian and Turcotte'
+                        city: Hyatttown
+                        state: shire
+                        country: 'South Georgia and the South Sandwich Islands'
+                        logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4335.tmp'
+                        extension: tmp
+                      user:
+                        name: 'Mr. Clifford Muller'
+                        family_name: Kilback
+                        username: destiny.schultz
+                        email: parisian.lauren@example.net
+                        type: Client
+                        company_id: 5
+                        status: Active
+                      start: '2024-11-15T08:18:45+00:00'
+                      end: '2024-12-29T11:10:41+00:00'
+                      title: Embalmer
+                      description: 'Voluptas molestiae et quia velit et qui rerum.'
+                      min_salary: 78926
+                      max_salary: 140340
+                      currency: BBD
+                      benefits: 'officiis et quae maiores sint'
+                      requirements: 'aspernatur quia id excepturi sed enim esse rerum nostrum repudiandae'
+                      type: Full-Time
                 properties:
                   success:
                     type: boolean
@@ -405,160 +405,160 @@ paths:
                     example:
                       -
                         company:
-                          name: 'Casper, Monahan and Pfannerstill'
-                          city: Millerberg
-                          state: side
-                          country: 'Saint Barthelemy'
-                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E1.tmp'
-                          extension: tmp
-                        user:
-                          name: 'Rosella Kerluke'
-                          family_name: Gutkowski
-                          username: mraz.kendall
-                          email: orempel@example.org
-                          type: Client
-                          company_id: 3
-                          status: Active
-                        start: '2024-10-24T01:08:23+00:00'
-                        end: '2024-12-15T19:59:36+00:00'
-                        title: 'Host and Hostess'
-                        description: 'Aut quis consequatur esse omnis maiores impedit.'
-                        min_salary: 62052
-                        max_salary: 109093
-                        currency: NGN
-                        benefits: 'consequuntur omnis beatae laudantium quas'
-                        requirements: 'unde enim nisi repellat iste porro voluptatum vel non molestias'
-                        type: Full-Time
-                      -
-                        company:
-                          name: 'Sanford Inc'
-                          city: Tiaraborough
-                          state: town
-                          country: Kazakhstan
-                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E3.tmp'
-                          extension: tmp
-                        user:
-                          name: 'Alden Harber'
-                          family_name: Bruen
-                          username: trantow.shanel
-                          email: ikoch@example.net
-                          type: Client
-                          company_id: 5
-                          status: Active
-                        start: '2024-10-24T01:08:23+00:00'
-                        end: '2024-12-11T04:39:14+00:00'
-                        title: Archivist
-                        description: 'Est exercitationem omnis debitis qui qui sint dolorem.'
-                        min_salary: 79520
-                        max_salary: 127993
-                        currency: EGP
-                        benefits: 'repellat aut quaerat fuga qui'
-                        requirements: 'autem nobis et ea optio quasi illo et harum impedit'
-                        type: Part-Time
-                      -
-                        company:
-                          name: Goodwin-Bayer
-                          city: Wisokyland
-                          state: land
-                          country: Niue
-                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46DF.tmp'
-                          extension: tmp
-                        user:
-                          name: 'Prof. Bertram Borer'
-                          family_name: Bailey
-                          username: berge.conor
-                          email: emilie96@example.net
-                          type: Client
-                          company_id: 1
-                          status: Active
-                        start: '2024-10-24T01:08:23+00:00'
-                        end: '2024-12-17T20:49:13+00:00'
-                        title: 'Forming Machine Operator'
-                        description: 'Quos rem accusantium autem voluptas a.'
-                        min_salary: 76074
-                        max_salary: 125334
-                        currency: BBD
-                        benefits: 'esse non est ratione aut'
-                        requirements: 'fugit omnis inventore excepturi voluptatem ut reiciendis voluptas maiores rerum'
-                        type: Part-Time
-                      -
-                        company:
-                          name: Goodwin-Bayer
-                          city: Wisokyland
-                          state: land
-                          country: Niue
-                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46DF.tmp'
-                          extension: tmp
-                        user:
-                          name: 'Prof. Bertram Borer'
-                          family_name: Bailey
-                          username: berge.conor
-                          email: emilie96@example.net
-                          type: Client
-                          company_id: 1
-                          status: Active
-                        start: '2024-10-24T01:08:23+00:00'
-                        end: '2025-01-13T18:37:54+00:00'
-                        title: 'Food Scientists and Technologist'
-                        description: 'Eum et fugiat eum quam.'
-                        min_salary: 72211
-                        max_salary: 117941
-                        currency: MKD
-                        benefits: 'maiores consectetur aliquid omnis ipsam'
-                        requirements: 'saepe et aut voluptas deleniti libero quis et dicta laborum'
-                        type: Part-Time
-                      -
-                        company:
-                          name: VonRueden-Braun
-                          city: 'East Diana'
+                          name: 'Predovic Group'
+                          city: Ernserchester
                           state: mouth
-                          country: Australia
-                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E0.tmp'
+                          country: Austria
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4332.tmp'
                           extension: tmp
                         user:
-                          name: 'Aurelia Bergnaum'
-                          family_name: Pollich
-                          username: zieme.jaiden
-                          email: dwalter@example.org
+                          name: 'Bernadette Powlowski PhD'
+                          family_name: "O'Kon"
+                          username: paucek.melody
+                          email: svandervort@example.net
                           type: Client
                           company_id: 2
                           status: Active
-                        start: '2024-10-24T01:08:23+00:00'
-                        end: '2024-12-12T07:29:22+00:00'
-                        title: 'Network Admin OR Computer Systems Administrator'
-                        description: 'Culpa modi veritatis illo laboriosam magnam repellendus quis.'
-                        min_salary: 66958
-                        max_salary: 148586
-                        currency: BMD
-                        benefits: 'placeat voluptatem aut fugit itaque'
-                        requirements: 'nihil in corporis fugit illo doloremque magni ipsa laboriosam nihil'
+                        start: '2024-11-15T08:18:45+00:00'
+                        end: '2025-02-04T20:04:56+00:00'
+                        title: 'Diagnostic Medical Sonographer'
+                        description: 'Sit veritatis vitae voluptatem tempore eligendi minima atque.'
+                        min_salary: 53555
+                        max_salary: 99268
+                        currency: BIF
+                        benefits: 'sint perferendis temporibus dolor molestiae'
+                        requirements: 'sit non et corrupti sunt dolorum excepturi dolor ducimus porro'
+                        type: Part-Time
+                      -
+                        company:
+                          name: 'Predovic Group'
+                          city: Ernserchester
+                          state: mouth
+                          country: Austria
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4332.tmp'
+                          extension: tmp
+                        user:
+                          name: 'Bernadette Powlowski PhD'
+                          family_name: "O'Kon"
+                          username: paucek.melody
+                          email: svandervort@example.net
+                          type: Client
+                          company_id: 2
+                          status: Active
+                        start: '2024-11-15T08:18:45+00:00'
+                        end: '2025-01-24T00:57:49+00:00'
+                        title: 'Electrical and Electronics Drafter'
+                        description: 'Qui voluptatum dolores ut consectetur sed vel dolorem aperiam.'
+                        min_salary: 61547
+                        max_salary: 104382
+                        currency: VND
+                        benefits: 'a est ut est similique'
+                        requirements: 'harum eveniet aspernatur vel laudantium et culpa est eos atque'
+                        type: Part-Time
+                      -
+                        company:
+                          name: 'Heaney, Bashirian and Turcotte'
+                          city: Hyatttown
+                          state: shire
+                          country: 'South Georgia and the South Sandwich Islands'
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4335.tmp'
+                          extension: tmp
+                        user:
+                          name: 'Miss Abigail Hackett II'
+                          family_name: Streich
+                          username: ekrajcik
+                          email: uwisoky@example.org
+                          type: Client
+                          company_id: 5
+                          status: Active
+                        start: '2024-11-15T08:18:45+00:00'
+                        end: '2025-01-16T08:44:10+00:00'
+                        title: 'Marine Cargo Inspector'
+                        description: 'Officia qui dolorem velit facilis porro voluptatem.'
+                        min_salary: 58399
+                        max_salary: 100898
+                        currency: INR
+                        benefits: 'debitis aspernatur similique amet laboriosam'
+                        requirements: 'at nemo molestias minima quia sapiente quam aut sit quam'
                         type: Casual
                       -
                         company:
-                          name: Morar-Greenfelder
-                          city: Hamillmouth
-                          state: ville
-                          country: 'Trinidad and Tobago'
-                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak46E2.tmp'
+                          name: "Hayes-O'Reilly"
+                          city: Johnsview
+                          state: burgh
+                          country: Iceland
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4331.tmp'
                           extension: tmp
                         user:
-                          name: 'Ted Barrows Sr.'
-                          family_name: Crooks
-                          username: tremayne.bogan
-                          email: samara.prosacco@example.org
+                          name: 'Wendell Hansen'
+                          family_name: Altenwerth
+                          username: cydney.metz
+                          email: ursula.rath@example.com
                           type: Client
-                          company_id: 4
+                          company_id: 1
                           status: Active
-                        start: '2024-10-24T01:08:23+00:00'
-                        end: '2025-01-08T15:56:16+00:00'
-                        title: 'Fiber Product Cutting Machine Operator'
-                        description: 'Aut in sunt consequatur quia.'
-                        min_salary: 47406
-                        max_salary: 92531
-                        currency: MMK
-                        benefits: 'magni repellendus aut totam neque'
-                        requirements: 'molestiae nihil cupiditate exercitationem molestiae nobis cum blanditiis qui similique'
-                        type: Part-Time
+                        start: '2024-11-15T08:18:45+00:00'
+                        end: '2025-01-10T23:04:59+00:00'
+                        title: 'Boiler Operator'
+                        description: 'Ex quia molestiae et molestiae omnis sit ipsam.'
+                        min_salary: 76111
+                        max_salary: 108151
+                        currency: NGN
+                        benefits: 'facilis qui optio ut consequuntur'
+                        requirements: 'ducimus magni et ipsum illum nostrum cum iure ex placeat'
+                        type: Contract
+                      -
+                        company:
+                          name: "Hayes-O'Reilly"
+                          city: Johnsview
+                          state: burgh
+                          country: Iceland
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4331.tmp'
+                          extension: tmp
+                        user:
+                          name: 'Dr. Sandy Lind'
+                          family_name: Kshlerin
+                          username: ezra.fahey
+                          email: ondricka.stephany@example.net
+                          type: Client
+                          company_id: 1
+                          status: Active
+                        start: '2024-11-15T08:18:45+00:00'
+                        end: '2024-12-20T02:03:40+00:00'
+                        title: 'Recreational Vehicle Service Technician'
+                        description: 'Rerum at ut neque nulla.'
+                        min_salary: 54715
+                        max_salary: 130101
+                        currency: ETB
+                        benefits: 'animi est aspernatur modi voluptas'
+                        requirements: 'similique aliquid repudiandae ut ratione cupiditate doloribus adipisci temporibus laudantium'
+                        type: Casual
+                      -
+                        company:
+                          name: 'Heaney, Bashirian and Turcotte'
+                          city: Hyatttown
+                          state: shire
+                          country: 'South Georgia and the South Sandwich Islands'
+                          logo_path: 'C:\Users\Lori\AppData\Local\Temp\fak4335.tmp'
+                          extension: tmp
+                        user:
+                          name: 'Mr. Clifford Muller'
+                          family_name: Kilback
+                          username: destiny.schultz
+                          email: parisian.lauren@example.net
+                          type: Client
+                          company_id: 5
+                          status: Active
+                        start: '2024-11-15T08:18:45+00:00'
+                        end: '2024-12-29T11:10:41+00:00'
+                        title: Embalmer
+                        description: 'Voluptas molestiae et quia velit et qui rerum.'
+                        min_salary: 78926
+                        max_salary: 140340
+                        currency: BBD
+                        benefits: 'officiis et quae maiores sint'
+                        requirements: 'aspernatur quia id excepturi sed enim esse rerum nostrum repudiandae'
+                        type: Full-Time
                     items:
                       type: object
                       properties:
@@ -567,19 +567,19 @@ paths:
                           properties:
                             name:
                               type: string
-                              example: 'Casper, Monahan and Pfannerstill'
+                              example: 'Predovic Group'
                             city:
                               type: string
-                              example: Millerberg
+                              example: Ernserchester
                             state:
                               type: string
-                              example: side
+                              example: mouth
                             country:
                               type: string
-                              example: 'Saint Barthelemy'
+                              example: Austria
                             logo_path:
                               type: string
-                              example: 'C:\Users\Lori\AppData\Local\Temp\fak46E1.tmp'
+                              example: 'C:\Users\Lori\AppData\Local\Temp\fak4332.tmp'
                             extension:
                               type: string
                               example: tmp
@@ -588,55 +588,55 @@ paths:
                           properties:
                             name:
                               type: string
-                              example: 'Rosella Kerluke'
+                              example: 'Bernadette Powlowski PhD'
                             family_name:
                               type: string
-                              example: Gutkowski
+                              example: "O'Kon"
                             username:
                               type: string
-                              example: mraz.kendall
+                              example: paucek.melody
                             email:
                               type: string
-                              example: orempel@example.org
+                              example: svandervort@example.net
                             type:
                               type: string
                               example: Client
                             company_id:
                               type: integer
-                              example: 3
+                              example: 2
                             status:
                               type: string
                               example: Active
                         start:
                           type: string
-                          example: '2024-10-24T01:08:23+00:00'
+                          example: '2024-11-15T08:18:45+00:00'
                         end:
                           type: string
-                          example: '2024-12-15T19:59:36+00:00'
+                          example: '2025-02-04T20:04:56+00:00'
                         title:
                           type: string
-                          example: 'Host and Hostess'
+                          example: 'Diagnostic Medical Sonographer'
                         description:
                           type: string
-                          example: 'Aut quis consequatur esse omnis maiores impedit.'
+                          example: 'Sit veritatis vitae voluptatem tempore eligendi minima atque.'
                         min_salary:
                           type: integer
-                          example: 62052
+                          example: 53555
                         max_salary:
                           type: integer
-                          example: 109093
+                          example: 99268
                         currency:
                           type: string
-                          example: NGN
+                          example: BIF
                         benefits:
                           type: string
-                          example: 'consequuntur omnis beatae laudantium quas'
+                          example: 'sint perferendis temporibus dolor molestiae'
                         requirements:
                           type: string
-                          example: 'unde enim nisi repellat iste porro voluptatum vel non molestias'
+                          example: 'sit non et corrupti sunt dolorum excepturi dolor ducimus porro'
                         type:
                           type: string
-                          example: Full-Time
+                          example: Part-Time
       tags:
         - Position
       security: []
@@ -658,62 +658,62 @@ paths:
                 company_id:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the companies table.'
-                  example: 1
+                  example: 13
                   nullable: false
                 user_id:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 9
+                  example: 8
                   nullable: false
                 start:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2024-10-24T06:10:32'
+                  example: '2024-12-01T07:41:39'
                   nullable: false
                 end:
                   type: string
                   description: 'Must be a valid date. Must be a date after <code>start</code>.'
-                  example: '2075-01-06'
+                  example: '2102-11-13'
                   nullable: false
                 title:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: byg
+                  example: pp
                   nullable: false
                 description:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: 'Consequatur accusantium explicabo aliquid delectus perspiciatis labore ipsum.'
+                  example: 'Rem dolor quae et aut.'
                   nullable: false
                 min_salary:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 18
                   nullable: false
                 max_salary:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 6
                   nullable: false
                 currency:
                   type: string
                   description: ''
-                  example: omnis
+                  example: rem
                   nullable: false
                 benefits:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: hdovvigsuyorv
+                  example: iyjlmsggujujvksqopalrnfkknyghplcikyjfpthopnyqvrpwecrwggeazq
                   nullable: false
                 requirements:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: zxnoeqjqcywiqftpeudhjupacdxrcbjzqqjczhzobpkju
+                  example: vhsckwjfqqectmwdmuurqsagpoznqbqrjyxtoedinmmazfgnmvrfsktzyncidywh
                   nullable: false
                 type:
                   type: string
                   description: ''
-                  example: voluptatibus
+                  example: aut
                   nullable: false
               required:
                 - company_id
@@ -784,47 +784,47 @@ paths:
                 end:
                   type: string
                   description: 'Must be a valid date. Must be a date after <code>now</code>.'
-                  example: '2081-08-20'
+                  example: '2109-07-01'
                   nullable: false
                 title:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: um
+                  example: sq
                   nullable: false
                 description:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: 'Magnam molestiae tempore beatae error adipisci.'
+                  example: 'Ipsa laborum laboriosam nobis et.'
                   nullable: false
                 min_salary:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 17
                   nullable: false
                 max_salary:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 3
                   nullable: false
                 currency:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: minima
                   nullable: false
                 benefits:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: kvfbvaujplpaoawqovgywnuvvgsmusunugruwqynfpsfzgnplzginehllwmhrhjwedsjnmoffzohycj
+                  example: ltenffavmqtuzqpzohdmgggwhtoxoniusdjmsnqsggbrnsavdvzawvyvlor
                   nullable: false
                 requirements:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: bsaexbmlssgvbcbsyknuochvqxubgowkt
+                  example: lxwybddmubuvbcynvuqgejxvdofytkealsauyauoslnovuiooovtilevmyygywlvpzsilltjosigk
                   nullable: false
                 type:
                   type: string
                   description: ''
-                  example: temporibus
+                  example: et
                   nullable: false
               required:
                 - title
@@ -866,42 +866,42 @@ paths:
                 name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: tpa
+                  example: pn
                   nullable: false
                 family_name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: bxv
+                  example: wqd
                   nullable: false
                 username:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: ctyvmsncnwmdpzsilpyhtuxihtgpsexbnvjmfiedsqyket
+                  example: wyzkgxnouduwgkvmajwblpudkujr
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: kamren40@example.org
+                  example: conner.eichmann@example.net
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: sunt
+                  example: libero
                   nullable: false
                 password_confirmation:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: quae
                   nullable: false
                 type:
                   type: string
                   description: ''
-                  example: in
+                  example: rerum
                   nullable: false
                 company_id:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the companies table.'
-                  example: 5
+                  example: 11
                   nullable: false
               required:
                 - name
@@ -931,17 +931,17 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ray.runolfsdottir@example.com
+                  example: angelina55@example.com
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: iste
+                  example: est
                   nullable: false
                 device_name:
                   type: string
                   description: ''
-                  example: omnis
+                  example: ut
                   nullable: false
               required:
                 - email
@@ -985,7 +985,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: 11
+        example: 20
         required: true
         schema:
           type: integer
@@ -1029,42 +1029,42 @@ paths:
                 name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: th
+                  example: kf
                   nullable: false
                 family_name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: pv
+                  example: cn
                   nullable: false
                 username:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: gefihoemnua
+                  example: zjtahjkttrkljzdlgunikcjdclbgujjackxvgnpkjl
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: wyatt26@example.net
+                  example: abagail43@example.com
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: rerum
+                  example: eum
                   nullable: false
                 password_confirmation:
                   type: string
                   description: ''
-                  example: velit
+                  example: aut
                   nullable: false
                 type:
                   type: string
                   description: ''
-                  example: fugiat
+                  example: perspiciatis
                   nullable: false
                 company_id:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the companies table.'
-                  example: 14
+                  example: 16
                   nullable: false
               required:
                 - name
@@ -1115,12 +1115,12 @@ paths:
                 name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: jb
+                  example: xmo
                   nullable: false
                 family_name:
                   type: string
                   description: 'Must be between 2 and 255 characters.'
-                  example: al
+                  example: aqg
                   nullable: false
                 username:
                   type: string
@@ -1130,12 +1130,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: gusikowski.kurt@example.org
+                  example: hcrona@example.net
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: soluta
+                  example: veritatis
                   nullable: false
                 password_confirmation:
                   type: string
@@ -1145,17 +1145,17 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: deserunt
+                  example: culpa
                   nullable: false
                 company_id:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the companies table.'
-                  example: 2
+                  example: 17
                   nullable: false
                 status:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: repudiandae
                   nullable: false
               required:
                 - email
